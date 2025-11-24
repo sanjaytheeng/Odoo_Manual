@@ -1,0 +1,3134 @@
+\documentclass[11pt,a4paper,openany]{book}
+\let\cleardoublepage\clearpage  
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % Better font rendering
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{xurl}
+\usepackage{ragged2e}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{tocloft} % For ToC customization
+\usepackage{hyperref} % Load LAST (except for cleveref)
+
+% === Typography & Spacing ===
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\raggedright}{\justifying}
+
+% === Page Layout ===
+\geometry{margin=1in, headheight=14pt}
+
+% === Hyperlinks ===
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={Administrative Management Manual},
+    pdfauthor={Axon System},
+    pdfpagemode=UseOutlines,
+    bookmarksopen=true,
+    bookmarksnumbered=true
+}
+
+% === Section Formatting ===
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-30pt}{40pt}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries}{\thesubsubsection}{1em}{}
+
+% === Listings ===
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    showstringspaces=false,
+    keywordstyle=\color{blue!60!black},
+    commentstyle=\color{gray},
+    stringstyle=\color{red!60!black},
+    backgroundcolor=\color{gray!5},
+    rulecolor=\color{black}
+}
+
+% === Headers & Footers ===
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% === Table of Contents Styling ===
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % Dots for chapters too (optional)
+\setlength{\cftbeforechapskip}{6pt}
+\setlength{\cftbeforesecskip}{3pt}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+
+% === Title Info ===
+\title{Finance \& Accounting Manual}
+\author{Axon System}
+\date{\today}
+
+\begin{document}
+
+% === Title Page ===
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\Huge\bfseries Administrative Management Manual\par}
+    \vspace{1cm}
+    {\Large Odoo Implementation Guide\par}
+    \vspace{2.5cm}
+    {\Large\textbf{Prepared by:} Axon System\par}
+    \vspace{0.5cm}
+    {\large\textbf{Date:} \today\par}
+    \vfill
+    \includegraphics[width=0.25\textwidth]{logo.png}
+    \vfill
+\end{titlepage}
+
+% === Front Matter ===
+\frontmatter
+\pdfbookmark{\contentsname}{toc} % Adds PDF bookmark without ToC entry
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\clearpage
+
+% === Main Content ===
+\mainmatter
+
+\part{The Strategic Foundation}
+
+\chapter{The TAO of Odoo Administrative Management: Guiding Philosophy}
+
+Odoo Administrative Management is more than a utility for organizing records—it is the foundational architecture that ensures your organization operates with clarity, consistency, and control. At its core lies the disciplined stewardship of master data and the seamless flow of information across systems. This chapter explores the guiding philosophy that shapes how Odoo approaches administrative integrity: not as a static back-end chore, but as a dynamic, strategic enabler of operational excellence.
+
+\section{The Core Philosophy: A Unified Administrative Nervous System}
+
+In Odoo, administrative management functions as your organization’s data nervous system constantly synchronizing identities, structures, and definitions that give meaning to every business process. Unlike legacy systems where master data is fragmented across spreadsheets, siloed databases, and disconnected tools, Odoo embeds administrative coherence into every module by design.
+
+Customer records, product catalogs, employee profiles, chart of accounts, tax rules, and warehouse locations are not isolated entries—they are interconnected master data entities that serve as the single source of truth for sales, procurement, inventory, accounting, HR, and beyond.
+
+Every new product created, every customer imported, every supplier updated flows instantly into all dependent workflows—without manual duplication or reconciliation. This eliminates data drift, reduces governance risk, and ensures that decisions across the organization are based on consistent, reliable information.
+
+This unity transforms administrative work from a maintenance burden into a real-time strategic asset, empowering teams to operate with confidence, agility, and precision.
+
+\medskip
+\noindent\textbf{Key Takeaway:} In Odoo, data integrity doesn’t happen \textit{after} operations—it is the \textit{foundation} of operations.
+
+\section{Guiding Principles: Consistency, Interoperability, and Governance}
+
+Odoo Administrative Management is built on three interlocking principles that define its approach to master data and data exchange:
+
+\textbf{Consistency}
+
+Master data must be uniform, accurate, and unambiguous across all contexts. Odoo enforces this through:
+\begin{itemize}
+    \item Centralized definition of core entities (e.g., Customers, Products, Employees, Accounts)
+    \item Validation rules that prevent duplicates, malformed entries, or conflicting configurations
+    \item Real-time synchronization: updating a customer’s address in one place updates it everywhere—sales orders, invoices, delivery slips, and contracts
+\end{itemize}
+
+\textbf{Interoperability}
+Data must flow freely into and out of Odoo—without requiring custom scripts or fragile manual exports. Odoo ensures seamless data exchange through:
+\begin{itemize}
+    \item Native, intelligent import/export tools with template-guided mapping
+    \item Support for CSV, Excel, and XML formats with automatic field recognition
+    \item Built-in data matching logic (e.g., “Update existing records if email matches”)
+    \item API-first architecture for integration with external systems (ERP, CRM, e-commerce, HRIS)
+\end{itemize}
+
+\textbf{Governance}
+As organizations scale, data must be managed with clear ownership, version control, and auditability. Odoo embeds governance into daily operations:
+\begin{itemize}
+    \item Role-based access controls that restrict who can create, edit, or delete master records
+    \item Immutable change logs that track who modified what and when
+    \item Data validation workflows (e.g., “New vendor requires manager approval”)
+    \item Multi-company data isolation with optional shared master records
+\end{itemize}
+
+Together, these principles ensure that Odoo Administrative Management is not just a repository of records—but a living framework for data trust, enabling scalable, compliant, and efficient operations.
+
+\section{Frame of Reference: Master Data as the Spine of the Business Ecosystem}
+
+In the Odoo ecosystem, master data is the invisible spine that aligns every business function. Poorly managed data causes cascading errors: incorrect pricing, failed deliveries, compliance gaps, and financial misstatements. Odoo treats master data as mission-critical infrastructure:
+\begin{itemize}
+    \item A product record defines not only SKU and description but also costing method, tax category, warehouse rules, and e-commerce visibility—impacting inventory, accounting, sales, and logistics simultaneously.
+    \item A customer record carries payment terms, fiscal position, shipping preferences, and communication history—shaping invoicing, collections, and service delivery.
+    \item An employee profile links HR data with project assignments, expense policies, and approval hierarchies—enabling automated workflows across departments.
+    \item Even chart of accounts and tax templates are treated as master data, ensuring financial consistency across regions and legal entities.
+\end{itemize}
+
+This interconnectedness means that high-quality master data directly translates into operational reliability and strategic insight.
+
+By placing administrative management at the center, Odoo enables:
+\begin{itemize}
+    \item \textbf{End-to-end data integrity:} From onboarding a new vendor to reconciling their payments—every step uses the same trusted record.
+    \item \textbf{Effortless onboarding and migration:} Bulk import tools with error previews and rollback options simplify data transitions during go-live or mergers.
+    \item \textbf{Scalable standardization:} Global organizations can enforce data models centrally while allowing local teams controlled flexibility—without fragmentation.
+\end{itemize}
+
+\noindent\textbf{In essence: Odoo Administrative Management doesn’t just store data—it orchestrates truth.}
+
+\chapter{Strategic Context and Business Purpose}
+\section{System Context (C4-Level 1):}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{diagram/c1_diagram.png}
+    \caption{C1 Diagram: Odoo Administrative Management System Context}
+    \label{fig:c1-diagram}
+\end{figure}
+
+
+\noindent The C1 diagram illustrates the system context for Odoo's Administrative Management, Access Rights, and Data Import/Export functionalities. It shows how users and external systems interact with the core administrative components of the Odoo ERP Platform, with a particular focus on the roles of the System Administrator, Compliance Auditor, and the underlying modules that manage security, user data, and data exchange.
+
+\bigskip
+\noindent\textbf{Interactions:}
+
+\noindent\textbf{Users:}
+\begin{enumerate}[label=\roman*.]
+\item \textbf{System Administrator:} Manages all aspects of user accounts, access rights, security groups, and system configuration. Directly interacts with the User Management, Access Rights \& Groups, and Logging \& Audit Tracking modules. Also configures authentication with the External Authentication Provider.
+\item \textbf{Department Manager:} Oversees access rights and approves permission requests within their department. Interacts with the Administrative Management Module to monitor permissions and export data as needed.
+\item \textbf{Internal Staff:} Uses various Odoo modules (like Sales, HR) according to their assigned roles and permissions. Their operational data is imported into the system based on these permissions.
+\item \textbf{Compliance Auditor:} Reviews access logs, security settings, and data integrity. Interacts with the Logging \& Audit Tracking module and the Access Rights \& Groups module to audit changes and ensure compliance.
+\end{enumerate}
+
+\noindent\textbf{Internal Odoo Modules:}
+\begin{enumerate}[label=\roman*.]
+\item \textbf{Sales Module:} Provides customer, product, and order data. This data can be imported/exported via the Data Import/Export Engine, which is managed through the Administrative Management Module.
+\item \textbf{HR Module:} Provides employee, attendance, and payroll-related data. This data is also subject to import/export operations and is governed by the access rights defined in the Administrative Management Module.
+\item \textbf{Accounting Module:} Exposes its financial data for import/export capabilities. Its data flows through the Data Import/Export Engine, which is centrally managed by the Administrative Management Module.
+\item \textbf{Administrative Management Module:} This is the central system managing the other administrative sub-modules. It coordinates between User Management, Access Rights \& Groups, and the Data Import/Export Engine. It provides the interface for Department Managers and System Administrators to perform their duties.
+\item \textbf{Access Rights \& Groups:} Defines the permissions, roles, and record rules that govern what data users can see and modify across all Odoo modules.
+\item \textbf{User Management:} Handles the creation, modification, and deletion of user accounts, including passwords and authentication methods.
+\item \textbf{Data Import/Export Engine:} A core component that facilitates the structured import and export of data (CSV, Excel) across all modules, acting as a conduit for data exchange between internal modules and external tools.
+\item \textbf{Logging \& Audit Tracking:} Tracks all access logs, configuration changes, and security alerts, providing a critical audit trail for the Compliance Auditor and System Administrator.
+\end{enumerate}
+
+\noindent\textbf{External Systems:}
+\begin{enumerate}[label=\roman*.]
+\item \textbf{External Authentication Provider:} An external system (e.g., LDAP, OAuth, SSO) used for user login and identity management. The User Management module authenticates users against this provider.
+\item \textbf{External Data Tools:} Includes Excel/CSV editors, reporting tools, and BI applications. These tools interact bi-directionally with the Data Import/Export Engine to import data into Odoo or export data for analysis.
+\item \textbf{Backup Storage System:} A secure external system where exported backups and system snapshots are stored. The Data Import/Export Engine sends backup files to this system.
+\end{enumerate}
+
+\noindent\textbf{Dependencies:}
+\begin{enumerate}[label=\roman*.]
+\item \textbf{User Management \& Authentication:} The entire system depends on the User Management module for creating and authenticating users, often relying on an External Authentication Provider for single sign-on.
+\item \textbf{Access Control Framework:} All modules depend on the Access Rights \& Groups module to enforce security policies and ensure users only see and modify data they are authorized to access.
+\item \textbf{Data Import/Export Engine:} Critical for interoperability, this engine is depended upon by all modules for bulk data operations and integration with External Data Tools and the Backup Storage System.
+\item \textbf{Audit and Logging System:} The Logging \& Audit Tracking module is a dependency for compliance and security, providing the necessary records for the Compliance Auditor and System Administrator to review system activity.
+\item \textbf{Administrative Management Module:} Acts as the central orchestrator. Other administrative sub-modules (User Management, Access Rights, etc.) and user roles (System Admin, Department Manager) depend on it for coordinated operation.
+\end{enumerate}
+
+\noindent\textbf{Summary}
+
+\noindent This diagram highlights that the administrative backbone of the Odoo ERP Platform is centered around robust access control, secure user management, and flexible data exchange. The interactions show how different user roles leverage these administrative functions, while the dependencies underscore the critical infrastructure required for a secure, compliant, and interoperable system. The Accounting Module, while present, is depicted here not for its core financial functions, but for its role in exposing data for import/export under the governance of the administrative framework.
+
+\section{SIPOC Analysis: Mapping the Accounting Value Stream in Odoo}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{diagram/SIPOC.png}
+    \caption{SIPOC Diagram: Odoo Administrative Value Stream}
+    \label{fig:SIPOC-diagram}
+\end{figure}
+
+\textbf{Detailed SIPOC Breakdown:}
+\begin{itemize}
+    \item \textbf{Suppliers:}
+    These are the sources of administrative data and access-related information that feed into Odoo Administrative Management:
+    \begin{itemize}
+        \item System administrators: Create users, define roles, manage security groups.
+        \item Department managers: Submit or approve permission requests.
+        \item Internal staff: Request access and submit data for import/export.
+        \item External authentication providers: Supply identity verification (OAuth, LDAP, SSO).
+        \item External data tools: Provide CSV/Excel datasets for import.
+        \item Odoo modules (Sales, HR, Accounting, Inventory, etc.): Provide structured data for import/export operations.
+    \end{itemize}
+
+    \item \textbf{Inputs:}
+    Key data and configurations required for effective administrative and access management:
+    \begin{itemize}
+        \item User account details (email, role, department)
+        \item Access permission requirements
+        \item Security groups and record rules
+        \item Company permission and security policies
+        \item Import templates (CSV/Excel)
+        \item Data files for import (customer, employee, product, transaction data)
+        \item Export format preferences (CSV, XLSX)
+        \item Authentication credentials from SSO/OAuth/LDAP
+        \item Backup files and exported datasets
+    \end{itemize}
+
+    \item \textbf{Process Steps:}
+    Odoo automates and streamlines the following key administrative steps:
+    \begin{enumerate}
+        \item Initial Configuration
+        
+        Define user roles, groups, password policies, authentication methods, and access rules.
+
+        \item User Creation and Permission Setup
+        
+        Create user accounts, assign group memberships, configure access control lists (ACLs), and apply record rules.
+
+        \item Permission Review and Approval
+        
+        Validate and approve permission changes requested by staff or required by departments.
+
+        \item Data Import and Export
+        
+        Import structured data (CSV/Excel) and export datasets for reporting, backup, or migration.
+
+        \item Data Validation
+        
+        Validate imported records, correct errors, and ensure data consistency before committing changes.
+
+        \item System Monitoring and Audit Logging
+        
+        Track login activity, permission changes, configuration updates, and maintain audit logs for compliance.
+    \end{enumerate}
+
+    \item \textbf{Outputs:}
+    Odoo produces reliable administrative outputs, including:
+    \begin{itemize}
+        \item Configured and active user accounts
+        \item Updated access rights and permission matrices
+        \item Imported datasets stored in relevant Odoo modules
+        \item Exported datasets for reporting or integration
+        \item Audit logs and access trails
+        \item Permission change history
+        \item Security compliance and activity reports
+        \item Backup files and system snapshots
+    \end{itemize}
+
+    \item \textbf{Customers:}
+    \begin{itemize}
+        \item System administrators: Maintain user access and system integrity.
+        \item Department managers: Ensure staff have proper permissions for daily operations.
+        \item Internal staff: Rely on correctly assigned permissions to perform their tasks.
+        \item External auditors: Review logs and verify compliance.
+        \item Company leadership: Depend on secure and reliable access control.
+        \item IT/Security teams: Monitor identity management and system security.
+        \item Other Odoo users: Benefit from consistent and accurate access rights across modules.
+    \end{itemize}
+\end{itemize}
+
+
+\section{The Pain-Gain Canvas: Problems Solved and Value Created by the Module}
+\noindent
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{diagram/Paingain.png}
+    \caption{Pain-Gain Diagram: Odoo Administrative Value Proposition}
+    \label{fig:paingain-diagram}
+\end{figure}
+
+\begin{tabularx}{\textwidth}{|>{\ttfamily}X|X|}
+    \hline
+    \textbf{Before Odoo} & \textbf{With Odoo} \\
+    \hline
+    Managed user access manually with inconsistent rules &
+    Centralized user management with clearly defined roles and groups. \\
+    \hline
+    Gave permissions individually to each employee &
+    Assign permissions instantly through User Groups and Access Control Lists. \\
+    \hline
+    Difficult to control who can see or edit sensitive data &
+    Record Rules ensure precise data visibility and secure access. \\
+    \hline
+    No audit trail for administrative changes &
+    Full logs for user activity, configuration updates, and access changes. \\
+    \hline
+    Data import involved copying and pasting into multiple tools &
+    Import CSV/XLSX files directly into any Odoo model. \\
+    \hline
+    Frequent data errors due to mismatched template formats &
+    Pre-built templates and validation checks reduce import mistakes. \\
+    \hline
+    Exporting data required manual formatting &
+    One-click export to spreadsheet-ready formats. \\
+    \hline
+    Bulk updates required editing each record individually &
+    Mass editing and batch operations available across all modules. \\
+    \hline
+\end{tabularx}
+
+\part{Architectural and Conceptual Framework}
+\chapter{Architectural Blueprint: Components and Containers}
+\section{Defining a “Container” in the Odoo Context}
+
+Within Odoo's Administrative Management, Access Rights, and Data Import/Export framework, the term “container” is not an official technical component. However, the concept can be applied informally to describe the structures Odoo uses to organize, secure, and transport administrative and data-related elements. In this context, a “container” refers to an Odoo object or configuration entity that groups users, permissions, or datasets into manageable units.
+
+\begin{enumerate}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.75\linewidth]{diagram/user_groups.png}
+        \caption{User Groups as Containers in Odoo Administration}
+        \label{fig:usergroups}
+    \end{figure}
+
+    \item \textbf{User Groups (Access Control Container):}
+
+    User groups serve as the primary container for managing access rights. They allow administrators to bundle permissions and assign them to multiple users efficiently. Each group aggregates:
+
+    \begin{itemize}
+        \item Access Control Lists (ACLs)
+        \item Record Rules
+        \item Menu visibility settings
+        \item Application-level permissions
+    \end{itemize}
+
+    \textit{Use Case:} Users in the “Inventory Manager” group automatically receive permissions for warehouse adjustments, transfers, and reporting, without being configured individually.
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.75\linewidth]{diagram/models.png}
+        \caption{Models as Data Containers for Import/Export}
+        \label{fig:models}
+    \end{figure}
+
+    \item \textbf{Models (Data Storage Containers):}
+
+    In Odoo, each model acts as a container for a specific category of business data—customers, products, invoices, employees, etc. During import or export operations, the model defines:
+
+    \begin{itemize}
+        \item Available fields
+        \item Required columns
+        \item Data structure and validation rules
+    \end{itemize}
+
+    \textit{Use Case:} Importing customer records uses the \texttt{res.partner} model as the container that holds all partner-related fields such as name, address, email, and VAT number.
+
+    % ---------------------- SECURITY RULES ----------------------
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.75\linewidth]{diagram/record_rules.png}
+        \caption{Record Rules as Containers for Data Visibility}
+        \label{fig:recordrules}
+    \end{figure}
+
+    \item \textbf{Record Rules (Visibility Containers):}
+
+    Record rules act as rule-based containers that define which subset of records a user or group can access. These rules enforce:
+
+    \begin{itemize}
+        \item Row-level security
+        \item Multi-company data separation
+        \item Department-based restrictions
+    \end{itemize}
+
+    \textit{Use Case:} A sales representative sees only their own customers due to a record rule restricting access based on the ``assigned user'' field.
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.75\linewidth]{diagram/import_export.png}
+        \caption{Import/Export Templates as Data Transfer Containers}
+        \label{fig:templates}
+    \end{figure}
+
+    \item \textbf{Import/Export Templates (Data Transfer Containers):}
+
+    Templates used for importing or exporting data—typically CSV or XLSX—function as temporary containers that package structured information for transfer into or out of Odoo.
+
+    These templates include:
+
+    \begin{itemize}
+        \item Column mappings for model fields
+        \item Required identifiers (external IDs, names, emails, etc.)
+        \item Sample values for validation
+    \end{itemize}
+
+    \textit{Use Case:} A CSV file containing product inventory levels serves as a container that Odoo reads to update stock quantities.
+
+    \item \textbf{Company Environment (Multi-Entity Administrative Container):}
+
+    In multi-company setups, each company acts as a container for its administrative and security configuration, including:
+
+    \begin{itemize}
+        \item Users and access rights
+        \item Menu permissions
+        \item Data segregation rules
+        \item Import/export permissions
+    \end{itemize}
+
+    \textit{Use Case:} Employees of Company A cannot see the data of Company B because each company acts as its own administrative container enforced by record rules.
+
+\end{enumerate}
+
+
+\section{Identifying Key Containers: Odoo Server, Web Client, Security Engine, and Data Services}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/c2_diagram_administrative.png}
+        \caption{C2 Diagram}
+        \label{fig:C2-diagram}
+    \end{figure}
+
+\noindent The C2 diagram highlights the technical architecture of Odoo Administrative Management and Data Import/Export by depicting its major containers and how they interact. The key components include the Odoo Server, the PostgreSQL database, the Web client, the Access Rights Engine, and the Import/Export Service. Together, they form the system’s runtime and administrative data-processing environment.
+\medskip
+
+\noindent At the core lies the Odoo Server, built using Python for business logic and XML for views and configuration. The server executes critical administrative tasks such as user creation, role assignment, permission enforcement, record rule evaluation, and audit logging. It also handles data import/export logic, validating incoming datasets and preparing data for structured export. The server manages all workflow logic and coordinates communication between the database, access control engine, and the user interface.
+\medskip
+
+\noindent The PostgreSQL database serves as the persistent storage for all administrative and imported/exported data. This includes user accounts, group memberships, access rules, audit trails, and imported business records. The database ensures data integrity, maintains transaction consistency, and supports multi-company and multi-module data separation.
+\medskip
+
+\noindent The Web client, developed using JavaScript/HTML, provides the front-end interface for system administrators and data officers. Users interact with the system to manage user accounts, configure access permissions, monitor audit logs, and upload or export data files. The web client communicates in real-time with the Odoo Server via RPC and REST calls to retrieve, validate, and submit administrative and import/export data.
+\medskip
+
+\noindent The Access Rights Engine enforces all security policies and evaluates permissions in real-time, ensuring users see and modify only authorized records. Meanwhile, the Import/Export Service processes structured CSV/XLSX files, performing validations, error reporting, and preparing datasets for export to external tools like BI systems or HR platforms. Together, these containers enable secure, efficient, and auditable administrative management within Odoo.
+
+\section{Mapping the Core Components of Odoo Administrative Management and Data Import/Export}
+
+Odoo Administrative Management and Data Import/Export is a robust, secure, and user-friendly system designed to streamline user administration, access control, security management, and bulk data operations. Understanding its core components is essential for efficient setup, configuration, and daily administration. Below is an overview of the main elements that constitute this system:
+
+\begin{enumerate}
+    \item \textbf{User Management and Groups}
+    
+    Centralized administration of users and roles.
+    Define groups for access control (e.g., administrators, finance managers, data officers).
+    Assign multiple users to groups to simplify permission management.
+    Supports multi-company setups with isolated user domains.
+
+    \item \textbf{Access Rights and Record Rules}
+    
+    Fine-grained permission system based on groups and rules.
+    Access Control Lists (ACLs) define CRUD rights for models.
+    Record rules enforce row-level security, restricting records visible to users based on roles, departments, or companies.
+    Audit-ready configuration ensures compliance with internal policies.
+
+    \item \textbf{Web Client Interface}
+    
+    Provides an intuitive interface for managing users, roles, permissions, and audit logs.
+    Supports real-time interaction with the server for administrative tasks.
+    Enables data officers to upload, validate, and export datasets using CSV/XLSX templates.
+
+    \item \textbf{Import/Export Service}
+    
+    Handles bulk data transfer into and out of Odoo.
+    Supports validation of imported datasets to prevent errors or duplicates.
+    Predefined templates simplify importing employees, products, or transactional data.
+    Exports structured data for use in external tools like BI platforms or spreadsheets.
+
+    \item \textbf{Security Engine}
+    
+    Evaluates and enforces ACLs, record rules, and multi-company restrictions.
+    Ensures that users see and modify only the data they are authorized to access.
+    Works in real-time with the server and web client for all administrative actions.
+
+    \item \textbf{Audit Trail and Logs}
+    
+    Tracks all administrative actions, including user creation, role changes, permission updates, and data imports.
+    Provides transparent logs for internal reviews, compliance checks, and audits.
+    Essential for accountability and monitoring.
+
+    \item \textbf{Database (PostgreSQL)}
+    
+    Persistent storage for user accounts, access rules, audit logs, and imported/exported data.
+    Ensures data integrity, transactional consistency, and multi-company separation.
+
+    \item \textbf{Multi-Company and Multi-Environment Support}
+    
+    Isolates access and data per company or environment.
+    Facilitates secure operations for organizations managing multiple legal entities.
+    Ensures that imported data is correctly segregated by company or department.
+
+    \item \textbf{Configuration and Settings}
+    
+    Define system-wide administrative defaults, such as password policies, user roles, access levels, and record rule templates.
+    Configure import/export templates, file formats, and validation rules.
+    Control workflow and approval processes for sensitive administrative operations.
+
+    \item \textbf{Integration with Other Odoo Modules}
+    
+    Seamless interaction with Sales, Purchase, HR, Inventory, and Accounting modules.
+    Enables automatic user role propagation and secure data import/export across modules.
+\end{enumerate}
+
+
+\chapter{Ecosystem Integrations}
+\section{Core Odoo Integrations for Administrative Management and Data Import/Export}
+
+Odoo’s Administrative Management and Data Import/Export features are designed to integrate seamlessly with other Odoo modules and external systems. These integrations streamline user administration, secure data handling, and enable bulk data operations with minimal manual effort. Below are the key integrations that enhance administrative and data management functionality:
+
+\begin{enumerate}
+    \item \textbf{User Management Across Modules}
+    \begin{itemize}
+        \item Centralized Role Propagation: User roles and group memberships are automatically applied across Sales, Purchase, HR, Inventory, and other modules.
+        \item Cross-Module Access Enforcement: Permissions set in the admin module immediately reflect across all connected applications.
+        \item Automated Notifications: Users receive alerts when roles, permissions, or access rights are changed.
+    \end{itemize}
+
+    \item \textbf{Access Rights and Security Engine}
+    \begin{itemize}
+        \item ACLs and Record Rules: Enforce CRUD and row-level access consistently across all modules.
+        \item Multi-Company Security: Ensures that users see only the data relevant to their company or department.
+        \item Audit Trail Integration: Logs all administrative actions for compliance, reporting, and review.
+    \end{itemize}
+
+    \item \textbf{Web Client Interface}
+    \begin{itemize}
+        \item Centralized Admin Dashboard: Manage users, groups, access rights, and audit logs from a single interface.
+        \item Real-Time Updates: Changes to permissions, groups, or roles take effect immediately across all modules.
+        \item File Upload/Download: Upload import files or download exported datasets directly through the web client.
+    \end{itemize}
+
+    \item \textbf{Import/Export Service}
+    \begin{itemize}
+        \item CSV/XLSX Templates: Preconfigured templates for importing employees, products, or transactional data.
+        \item Data Validation: Automatic error checks to ensure accurate imports and prevent duplicates.
+        \item External Tool Integration: Exports data for use in spreadsheets, BI platforms, or HR systems.
+        \item Bulk Operations: Enables mass updates, imports, and exports without manual record-by-record entry.
+    \end{itemize}
+
+    \item \textbf{Integration with HR and Payroll}
+    \begin{itemize}
+        \item Employee Data Import: Syncs HR records for user creation and role assignment.
+        \item Payroll Data Management: Ensures payroll entries are correctly associated with users and departments for reporting.
+    \end{itemize}
+
+    \item \textbf{Integration with Multi-Company and Intercompany Operations}
+    \begin{itemize}
+        \item Automated Role Segmentation: User permissions adapt automatically to the company context.
+        \item Intercompany Data Control: Ensures that imported/exported data respects company boundaries and access rules.
+    \end{itemize}
+
+    \item \textbf{Integration with External Tools}
+    \begin{itemize}
+        \item BI and Reporting Systems: Export structured data to external analytics platforms.
+        \item External Databases or Legacy Systems: Import legacy data while preserving security and access configurations.
+        \item Third-Party Applications: Integrates with external HR, ERP, or compliance tools for seamless data flow.
+    \end{itemize}
+
+    \item \textbf{Audit and Compliance Integrations}
+    \begin{itemize}
+        \item Logs all administrative actions for internal review and regulatory compliance.
+        \item Exports audit reports for external auditors or internal control teams.
+        \item Tracks changes to permissions, user roles, and imported/exported datasets.
+    \end{itemize}
+\end{enumerate}
+
+
+\section{External System Integrations for Administrative Management and Data Import/Export}
+
+While Odoo provides a comprehensive administrative and data management suite, many organizations need to integrate their administrative systems with external platforms such as HR systems, payroll providers, compliance tools, legacy ERP systems, or BI platforms. Odoo supports a range of external integrations—both native and via APIs or third-party connectors—to ensure secure data exchange, compliance, and operational efficiency.
+
+\begin{enumerate}
+    \item \textbf{HR and Payroll Systems}
+    \begin{itemize}
+        \item Employee Data Sync: Import user accounts, department assignments, and role details from external HR platforms (e.g., ADP, BambooHR, Gusto) to create and manage Odoo users automatically.
+        \item Payroll Integration: Import payroll summaries to generate accounting and administrative records, avoiding manual entry.
+        \item Compliance Support: Ensures user roles and access rights reflect organizational hierarchies and legal obligations.
+    \end{itemize}
+
+    \item \textbf{External Access Control and SSO Systems}
+    \begin{itemize}
+        \item Single Sign-On (SSO) Integration: Connect with LDAP, Active Directory, or OAuth providers to authenticate users centrally.
+        \item Role Mapping: Map external groups or roles to Odoo groups for consistent access management.
+        \item Real-Time Sync: Changes in external identity systems propagate to Odoo automatically.
+    \end{itemize}
+
+    \item \textbf{Legacy ERP or Custom Systems}
+    \begin{itemize}
+        \item API-Driven Integration: Use Odoo’s RESTful API or XML-RPC interface to import/export administrative and master data.
+        \item Examples: Sync users, groups, permissions, or departmental hierarchies; import legacy datasets for onboarding or migration.
+        \item Middleware Solutions: ETL tools like Zapier, Make (Integromat), or custom scripts bridge Odoo with any external system.
+    \end{itemize}
+
+    \item \textbf{Document Management and E-Signature Tools}
+    \begin{itemize}
+        \item Integrate with DocuSign, Adobe Sign, or PandaDoc to securely manage administrative documents.
+        \item Automate workflows for approvals, role assignments, or data validation.
+        \item Ensures auditable records for compliance and governance.
+    \end{itemize}
+
+    \item \textbf{Audit and Compliance Platforms}
+    \begin{itemize}
+        \item Export logs and administrative data in standardized formats (e.g., CSV, JSON, XBRL) for internal or external audits.
+        \item Connect with compliance monitoring platforms to track changes in access rights and user activity.
+        \item Provides transparency and accountability for administrative operations.
+    \end{itemize}
+
+    \item \textbf{Business intelligence and Reporting Systems}
+    \begin{itemize}
+        \item Export structured administrative data for analysis in external BI or reporting tools.
+        \item Supports dashboards that track user activity, import/export volumes, and permission changes.
+        \item Enables proactive monitoring of data governance and operational efficiency.
+    \end{itemize}
+\end{enumerate}
+
+\chapter{Core Concepts and Key Digital Documents}
+\section{Key Concepts: Administrative Management, Access Rights, and Data Import/Export}
+
+To use Odoo efficiently for administration, access control, and bulk data management, it’s essential to understand its foundational concepts. These “building blocks” form the backbone of your administrative operations, ensure security and compliance, and streamline data handling. This section explains the core pillars:
+
+\begin{enumerate}
+    \item \textbf{User Roles and Access Rights (The Security Blueprint)}
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/access_roghts.png}
+            \caption{User Roles and Access Rights}
+            \label{fig:AccessRights}
+        \end{figure}
+
+    Odoo’s access control system defines who can do what within the platform. Proper configuration ensures that users only access the data they are authorized to see or modify.
+    \begin{itemize}
+        \item Role Hierarchy: Users are assigned to groups with predefined permissions (e.g., Accountant, Finance Manager, Administrator, HR Officer).
+        \item Record Rules: Control access at a record level, ensuring sensitive data is protected.
+        \item Multi-Company Context: Users see only records relevant to their assigned companies.
+        \item Best Practice: Define roles conservatively—grant only the permissions necessary for each user’s job function.
+    \end{itemize}
+
+    \item \textbf{Groups and Permissions (Compliance by Design)}
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/group_permissions.png}
+            \caption{Groups and Permissions}
+            \label{fig:GroupsPermissions}
+        \end{figure}
+
+    Groups aggregate users with similar roles and control access to Odoo modules and specific actions.
+    \begin{itemize}
+        \item Predefined Groups: Odoo ships with default groups like “Accountant,” “Manager,” and “Portal User.”
+        \item Custom Groups: Administrators can create groups for special projects or departments with tailored access rules.
+        \item Module-Level Access: Grant or restrict module usage (e.g., Sales, HR, Inventory) per group.
+        \item Action-Level Permissions: Define what users can create, read, update, or delete within each module.
+    \end{itemize}
+
+    \item \textbf{Import/Export Framework (Data Management Engine)}
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/import_export.png}
+            \caption{Data Import/Export Architecture}
+            \label{fig:DataImportExport}
+        \end{figure}
+
+    Odoo provides robust tools to import bulk data, export records, and integrate with external systems securely.
+    \begin{itemize}
+        \item Import Templates: Preconfigured CSV/XLSX templates for importing users, roles, employees, or departmental hierarchies.
+        \item Data Validation: Automatically checks for duplicates, missing fields, or permission violations.
+        \item Export Options: Extract user activity logs, role assignments, and audit trails in standard formats for reporting or BI tools.
+        \item API Access: REST and XML-RPC APIs allow secure integration with external HR, ERP, or compliance systems.
+        \item Bulk Operations: Supports mass updates, role assignments, and data migration without manual entry.
+    \end{itemize}
+
+    \item \textbf{Audit Trail and Compliance (Transparency at a Glance)}
+    All administrative actions are logged to ensure accountability and meet regulatory or internal governance requirements.
+    \begin{itemize}
+        \item Track Changes: Logs when roles, permissions, or user records are added, modified, or removed.
+        \item Exportable Reports: Audit logs can be exported for internal reviews or external audits.
+        \item Real-Time Monitoring: Dashboards track data import/export activity and permission changes.
+        \item Compliance Enforcement: Ensures access rights, imports, and exports comply with organizational policies and legal requirements.
+    \end{itemize}
+\end{enumerate}
+
+\section{Important Documents in the Workflow:}
+
+\begin{enumerate}
+    \item \textbf{User Access Request Form}
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/user_access_form.png}
+            \caption{User Access Request Form}
+            \label{fig:UserAccessRequest}
+        \end{figure}
+
+    \begin{itemize}
+        \item Purpose: A formal request submitted by employees or departments to gain access to specific Odoo modules or functionalities.
+        \item Key Elements: Request ID, employee details, requested access groups, justification, manager approval, and date of request.
+        \item Workflow: Submitted by the requester, reviewed by the manager, assigned to the administrator, approved or rejected, and applied within the Odoo access rights configuration.
+    \end{itemize}
+
+    \item \textbf{User Creation / Modification Record}
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/user_creation.png}
+            \caption{User Creation or Modification Record}
+            \label{fig:UserCreation}
+        \end{figure}
+
+    \begin{itemize}
+        \item Purpose: A document that tracks the creation of a new user or updates made to an existing user account.
+        \item Key Elements: User name, email, assigned groups, company access, modification history, and activation status.
+        \item Workflow: Created by administrators when onboarding new staff, updating roles, or adjusting permissions; logged for audit and compliance.
+    \end{itemize}
+
+    \item \textbf{Access Rights Matrix}
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/access_roghts.png}
+            \caption{Access Rights Matrix}
+            \label{fig:AccessMatrix}
+        \end{figure}
+
+    \begin{itemize}
+        \item Purpose: A structured document outlining module-level and record-level permissions for each user group.
+        \item Key Elements: List of groups, CRUD permissions (Create/Read/Update/Delete), module access, record rules, and company-specific restrictions.
+        \item Workflow: Reviewed during system audits, security checks, and onboarding; updated when new modules or roles are introduced.
+    \end{itemize}
+
+    \item \textbf{Data Import File (CSV/XLSX Template)}
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/data_import.png}
+            \caption{Import Template}
+            \label{fig:ImportTemplate}
+        \end{figure}
+
+    \begin{itemize}
+        \item Purpose: A spreadsheet used for bulk importing data such as users, departments, employees, or access groups into Odoo.
+        \item Key Elements: Field column headers, external IDs, relational fields, data types, and reference values.
+        \item Workflow: Prepared using Odoo export templates, filled with clean data, uploaded through the Import tool, validated, and applied to the system.
+    \end{itemize}
+
+    \item \textbf{Data Export Report}
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/data_export.png}
+            \caption{Data Export}
+            \label{fig:DataExport}
+        \end{figure}
+
+    \begin{itemize}
+        \item Purpose: A structured dataset extracted from Odoo for reporting, analysis, migration, or integration with external applications.
+        \item Key Elements: Selected fields, filters applied, file format (CSV/XLSX), export timestamp, and user who exported the data.
+        \item Workflow: Generated using the Export tool, shared with departments, used for BI reporting, or provided during audits.
+    \end{itemize}
+
+    \newpage
+    \item \textbf{Audit Log / Activity Record}
+
+    \begin{itemize}
+        \item Purpose: A chronological record of administrative activities such as user access changes, data imports/exports, and permission modifications.
+        \item Key Elements: Action type, user performing the action, timestamp, before/after values, affected module, and company/environment.
+        \item Workflow: Automatically generated by Odoo; reviewed during audits, compliance checks, troubleshooting, or when investigating data inconsistencies.
+    \end{itemize}
+
+\end{enumerate}
+
+
+\part{The Operational View: Workflows and Processes}
+\chapter{The Administrative Workflow: A Deep Dive}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[height=0.7\textheight, keepaspectratio]{diagram/Admin_workflow.png}
+\caption{Administrative Workflow}
+\label{fig:AdminJourney}
+\end{figure}
+
+\newpage
+This workflow demonstrates the end-to-end process of managing users, permissions, and organizational data using Odoo’s administrative tools.
+
+\begin{enumerate}
+
+\item Create a User Account
+
+Purpose: Add a new system user with appropriate access so they can work within Odoo.
+
+Steps:
+\begin{itemize}
+\item Navigate to Settings → Users \& Companies → Users.
+\item Click Create.
+\item Enter:
+\begin{itemize}
+\item Name and Email
+\item Optional: Phone, Job Position, Company
+\end{itemize}
+\item Under Access Rights, choose the applications and permission levels (e.g., Administrator, Manager, User).
+\item Under Preferences, configure:
+\begin{itemize}
+\item Language
+\item Timezone
+\item Notification settings
+\end{itemize}
+\item Save the record. The user receives an invitation email to set their password.
+\end{itemize}
+
+Tip: Users can also be created automatically when adding employees in the Employees app.
+
+\item Configure User Groups
+
+User Groups define permission sets (technical and functional) shared among multiple users.
+
+Steps:
+\begin{itemize}
+\item Go to Settings → Users \& Companies → Groups.
+\item Select a group to edit (e.g., Sales Manager, Accountant, Inventory User).
+\item Review the assigned:
+\begin{itemize}
+\item Menu access
+\item Model access (read, write, create, delete)
+\item Record rules
+\end{itemize}
+\item Add or remove users from the group.
+\end{itemize}
+
+Tip: A user can belong to multiple groups, and permissions are combined.
+
+\item Manage Record Rules
+
+Purpose: Restrict what specific records a user can access (e.g., “User sees only their own records”).
+Record Rules apply at the database level and enforce data security.
+
+Steps:
+\begin{itemize}
+\item Enable Developer Mode.
+\item Navigate to Settings → Technical → Security → Record Rules.
+\item Choose or create a rule:
+\begin{itemize}
+\item Select the model (e.g., res.partner, sale.order)
+\item Add domain filters (e.g., ['|', ('company\_id','=',user.company\_id.id)])
+\item Assign it to one or more security groups
+\item Set the permissions (read, write, create, delete)
+\end{itemize}
+\item Save to apply the rule.
+\end{itemize}
+
+Examples:
+\begin{itemize}
+\item Sales users only see their own customers.
+\item HR Officers can view all employee data, but regular users cannot.
+\end{itemize}
+
+\item Import Master Data (Users, Contacts, Products, etc.)
+
+Purpose: Add or update large amounts of data efficiently.
+
+Steps:
+\begin{itemize}
+\item Go to any list view (e.g., Contacts, Products, Users).
+\item Click Import.
+\item Upload a CSV or Excel file.
+\item Use Test Import to validate:
+\begin{itemize}
+\item Column mapping
+\item Data types
+\item Required fields
+\item External IDs (for updating existing data)
+\end{itemize}
+\item Fix any warnings or errors.
+\item Click Import to finalize.
+\end{itemize}
+
+Tip: Export a sample template with fields you want to fill in.
+
+\item Export Data for Reporting or Migration
+
+Purpose: Retrieve data for external systems, audits, or backups.
+
+Steps:
+\begin{itemize}
+\item Go to a list view.
+\item Select the records (optional).
+\item Click Action → Export.
+\item Choose:
+\begin{itemize}
+\item Export format: CSV or Excel
+\item Export type:
+\begin{itemize}
+\item Import-Compatible Export
+\item Export All Data
+\end{itemize}
+\end{itemize}
+\item Select fields to include.
+\item Export the file.
+\end{itemize}
+
+Tip: Use Export-Compatible when planning to re-import later.
+
+\item Manage Company Settings
+
+Purpose: Configure organizational identity and system-wide defaults.
+
+Steps:
+\begin{itemize}
+\item Go to Settings → Users \& Companies → Companies.
+\item Edit company details:
+\begin{itemize}
+\item Address, Contact Info
+\item Logo
+\item Currency, Tax ID
+\item Document layout settings
+\end{itemize}
+\item Configure multi-company if applicable.
+\end{itemize}
+
+Tip: Permissions and record visibility depend heavily on company configuration in multi-company setups.
+
+\item Monitor User Activity
+
+Purpose: Track performance, identify errors, and ensure system security.
+
+Tools:
+\begin{itemize}
+\item Audit Log (Enterprise): Tracks user operations.
+\item Logs under Settings → Technical → Logs.
+\item Discuss App: Shows message and notification history.
+\item Chatter on Records: Shows who modified which record.
+\end{itemize}
+
+\item Maintain Data Security and Cleanup
+
+Purpose: Ensure clean, accurate, and secure records.
+
+Actions:
+\begin{itemize}
+\item Archive inactive users instead of deleting.
+\item Regularly review Access Rights and Groups.
+\item Clean duplicate data using the “Duplicates” tool (if installed).
+\item Backup the database via:
+\begin{itemize}
+\item Odoo.sh backups
+\item Manual backups from the database manager
+\end{itemize}
+\end{itemize}
+
+\item Generate Administrative Reports
+
+Common administrative reports include:
+\begin{itemize}
+\item User Access Summary
+\item Login Activity Reports
+\item Audit Logs (Enterprise)
+\item Data Import/Export Logs
+\item Company Configuration Summaries
+\end{itemize}
+
+Access via Settings → Technical or via imported/exported files.
+
+\end{enumerate}
+
+\section{From Anonymous Visitor to Authorized System User: An Administrative Sequence Diagram}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{diagram/admin_sequence_diagram.png}
+    \caption{Administrative User Onboarding and Data Synchronization Sequence}
+    \label{fig:Sequence-Diagram}
+\end{figure}  
+
+\noindent\textbf{Overview of key administrative processes:}
+\begin{itemize}
+    \item \textbf{User Account Creation \& Invitation}
+    
+    \item An \textbf{HR Manager} or \textbf{System Administrator} initiates user creation via the Odoo interface.
+        \item The \textbf{Administrative Management Module} creates a user record and sends an automated email invitation.
+        \item The new user accesses the system via a secure link, sets a password, and is authenticated (optionally via an \textbf{External Authentication Provider} such as LDAP or OAuth).
+
+    \item \textbf{Assignment of Access Rights and Groups}
+    
+    \item The \textbf{System Administrator} assigns the user to one or more \textbf{Security Groups} (e.g., Sales / User, HR / Officer).
+        \item The \textbf{Access Rights \& Groups Module} applies model-level permissions (read/write/create/delete) and menu visibility.
+        \item Record-level rules are enforced based on group membership (e.g., “Sales users see only their own leads”).
+
+    \item \textbf{Bulk Data Import (e.g., Contacts, Products)}
+    
+    \item An \textbf{Administrator} uploads a CSV file via the \textbf{Data Import/Export Engine}.
+        \item The system validates field mapping, data types, and required constraints.
+        \item Valid records are created or updated in the respective modules (e.g., Contacts in CRM, Products in Inventory), respecting user access rights.
+
+    \item \textbf{Data Export for Audit or Migration}
+    
+    \item A \textbf{Compliance Auditor} or \textbf{Department Manager} requests an export of user or transactional data.
+        \item The \textbf{Data Import/Export Engine} generates a structured CSV/Excel file containing only records the user is authorized to view.
+        \item The file is downloaded or sent to an \textbf{External Data Tool} for analysis.
+
+    \item \textbf{Multi-Company Access Restriction}
+    
+    \item In a multi-company setup, the \textbf{User Management Module} links the user to one or more companies.
+        \item The \textbf{Record Rules Engine} automatically filters data by company (e.g., a user in “Company A” cannot see invoices from “Company B”).
+        \item This restriction is applied transparently across all modules (Sales, HR, Accounting).
+
+    \item \textbf{Activity Logging and Audit Trail}
+    
+    \item All administrative actions (user creation, permission changes, data imports) are logged by the \textbf{Logging \& Audit Tracking Module}.
+        \item A \textbf{Compliance Auditor} queries the audit log to verify who changed what and when.
+        \item Logs include user ID, timestamp, affected records, and IP address (in Odoo Enterprise).
+\end{itemize}
+
+\section{BPMN Diagram: The End-to-End Administrative Governance Process}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{diagram/BPMN.png}
+    \caption{Administrative User and Data Lifecycle in Odoo}
+    \label{fig:BPMN-Diagram}
+\end{figure}  
+
+The Odoo Administrative Management process is structured into four interconnected governance phases: \textbf{User Provisioning}, \textbf{Access Control}, \textbf{Data Synchronization}, and \textbf{Compliance \& Audit}. This end-to-end workflow ensures secure onboarding, least-privilege access, accurate master data, and regulatory readiness.
+
+In \textbf{User Provisioning}, the process begins when HR or a Department Manager requests a new system user (e.g., for a new hire). A draft user record is created in Odoo, triggering an automated invitation email. The user sets their password—optionally authenticated via an external identity provider (e.g., LDAP/SAML). Upon first login, their account is activated and linked to one or more companies in multi-company setups.
+
+Next, in \textbf{Access Control}, the System Administrator assigns the user to appropriate security groups (e.g., “Sales / User”, “HR / Officer”). These groups enforce model-level permissions (read/write/create/delete) and menu visibility. Additionally, record rules are applied to restrict data access—for example, sales representatives only see their own customers, or employees are limited to their department’s records. Any changes to group membership are logged in real time.
+
+The \textbf{Data Synchronization} phase handles bulk operations. Administrators regularly import master data (e.g., contacts, products, or employee records) via CSV or Excel files. The Data Import/Export Engine validates field mappings, checks data integrity, and ensures new records comply with access rules. Conversely, data exports are generated for reporting, migration, or third-party integration—always filtered to include only records the requester is authorized to view.
+
+Finally, in \textbf{Compliance \& Audit}, the system enforces ongoing governance. Periodically—or upon request—a Compliance Auditor reviews the audit log, which captures all administrative actions: user creations, permission changes, data imports/exports, and login attempts. If anomalies are detected (e.g., a user granted excessive privileges), the issue is investigated, access is revoked or adjusted, and corrective entries are logged. Once verified, the audit trail is archived, and the administrative state is considered compliant and locked for the review period.
+
+This closed-loop administrative process ensures that every user, permission, and data record is traceable, secure, and aligned with organizational policies—forming the foundation of trustworthy ERP operations in Odoo.
+
+\section{Step-by-Step Breakdown of the Administrative Governance Journey}
+\textit{“How we provision users, enforce access controls, synchronize data, and ensure compliance.”}
+
+This journey reflects the end-to-end administrative lifecycle in Odoo, structured around four core capabilities: \textbf{User Provisioning}, \textbf{Access Rights Management}, \textbf{Data Import/Export}, and \textbf{Audit \& Compliance}. Every step ensures security, accuracy, and regulatory readiness.
+
+\subsection*{User Provisioning – From Request to Active Account}
+\begin{itemize}
+    \item \textbf{User Request Initiated (Start Event)} \\
+    → Triggered by HR or a Department Manager (e.g., for a new hire, contractor, or system access request).
+
+    \item \textbf{Create Draft User Record} \\
+    → Navigate to \texttt{Settings → Users \& Companies → Users → Create}. \\
+    → Enter name, email, company, and job position. Account is inactive until invitation is accepted.
+
+    \item \textbf{Send Invitation Email} \\
+    → Odoo sends a secure, time-limited setup link. No password is stored yet.
+
+    \item \textbf{User Activates Account (Message Event)} \\
+    → User clicks link, sets password, and logs in for the first time. \\
+    → Optional: Authentication delegated to \textbf{External Provider} (LDAP, OAuth, SAML).
+
+    \item \textbf{Account Activated (End of Provisioning)} \\
+    → User exists in system but has \textit{no permissions} until groups are assigned.
+\end{itemize}
+
+\subsection*{Access Rights Management – Enforcing Least Privilege}
+\begin{itemize}
+    \setcounter{enumi}{5}
+    \item \textbf{Assign Security Groups} \\
+    → Admin assigns user to one or more groups (e.g., \textit{Sales / User}, \textit{Inventory / Manager}). \\
+    → Groups control \textbf{menu access}, \textbf{model permissions} (read/write/create/delete), and \textbf{record rules}.
+
+    \item \textbf{Multi-Company Environment? (Decision Gateway)} 
+    \item \textbf{Yes} → Apply company-based \textbf{record rules} (e.g., “Only see customers from your company”).
+        \item \textbf{No} → Standard group permissions apply across all data.
+
+    \item \textbf{Validate Access Scope} \\
+    → Admin logs in as the user (via \texttt{Impersonate}) or reviews visible records to confirm least-privilege compliance.
+
+    \item \textbf{Access Configuration Complete (Milestone)} \\
+    → User can now perform authorized tasks. All permission changes are logged.
+\end{itemize}
+
+\subsection*{Data Import/Export – Managing Master Data at Scale}
+\begin{itemize}
+    \setcounter{enumi}{9}
+    \item \textbf{Initiate Bulk Data Operation (Start Event)} \\
+    → Admin prepares CSV/Excel file (e.g., contacts, products, employee records).
+
+    \item \textbf{Import Master Data} \\
+    → Go to list view (e.g., Contacts), click \texttt{Import}, and upload file. \\
+    → Map columns using Odoo’s field-matching interface.
+
+    \item \textbf{Validate Data Integrity \& Permissions} \\
+    → Odoo checks:
+    \item Required fields and data formats
+        \item Duplicate records (if deduplication enabled)
+        \item Whether the importing user has \texttt{create/write} rights on target model
+
+    \item \textbf{Import Successful? (Decision Gateway)}
+    \item \textbf{Yes} → Records created/updated. Success log generated.
+        \item \textbf{No} → Errors shown (e.g., invalid email, missing required field). Admin corrects file and retries.
+
+    \item \textbf{Export Filtered Data} \\
+    → Select records (or use filters), click \texttt{Action → Export}. \\
+    → Choose fields and format (CSV/Excel). \\
+    → Output is automatically filtered: \textbf{user only sees data they have access to}.
+\end{itemize}
+
+\subsection*{Audit \& Compliance – Ensuring Governance and Traceability}
+\begin{itemize}
+    \setcounter{enumi}{14}
+    \item \textbf{Audit Cycle Initiated (Timer or Manual Event)} \\
+    → Triggered monthly, quarterly, or on-demand by Compliance Officer.
+
+    \item \textbf{Review Audit Logs} \\
+    → Access \texttt{Settings → Technical → Logs → Audit Logs} (Odoo Enterprise) or system logs. \\
+    → Logs capture: user creations, group changes, data imports/exports, login attempts, and configuration updates.
+
+    \item \textbf{Anomaly Detected? (Decision Gateway)}
+    \item \textbf{Yes} → Investigate (e.g., user granted Admin rights unexpectedly). Revoke access, log corrective action, notify stakeholders.
+        \item \textbf{No} → Proceed to archival.
+
+    \item \textbf{Archive Verified Audit Trail} \\
+    → Export logs to secure external storage (e.g., encrypted backup, compliance repository).
+
+    \item \textbf{Administrative State Locked (End Event)} \\
+    → Period marked as compliant. Critical configurations (users, groups, company settings) are considered frozen for audit purposes. \\
+    → In Odoo: Use \texttt{Settings → Users \& Companies → Companies} to review and lock key settings.
+\end{itemize}
+
+This closed-loop administrative journey ensures that every user, permission, and data record in Odoo is \textbf{secure}, \textbf{traceable}, and \textbf{compliant}—laying the foundation for trustworthy ERP operations.
+
+\chapter{Daily Operations and Integrated Processes}
+\section{The Daily Administrative Governance Process}
+To maintain a secure, compliant, and efficient Odoo environment, it’s essential to perform routine administrative tasks daily. This section outlines key daily activities for your System Administrator,HR Manager, or Compliance Officer using Odoo’s Administrative Management, Access Rights, and Data Import/Export capabilities.
+
+\textbf{Recommended}: Assign these tasks to a responsible team member and complete them before end-of-day to ensure data integrity and access control.
+
+\begin{enumerate}
+    \item \textbf{Review and Activate New User Requests}
+    \item Go to \texttt{Settings → Users \& Companies → Users}
+        \begin{enumerate}
+            \item Identify draft or invited users (e.g., new hires, contractors).
+            \item Verify company assignment and contact details.
+            \item Resend invitation if needed, or archive stale requests.
+            \item \textit{Tip: Enable “Employee” creation in HR app—users are auto-created when employees are added.}
+        \end{enumerate}
+    \item \textbf{Audit User Access and Group Assignments}
+    \item Review recently modified users under \texttt{Settings → Users \& Companies → Users → Filter: “Last Updated Today”}.
+        \begin{enumerate}
+            \item Confirm that security groups align with job roles (e.g., “Sales / User”, “HR / Officer”).
+            \item Remove unnecessary permissions or expired access (e.g., for departing employees).
+            \item \textit{Best Practice: Apply “least privilege” – users should only access what they need.}
+        \end{enumerate}
+    \item \textbf{Monitor and Validate Data Imports}
+    \item Check \texttt{Settings → Technical → Imports} (or recent activity logs) for failed or pending imports.
+        \item Validate recently imported master data (e.g., contacts, products, employees):
+        \begin{itemize}
+            \item Ensure records appear in correct company (in multi-company setups)
+            \item Confirm no duplicates were created
+            \item Verify required fields are populated
+        \item Clean or reprocess any failed imports using corrected CSV files.
+    \end{itemize}
+
+    \item \textbf{Process Data Export Requests}
+    \item Respond to requests from managers or auditors for data exports (e.g., user lists, contact exports).
+    \begin{enumerate}
+        \item Navigate to relevant list view (e.g., \texttt{Contacts}, \texttt{Users}), apply filters, and click \texttt{Action → Export}.
+        \item Ensure exports are \textbf{filtered by requester’s access rights}—Odoo automatically enforces this.
+        \item Deliver files securely (e.g., encrypted email, internal portal).
+    \end{enumerate}
+    \item \textbf{Review Audit and Login Activity}
+    \item In Odoo Enterprise: Go to \texttt{Settings → Technical → Logs → Audit Logs}.
+        \item Check for:
+        \begin{itemize}
+            \item Unusual login attempts (e.g., from new locations)
+            \item Bulk permission changes
+            \item Unauthorized data exports
+        \item In Community Edition: Review server logs or use third-party audit modules.
+        \item Investigate anomalies immediately and escalate if needed.
+    \end{itemize}
+
+    \item \textbf{Maintain Company and System Configuration}
+    \item Go to \texttt{Settings → Users \& Companies → Companies}
+        \item Verify:
+        \begin{itemize}
+            \item Company details (address, tax ID, currency) are up to date
+            \item Document templates (invoices, quotes) reflect current branding
+            \item Multi-company rules are correctly configured
+        \item Ensure external integrations (e.g., LDAP, SAML) are operational.
+    \end{itemize}
+
+    \item \textbf{Perform Backup and System Health Check (Recommended)}
+    \item Confirm that:
+        \begin{itemize}
+            \item Automated database backups ran successfully (via Odoo.sh or on-premise scripts)
+            \item User authentication (local or external) is functioning
+            \item Email delivery for system notifications (e.g., invitations) is working
+        \item Archive or deactivate inactive users instead of deleting—preserves data integrity.
+    \end{itemize}
+\end{enumerate}
+
+By performing these tasks daily, your organization ensures that user access remains secure, master data stays accurate, and compliance requirements are continuously met—forming the foundation of a trustworthy Odoo ERP environment.
+
+\section{Operational Workflow for Administrative Governance}
+This workflow outlines the standard operating procedures for managing user identities, access rights, master data, and compliance in Odoo. It ensures security, data integrity, and regulatory readiness across User Management, Access Control, Data Synchronization, and Audit Logging.
+
+\textbf{Scope}: Applies to all Odoo deployments—whether using Sales, HR, Accounting, or custom modules—since administrative governance is foundational to every instance.
+
+\begin{enumerate}
+    \item \textbf{User \& Company Setup}
+    \begin{enumerate}
+        \item \textbf{Create New User}
+        \item Go to \texttt{Settings → Users \& Companies → Users → Create}
+            \item Enter:
+            \begin{itemize}
+                \item Full name, work email, phone (optional)
+                \item Associated \textbf{Company} (critical in multi-company setups)
+                \item Language, timezone, and notification preferences
+            \item \textit{Note: No permissions are granted yet—groups are assigned separately.}
+            \item Save → Odoo sends an automated invitation email with a setup link.
+        \end{itemize}
+
+        \item \textbf{Configure Company Settings}
+        \item Go to \texttt{Settings → Users \& Companies → Companies}
+            \item Edit or create company records with:
+            \begin{itemize}
+                \item Legal name, address, tax ID
+                \item Logo and document layout (for reports, invoices)
+                \item Default currency and fiscal localization
+            \item In multi-company mode, ensure inter-company rules are defined.
+        \end{itemize}
+
+        \textit{Tip: Users can be auto-created when adding employees in the \texttt{Employees} app.}
+    \end{enumerate}
+
+    \item \textbf{Access Rights Management}
+    \begin{enumerate}
+        \item \textbf{Assign Security Groups}
+        \item Open the user record → Go to \texttt{Access Rights} tab.
+            \item Assign one or more groups (e.g., \textit{Sales / User}, \textit{Inventory / Manager}).
+            \item Groups control:
+            \begin{itemize}
+                \item Menu visibility
+                \item Model-level permissions (read/write/create/delete)
+                \item Record rules (e.g., “Only see own leads”)
+        \end{itemize}
+
+        \item \textbf{Review Custom Record Rules (Advanced)}
+        \item Enable \texttt{Developer Mode}
+            \item Go to \texttt{Settings → Technical → Security → Record Rules}
+            \item Verify rules for sensitive models (e.g., \texttt{res.users}, \texttt{hr.employee})
+            \item Example: A rule like \texttt{[('company\_id', '=', user.company\_id.id)]} enforces company isolation.
+
+        \textit{Best Practice: Audit group assignments quarterly to remove unnecessary access.}
+    \end{enumerate}
+
+    \item \textbf{Data Import Operations}
+    \begin{enumerate}
+        \item \textbf{Prepare and Import Master Data}
+        \item From any list view (e.g., \texttt{Contacts}, \texttt{Products}), click \texttt{Import}.
+            \item Download template to ensure correct field mapping.
+            \item Upload CSV or Excel file with:
+            \begin{itemize}
+                \item External IDs (for updates)
+                \item Required fields (e.g., email for contacts)
+                \item Company assignment (in multi-company setups)
+        \end{itemize}
+
+        \item \textbf{Validate and Troubleshoot}
+        \item Use \texttt{Test Import} to preview results.
+            \item Fix errors (e.g., invalid emails, missing required fields).
+            \item Confirm import only after validation succeeds.
+            \item \textit{Note: Imported records respect the importer’s access rights—restricted users cannot create privileged data.}
+    \end{enumerate}
+
+    \item \textbf{Data Export Operations}
+    \begin{enumerate}
+        \item \textbf{Export Filtered Data}
+        \item Apply filters or select specific records in a list view.
+            \item Click \texttt{Action → Export}.
+            \item Choose fields and format (CSV or Excel).
+            \item \textbf{Critical: Odoo automatically filters the export to include only records the user is authorized to view.}
+
+        \item \textbf{Use Cases}
+        \item HR exports employee lists for payroll
+            \item Auditors request user access summaries
+            \item Managers extract customer contact lists for campaigns
+    \end{enumerate}
+
+    \item \textbf{Authentication \& External Integration}
+    \begin{enumerate}
+        \item \textbf{Configure External Authentication}
+        \item Go to \texttt{Settings → Activate Developer Mode}
+            \item Navigate to \texttt{Settings → Technical → Authentication → OAuth Providers} (or LDAP)
+            \item Connect to identity providers (e.g., Google Workspace, Azure AD, LDAP)
+            \item Test login flow to ensure SSO works.
+
+        \item \textbf{Verify User Login Activity}
+        \item Check last login timestamp on user records.
+            \item Archive or deactivate inactive users (>90 days) to reduce risk.
+    \end{enumerate}
+
+    \item \textbf{Audit, Logging \& Compliance}
+    \begin{enumerate}
+        \item \textbf{Review Audit Logs (Odoo Enterprise)}
+        \item Go to \texttt{Settings → Technical → Logs → Audit Logs}
+            \item Filter by date, user, or model (e.g., \texttt{res.users}, \texttt{ir.attachment})
+            \item Logs include: user, action, timestamp, IP address, and field changes.
+
+        \item \textbf{Compliance Controls}
+        \item Restrict access to sensitive menus via group permissions.
+            \item Enable two-factor authentication (2FA) for admins (via Odoo Enterprise or third-party modules).
+            \item Archive (don’t delete) users to preserve historical data integrity.
+
+        \item \textbf{Backup Strategy}
+        \item Ensure daily automated backups (via Odoo.sh, server cron, or cloud provider).
+            \item Test restore procedures quarterly.
+    \end{enumerate}
+
+    \item \textbf{Periodic Administrative Review}
+    \item \textbf{Weekly}: Review new user requests, failed imports, login anomalies.
+        \item \textbf{Monthly}: Audit group memberships, company settings, and export logs.
+        \item \textbf{Quarterly}: Validate external auth integrations and backup integrity.
+        \item \textbf{After Employee Offboarding}: Immediately revoke access and archive user.
+\end{enumerate}
+
+\section{Administrative Integration}
+Odoo’s Administrative Management framework acts as the \textbf{governance backbone} of your system, integrating natively with all Odoo modules to enforce consistent user access, secure data handling, and seamless master data synchronization. This section outlines key administrative integrations that enhance security, compliance, and operational efficiency.
+
+\noindent\textbf{Note:} All integrations described below are native (no third-party connectors required) and active by default when using Odoo’s standard apps.
+
+\begin{enumerate}
+    \item \textbf{Integration with All Modules via Access Rights}
+
+    \textbf{How It Works:}
+    \begin{enumerate}
+        \item User permissions are centrally managed in \texttt{Settings → Users \& Companies → Groups}.
+        \item Each module (Sales, HR, Inventory, etc.) defines its own security groups (e.g., \textit{Sales / User}, \textit{HR / Officer}).
+        \item When a user is assigned to a group, they automatically gain:
+        \begin{enumerate}
+            \item Access to relevant menus
+            \item Permissions to read/write/create/delete records
+            \item Visibility rules (e.g., “only see own customers”)
+        \end{enumerate}
+    \end{enumerate}
+
+    \textbf{Benefits:}
+    \begin{enumerate}
+        \item Single source of truth for user permissions
+        \item No need to configure access separately in each app
+        \item Real-time enforcement of least-privilege principles
+    \end{enumerate}
+
+    \textbf{Where It Applies:}
+    \begin{enumerate}
+        \item A Sales user cannot access HR employee records unless granted explicit HR group access.
+        \item An Inventory user sees only products and locations permitted by their group’s record rules.
+    \end{enumerate}
+
+    \item \textbf{Integration with HR (Employees App)}
+
+    \textbf{How It Works:}
+    \begin{enumerate}
+        \item When an employee is created in \texttt{Employees → Create}, Odoo can automatically:
+        \begin{enumerate}
+            \item Create a corresponding \textbf{user account}
+            \item Link the user to a company and job position
+            \item Assign default security groups based on department or role
+        \end{enumerate}
+        \item User deactivation is synchronized: archiving an employee can auto-deactivate their login.
+    \end{enumerate}
+
+    \textbf{Benefits:}
+    \begin{enumerate}
+        \item Eliminates duplicate HR and IT workflows
+        \item Ensures immediate access provisioning for new hires
+        \item Reduces risk of orphaned accounts during offboarding
+    \end{enumerate}
+
+    \textbf{Configuration:}
+    \begin{enumerate}
+        \item Enable in \texttt{Settings → Users \& Companies → Check “Employee” field on user form}
+        \item Or enable “Create User” checkbox when creating an employee
+    \end{enumerate}
+
+    \item \textbf{Integration with Data Import/Export Across Modules}
+
+    \textbf{How It Works:}
+    \begin{enumerate}
+        \item The \textbf{Data Import/Export Engine} is available in every list view (Contacts, Products, Users, etc.).
+        \item When importing data, Odoo:
+        \begin{enumerate}
+            \item Validates field mappings using the target module’s data model
+            \item Enforces the \textbf{importer’s access rights}—users cannot create records they don’t have permission to view
+            \item Uses External IDs to update existing records reliably
+        \end{enumerate}
+        \item Exports are automatically filtered: users only export data they are authorized to see.
+    \end{enumerate}
+
+    \textbf{Benefits:}
+    \begin{enumerate}
+        \item Consistent data governance across all modules
+        \item Secure bulk operations without exposing sensitive data
+        \item No need for module-specific import tools
+    \end{enumerate}
+
+    \textbf{Example:}
+    \begin{enumerate}
+        \item An HR manager imports 50 new employees → user accounts are created only if they have \texttt{User} creation rights.
+        \item A Sales manager exports customers → only sees customers assigned to their team or company.
+    \end{enumerate}
+
+    \item \textbf{Integration with External Authentication Providers}
+
+    \textbf{How It Works:}
+    \begin{enumerate}
+        \item Odoo supports native integration with:
+        \begin{enumerate}
+            \item LDAP/Active Directory
+            \item OAuth 2.0 (Google, Azure AD, GitHub)
+            \item SAML (via Odoo Enterprise)
+        \end{enumerate}
+        \item User authentication is delegated externally, but \textbf{permissions remain managed in Odoo}.
+        \item User provisioning can be just-in-time (JIT): first login creates a minimal user record, which admins can later enrich.
+    \end{enumerate}
+
+    \textbf{Benefits:}
+    \begin{enumerate}
+        \item Centralized identity management (SSO)
+        \item Eliminates password fatigue and improves security
+        \item Complies with enterprise identity policies
+    \end{enumerate}
+
+    \textbf{Configuration:}
+    \begin{enumerate}
+        \item \texttt{Settings → Activate Developer Mode}
+        \item \texttt{Settings → Technical → Authentication → [LDAP/OAuth/SAML]}
+    \end{enumerate}
+
+    \item \textbf{Integration with Audit Logging (Odoo Enterprise)}
+
+    \textbf{How It Works:}
+    \begin{enumerate}
+        \item The \textbf{Audit Log} module tracks changes across all apps:
+        \begin{enumerate}
+            \item User creations and group assignments
+            \item Data imports and exports
+            \item Record modifications (e.g., contact email changed)
+            \item Login attempts and session activity
+        \end{enumerate}
+        \item Logs include: user, timestamp, IP address, and field values before/after changes.
+    \end{enumerate}
+
+    \textbf{Benefits:}
+    \begin{enumerate}
+        \item End-to-end traceability for compliance (SOX, GDPR, ISO 27001)
+        \item Detects unauthorized access or data tampering
+        \item Simplifies forensic investigations
+    \end{enumerate}
+
+    \textbf{Access:}
+    \begin{enumerate}
+        \item \texttt{Settings → Technical → Logs → Audit Logs} (Odoo Enterprise only)
+    \end{enumerate}
+\end{enumerate}
+
+\part{Configuration, Data, and Analytics}
+\chapter{Configuration and Underlying Business Logic}
+\section{Documenting Administrative Configuration Settings}
+Proper configuration of Odoo’s administrative framework ensures secure user access, consistent data governance, and compliance with internal policies and external regulations. This section documents all key administrative settings that must be reviewed and configured before going live—and periodically thereafter.
+
+\noindent\textbf{Access Path:}  
+Go to \texttt{Settings → Users \& Companies}, \texttt{Settings → Activate Developer Mode → Technical}, or module-specific configuration menus.
+
+\begin{enumerate}
+    \item \textbf{User Groups \& Access Rights}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/group_permissions.png}
+        \caption{User Groups and Access Rights Setup}
+        \label{fig:User-Groups-Setup}
+    \end{figure}
+
+    \textbf{Purpose:}  
+    Defines what users can see and do across all Odoo modules (Sales, HR, Accounting, etc.).
+
+    \textbf{Configuration:}
+    \begin{enumerate}
+        \item Go to \texttt{Settings → Users \& Companies → Groups}
+        \item Review or create security groups (e.g., \textit{Sales / Manager}, \textit{HR / Officer})
+        \item For each group, configure:
+        \begin{enumerate}
+            \item Application access (which apps appear in menu)
+            \item Model permissions (read/write/create/delete per data model)
+            \item Record rules (e.g., “User sees only their own customers”)
+        \end{enumerate}
+        \item Assign users to groups based on job roles—never grant direct record-level access.
+    \end{enumerate}
+
+    \textbf{Best Practice:} Apply the principle of least privilege—users should only access what they need to perform their duties.
+
+    \item \textbf{Company Information \& Multi-Company Setup}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/company_admin.png}
+        \caption{Company Information and Multi-Company Configuration}
+        \label{fig:Company-Admin-Setup}
+    \end{figure}
+
+    \textbf{Purpose:}  
+    Ensures data isolation and accurate user context in single or multi-company environments.
+
+    \textbf{Configuration:}
+    \begin{enumerate}
+        \item Go to \texttt{Settings → Users \& Companies → Companies}
+        \item For each legal entity, configure:
+        \begin{enumerate}
+            \item Legal name, address, and contact details
+            \item Logo (used in system emails and reports)
+            \item Default currency and language
+        \end{enumerate}
+        \item In multi-company mode:
+        \begin{enumerate}
+            \item Assign users to one or more companies
+            \item Enable \texttt{Settings → General Settings → Multi-Company}
+            \item Verify record rules enforce company data separation
+        \end{enumerate}
+    \end{enumerate}
+
+    \textbf{Critical for:} Organizations with subsidiaries, branches, or separate legal entities.
+
+    \item \textbf{User Creation and Onboarding Workflow}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/user_creation.png}
+        \caption{User Creation and Invitation Process}
+        \label{fig:User-Creation-Setup}
+    \end{figure}
+
+    \textbf{Purpose:}  
+    Standardizes how new users are added, invited, and activated in the system.
+
+    \textbf{Configuration:}
+    \begin{enumerate}
+        \item Go to \texttt{Settings → Users \& Companies → Users → Create}
+        \item Ensure:
+        \begin{enumerate}
+            \item Email is valid (used for invitation link)
+            \item Company is assigned (critical in multi-company setups)
+            \item Language and timezone are set
+        \end{enumerate}
+        \item Save → Odoo sends an automated, secure setup email
+        \item Optional: Enable auto-user creation from the \texttt{Employees} app
+    \end{enumerate}
+
+    \textbf{Note:} Users have no permissions until assigned to a security group.
+
+    \newpage
+    \item \textbf{Data Import/Export Engine Settings}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/import_export.png}
+        \caption{Data Import/Export Configuration}
+        \label{fig:Import-Export-Setup}
+    \end{figure}
+
+    \textbf{Purpose:}  
+    Governs how bulk data is imported and exported across all modules.
+
+    \textbf{Configuration:}
+    \begin{enumerate}
+        \item No global toggle—engine is available in every list view (Contacts, Users, Products, etc.)
+        \item Ensure users have:
+        \begin{enumerate}
+            \item \texttt{Import} access (granted via group permissions)
+            \item Write/create rights on target model
+        \end{enumerate}
+        \item For sensitive data, restrict export access via record rules or custom groups
+        \item Use External IDs in imports to enable updates (not just creates)
+    \end{enumerate}
+
+    \textbf{Security Note:} Exports are automatically filtered—users only see data they have access to.
+
+    \item \textbf{User Session and Security Policies}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/system_parameters.png}
+        \caption{System Parameters for Security Policies}
+        \label{fig:System-Parameters-Setup}
+    \end{figure}
+
+    \textbf{Purpose:}  
+    Controls session lifetime, password rules, and login security.
+
+    \textbf{Configuration:}
+    \begin{enumerate}
+        \item Go to \texttt{Settings → Activate Developer Mode}
+        \item Navigate to \texttt{Settings → Technical → Parameters → System Parameters}
+        \item Key parameters:
+        \begin{enumerate}
+            \item \texttt{web.session.timeout}: Set session expiry (e.g., 3600 seconds)
+            \item \texttt{auth.password\_policy}: Enforce password complexity (Enterprise)
+            \item \texttt{auth\_totp}: Enable two-factor authentication (Enterprise)
+        \end{enumerate}
+        \item Regularly review and archive inactive users (>90 days)
+    \end{enumerate}
+
+    \textbf{Tip:} Combine with external SSO for strongest security posture.
+
+    \item \textbf{Backup and Recovery Strategy}
+    
+    \textbf{Purpose:}  
+    Ensures business continuity and data recovery in case of failure.
+
+    \textbf{Configuration:}
+    \begin{enumerate}
+        \item For Odoo.sh: Backups are automatic (daily + on deploy)
+        \item For on-premise:
+        \begin{enumerate}
+            \item Schedule daily database dumps via cron
+            \item Store backups offsite (encrypted)
+            \item Test restore quarterly
+        \end{enumerate}
+        \item Document recovery procedure (RTO/RPO)
+    \end{enumerate}
+
+    \textbf{Critical:} Backups include all user data, configurations, and file attachments.
+
+\end{enumerate}
+
+\section{The Governance Logic Behind Key Administrative Features}
+Odoo’s Administrative Management framework isn’t just about creating users or importing data—it’s built on core principles of security, compliance, data integrity, and least-privilege access. Understanding the governance logic behind its key features helps your team configure the system securely, prevent unauthorized access, and maintain audit readiness.
+
+Below, we break down the purpose, administrative rationale, and practical impact of Odoo’s most important administrative features.
+
+\begin{enumerate}
+    \item \textbf{Centralized User and Group Management}
+
+    \textbf{What It Is:}  
+    A unified interface to create users and assign them to security groups that control access across all Odoo modules.
+
+    \textbf{Governance Logic:}
+    \begin{enumerate}
+        \item Enforces a \textbf{single source of truth} for identity and permissions—no siloed access controls per app.
+        \item Supports the \textbf{principle of least privilege}: users only see and modify what their role requires.
+        \item Required by ISO 27001, SOC 2, and GDPR for access control and segregation of duties.
+    \end{enumerate}
+
+    \textbf{Example:}  
+    A Sales user assigned to the \textit{Sales / User} group can create quotations and view their own customers—but cannot access HR employee records or approve vendor bills.
+
+    \textbf{Result:} Reduced risk of data leakage, insider threats, and accidental changes.
+
+    \item \textbf{Automatic User–Employee Linking}
+
+    \textbf{What It Is:}  
+    When an employee is created in the HR app, Odoo can automatically generate a corresponding user account.
+
+    \textbf{Governance Logic:}
+    \begin{enumerate}
+        \item Eliminates manual, error-prone user provisioning workflows.
+        \item Ensures immediate access for new hires—improving productivity.
+        \item Synchronizes offboarding: archiving an employee can deactivate their login, reducing orphaned accounts.
+    \end{enumerate}
+
+    \textbf{Impact:}
+    \begin{enumerate}
+        \item HR and IT teams operate from a single workflow.
+        \item Audit trails show clear lineage: “User created because Employee X was hired.”
+    \end{enumerate}
+
+    \item \textbf{Record Rules for Data Isolation}
+
+    \textbf{What It Is:}  
+    Database-level filters that restrict which records a user can see or edit—even within the same group.
+
+    \textbf{Governance Logic:}
+    \begin{enumerate}
+        \item Goes beyond menu-level security to enforce \textbf{row-level access control}.
+        \item Critical in multi-tenant, multi-company, or departmental environments.
+        \item Prevents users from bypassing UI restrictions via API or direct model access.
+    \end{enumerate}
+
+    \textbf{Real-World Need:}
+    \begin{enumerate}
+        \item A sales rep in “Team A” should not see leads assigned to “Team B.”
+        \item A user in “Company France” must not see invoices from “Company Germany.”
+    \end{enumerate}
+
+    \textbf{Result:} True data segregation without custom development.
+
+    \item \textbf{Data Import/Export Engine with Permission Enforcement}
+
+    \textbf{What It Is:}  
+    A native tool in every list view to bulk import or export data—automatically respecting the user’s access rights.
+
+    \textbf{Governance Logic:}
+    \begin{enumerate}
+        \item Ensures that \textbf{security follows data}: users cannot export records they can’t view in the UI.
+        \item Prevents accidental or malicious data exfiltration.
+        \item Supports compliance with data minimization principles (e.g., GDPR Article 5).
+    \end{enumerate}
+
+    \textbf{Example:}
+    \begin{enumerate}
+        \item An HR officer exports employee data → only sees employees in their department.
+        \item A regional manager imports contacts → cannot create records in a company they don’t belong to.
+    \end{enumerate}
+
+    \textbf{Critical for:} Secure data migration, reporting, and third-party integrations.
+
+    \item \textbf{External Authentication (SSO) Integration}
+
+    \textbf{What It Is:}  
+    Native support for LDAP, OAuth, and SAML to delegate login to enterprise identity providers.
+
+    \textbf{Governance Logic:}
+    \begin{enumerate}
+        \item Centralizes identity management—users log in once, access multiple systems.
+        \item Enforces corporate password policies, MFA, and session controls.
+        \item Simplifies compliance with security frameworks (NIST, CIS Controls).
+    \end{enumerate}
+
+    \textbf{Example:}
+    \begin{enumerate}
+        \item An employee leaves the company → their Active Directory account is disabled → immediate loss of Odoo access.
+    \end{enumerate}
+
+    \textbf{Impact:} Eliminates local password sprawl and strengthens perimeter security.
+
+    \item \textbf{Audit Logging (Odoo Enterprise)}
+
+    \textbf{What It Is:}  
+    Automatic tracking of user actions (creates, updates, logins) with full context.
+
+    \textbf{Governance Logic:}
+    \begin{enumerate}
+        \item Provides non-repudiation: every change is tied to a user, timestamp, and IP address.
+        \item Enables forensic investigation during security incidents.
+        \item Required for SOX, GDPR, and HIPAA compliance.
+    \end{enumerate}
+
+    \textbf{Business Impact:}
+    \begin{enumerate}
+        \item Detect when a user was granted admin rights unexpectedly.
+        \item Prove during an audit that sensitive data was not accessed improperly.
+    \end{enumerate}
+
+    \item \textbf{Multi-Company Data Isolation}
+
+    \textbf{What It Is:}  
+    Built-in architecture that separates data by legal entity or operating unit.
+
+    \textbf{Governance Logic:}
+    \begin{enumerate}
+        \item Ensures financial and operational data privacy between subsidiaries.
+        \item Prevents cross-contamination of configurations (e.g., taxes, charts of accounts).
+        \item Supports legal requirements for data residency and entity separation.
+    \end{enumerate}
+
+    \textbf{Workflow:}
+    \begin{enumerate}
+        \item User assigned to “Company A” → sees only Company A data by default.
+        \item Admins with access to multiple companies can switch context—but actions are logged.
+    \end{enumerate}
+
+    \textbf{Once configured, isolation is enforced at the database level—no override without explicit permission.}
+
+    \item \textbf{User Lifecycle Management}
+
+    \textbf{What It Is:}  
+    Standardized processes for onboarding (create/invite), role changes (group updates), and offboarding (archive/deactivate).
+
+    \textbf{Governance Logic:}
+    \begin{enumerate}
+        \item Reduces attack surface by ensuring timely access revocation.
+        \item Creates a clear audit trail of access changes over time.
+        \item Supports role-based access reviews (RBAC audits).
+    \end{enumerate}
+
+    \textbf{Best Practice:}
+    \begin{enumerate}
+        \item Archive (don’t delete) users to preserve historical data integrity.
+        \item Review inactive accounts monthly; auto-deactivate after 90 days.
+    \end{enumerate}
+
+    \item \textbf{Developer Mode Controls}
+
+    \textbf{What It Is:}  
+    A privileged mode that exposes technical settings (record rules, model fields, XML views).
+
+    \textbf{Governance Logic:}
+    \begin{enumerate}
+        \item Must be restricted to system administrators only.
+        \item Prevents accidental misconfiguration of security or data models.
+        \item Changes made in Developer Mode should be documented and reviewed.
+    \end{enumerate}
+
+    \textbf{Security Note:} Never enable Developer Mode for end-users or in production without strict access controls.
+
+    \item \textbf{Backup and Recovery as a Governance Control}
+
+    \textbf{What It Is:}  
+    Regular, automated backups of the database and filestore.
+
+    \textbf{Governance Logic:}
+    \begin{enumerate}
+        \item Ensures business continuity and data availability (CIA triad: Confidentiality, Integrity, Availability).
+        \item Allows rollback after configuration errors or malicious changes.
+        \item Part of disaster recovery and incident response plans.
+    \end{enumerate}
+
+    \textbf{Example:}  
+    After an accidental mass deletion of users, restore from yesterday’s backup—minimizing downtime.
+
+    \textbf{Critical for:} All organizations, especially those subject to operational resilience regulations.
+\end{enumerate}
+
+\chapter{Master Data: Schema and Structure}
+\section{Understanding the Code and Class Structure}
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.8\linewidth]{diagram/c3_diagram.png}
+                \caption{C3 Diagram of Odoo Accounting Module}
+                \label{fig:C3-Diagram-of-Odoo-Accounting-Module}
+            \end{figure}  
+
+\noindent This component diagram provides a high-level description of the Odoo Administrative Management framework, breaking it down into its primary functional components and how they interact to enforce secure, compliant, and efficient user and data governance. Each component embodies a specific set of duties that collectively enable end-to-end administrative control across the Odoo system.
+
+\begin{enumerate}
+    \item \textbf{User Management}
+
+    \textbf{Description:} Manages the full lifecycle of system users—from creation and activation to deactivation and archival.
+    \medskip
+
+    \textbf{Key Responsibilities:}
+    \begin{enumerate}
+        \item Create, update, and archive user accounts.
+        \item Send secure invitation emails with setup links.
+        \item Link users to companies and job positions (in multi-company setups).
+        \item Support auto-creation from HR employee records.
+    \end{enumerate}
+
+    \textbf{Interfaces:}
+    \begin{enumerate}
+        \item Create and fetch user data via UI or API.
+        \item Trigger authentication workflows (local or SSO).
+    \end{enumerate}
+
+    \textbf{Dependencies:}
+    \begin{enumerate}
+        \item \textbf{Access Rights \& Groups} – to assign permissions after creation.
+        \item \textbf{Authentication Service} – to handle login and identity verification.
+        \item \textbf{Audit Logging Service} – to log user provisioning events.
+    \end{enumerate}
+
+    \item \textbf{Access Rights \& Groups}
+
+    \textbf{Description:} Central engine for role-based access control (RBAC) across all Odoo modules.
+    \medskip
+
+    \textbf{Key Responsibilities:}
+    \begin{enumerate}
+        \item Define security groups (e.g., \textit{Sales / User}, \textit{HR / Officer}).
+        \item Manage model-level permissions (read/write/create/delete).
+        \item Control menu visibility per group.
+    \end{enumerate}
+
+    \textbf{Interfaces:}
+    \begin{enumerate}
+        \item Assign users to groups.
+        \item Query effective permissions for a given user.
+    \end{enumerate}
+
+    \textbf{Dependencies:}
+    \begin{enumerate}
+        \item \textbf{Record Rules Engine} – to enforce row-level data filters based on group membership.
+        \item \textbf{Audit Logging Service} – to track permission changes.
+    \end{enumerate}
+
+    \item \textbf{Record Rules Engine}
+
+    \textbf{Description:} Enforces fine-grained, row-level data visibility and modification rules.
+    \medskip
+
+    \textbf{Key Responsibilities:}
+    \begin{enumerate}
+        \item Apply domain filters (e.g., \texttt{[('company\_id', '=', user.company\_id.id)]}).
+        \item Restrict access to records based on user attributes (company, department, role).
+        \item Operate at the ORM/database level—bypassing UI restrictions.
+    \end{enumerate}
+
+    \textbf{Interfaces:}
+    \begin{enumerate}
+        \item Define and maintain record rules via technical settings.
+        \item Evaluate rules dynamically during data queries.
+    \end{enumerate}
+
+    \textbf{Dependencies:}
+    \begin{enumerate}
+        \item \textbf{Company Management} – to resolve company context for isolation.
+        \item \textbf{Access Rights \& Groups} – to link rules to user groups.
+    \end{enumerate}
+
+    \item \textbf{Data Import/Export Engine}
+
+    \textbf{Description:} Handles bulk data operations while respecting user permissions and data integrity.
+    \medskip
+
+    \textbf{Key Responsibilities:}
+    \begin{enumerate}
+        \item Import CSV/Excel files into any Odoo model (Users, Contacts, Products, etc.).
+        \item Export filtered data sets based on the user’s access rights.
+        \item Validate field mappings, data types, and required constraints.
+        \item Use External IDs to update existing records reliably.
+    \end{enumerate}
+
+    \textbf{Interfaces:}
+    \begin{enumerate}
+        \item Upload/download files via list views.
+        \item Map source columns to Odoo fields.
+    \end{enumerate}
+
+    \textbf{Dependencies:}
+    \begin{enumerate}
+        \item \textbf{User Management} – to validate importer identity and rights.
+        \item \textbf{Record Rules Engine} – to filter export results.
+        \item \textbf{Company Management} – to validate company context during import.
+    \end{enumerate}
+
+    \item \textbf{Authentication Service}
+
+    \textbf{Description:} Manages user identity verification and single sign-on (SSO) integration.
+    \medskip
+
+    \textbf{Key Responsibilities:}
+    \begin{enumerate}
+        \item Support local password-based login.
+        \item Integrate with external identity providers (LDAP, OAuth, SAML).
+        \item Enable Just-in-Time (JIT) user provisioning on first SSO login.
+        \item Enforce session timeouts and 2FA (Enterprise).
+    \end{enumerate}
+
+    \textbf{Interfaces:}
+    \begin{enumerate}
+        \item Authenticate credentials against internal or external providers.
+        \item Return user context and session token.
+    \end{enumerate}
+
+    \textbf{Dependencies:}
+    \begin{enumerate}
+        \item \textbf{User Management} – to create or activate users during JIT flow.
+        \item \textbf{Audit Logging Service} – to log login attempts and session activity.
+    \end{enumerate}
+
+    \item \textbf{Audit Logging Service (Odoo Enterprise)}
+
+    \textbf{Description:} Provides immutable tracking of administrative actions for compliance and security.
+    \medskip
+
+    \textbf{Key Responsibilities:}
+    \begin{enumerate}
+        \item Log user creations, group assignments, and permission changes.
+        \item Track data imports, exports, and record modifications.
+        \item Record IP address, timestamp, and before/after field values.
+    \end{enumerate}
+
+    \textbf{Interfaces:}
+    \begin{enumerate}
+        \item Query audit logs by user, date, model, or action.
+        \item Export logs for archival or external review.
+    \end{enumerate}
+
+    \textbf{Dependencies:}
+    \begin{enumerate}
+        \item \textbf{User Management}, \textbf{Access Rights}, \textbf{Data Import/Export Engine} – as sources of auditable events.
+    \end{enumerate}
+
+    \item \textbf{Company Management}
+
+    \textbf{Description:} Manages legal entities and enforces data isolation in multi-company environments.
+    \medskip
+
+    \textbf{Key Responsibilities:}
+    \begin{enumerate}
+        \item Define company records (name, address, logo, currency).
+        \item Assign users to one or more companies.
+        \item Enable and configure multi-company mode.
+    \end{enumerate}
+
+    \textbf{Interfaces:}
+    \begin{enumerate}
+        \item Create and update company details.
+        \item Switch user context between companies (for admins).
+    \end{enumerate}
+
+    \textbf{Dependencies:}
+    \begin{enumerate}
+        \item \textbf{Record Rules Engine} – to apply company-based data filters.
+        \item \textbf{Data Import/Export Engine} – to validate company during bulk operations.
+    \end{enumerate}
+\end{enumerate}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{diagram/c4_diagram.png}
+    \caption{C4 Diagram of Odoo Administrative Management Framework}
+    \label{fig:C4-Diagram-of-Odoo-Administrative-Management}
+\end{figure}  
+
+\noindent This diagram illustrates the core components of Odoo’s administrative governance layer and their interactions. The User Management component (res.users) manages the full identity lifecycle—including user creation, invitation, and archival—and links users to one or more legal entities via Company Management (res.company). Access Rights \& Groups (res.groups) defines role-based permissions for menus and model-level operations (read/write/create/delete), while the Record Rules Engine (ir.rule) enforces row-level data visibility (e.g., “users see only records from their company”), ensuring true least-privilege access.
+
+The Data Import/Export Engine (base\_import) enables secure bulk data operations across all modules; it validates field mappings, respects the current user’s access rights, and filters exports using the same record rules applied in the user interface. Authentication is handled by the Authentication Service, which supports local login as well as enterprise single sign-on (SSO) via LDAP, OAuth, or SAML—and can automatically provision users on first login (JIT provisioning).
+
+All sensitive actions—such as user creation, group assignment, and data imports/exports—are captured by the Audit Logging Service (Odoo Enterprise) to provide a complete, tamper-resistant audit trail. Finally, the External API Interface exposes REST/JSON-RPC endpoints, allowing authorized third-party tools to securely retrieve audit logs, user data, or exported records—always respecting Odoo’s built-in permission model.
+
+Together, these components form a cohesive, secure, and scalable administrative backbone that governs identity, data, and access across the entire Odoo ecosystem—regardless of which business applications (Sales, HR, Accounting, etc.) are deployed.
+
+\newpage
+\section{Master Data Schema}
+\noindent\textbf{Core Tables}
+\medskip
+
+\begin{longtable}{|l|p{11cm}|}
+    \hline
+    \textbf{Table (Model)} & \textbf{Description} \\
+    \hline
+    \texttt{res.users} & Core user table; stores login, email, status (active/archived), and company affiliations. \\
+    \hline
+    \texttt{res.groups} & Defines security groups (e.g., \textit{Sales / User}, \textit{HR / Officer}); controls menu access and model-level permissions (read/write/create/delete). \\
+    \hline
+    \texttt{ir.rule} & Stores record rules that enforce row-level data visibility (e.g., “user sees only their company’s records”). Applied at the ORM level for all queries. \\
+    \hline
+    \texttt{res.company} & Holds legal entity data (name, address, logo, currency); enables multi-company setups and data isolation. \\
+    \hline
+    \texttt{res.partner} & Stores contacts (customers, vendors, employees); links to \texttt{res.users} when a contact is a system user. \\
+    \hline
+    \texttt{ir.model.access} & Defines access control lists (ACLs) for models—grants CRUD permissions to groups or users. \\
+    \hline
+    \texttt{ir.attachment} & Stores file attachments (e.g., imported CSVs, exported reports); access is governed by record rules and ownership. \\
+    \hline
+    \texttt{base\_import.import} & Internal model used by the Data Import Engine to manage CSV/Excel upload sessions and field mappings. \\
+    \hline
+    \texttt{ir.logging} & (Odoo Enterprise) Stores audit log entries—captures user actions, field changes, timestamps, and IP addresses. \\
+    \hline
+    \texttt{auth.oauth.provider} & Configuration for OAuth 2.0 identity providers (e.g., Google, Azure AD). \\
+    \hline
+    \texttt{auth.ldap} & Stores LDAP server settings for Active Directory or OpenLDAP integration. \\
+    \hline
+    \texttt{ir.config\_parameter} & System-wide configuration parameters (e.g., session timeout, SSO settings, import/export options). \\
+    \hline
+    \texttt{ir.ui.menu} & Defines application menus; visibility is controlled by security groups via \texttt{groups\_id}. \\
+    \hline
+    \texttt{ir.actions.act\_window} & Window actions that open views; access can be restricted via groups. \\
+    \hline
+    \texttt{res.users.log} & Tracks user login sessions (timestamp, IP address); available in Odoo Community and Enterprise. \\
+    \hline
+    \texttt{ir.exports} & Stores user-defined export templates (field selections for recurring data exports). \\
+    \hline
+    \texttt{ir.exports.line} & Defines individual fields within an export template. \\
+    \hline
+    \texttt{ir.sequence} & Manages document numbering sequences (e.g., user IDs, import batch IDs). \\
+    \hline
+    \caption{Core Administrative Data Tables in Odoo}
+    \label{tab:core-administrative-tables-odoo}
+\end{longtable}
+
+\chapter{Reporting, Dashboards, and Analytics}
+\section{Key Performance Indicators (KPIs) for Administrative Governance}
+Key Performance Indicators (KPIs) are measurable values that demonstrate how effectively an organization manages its \textbf{administrative governance}: user access, data security, compliance, and system integrity. In Odoo, these KPIs provide real-time insights into identity lifecycle efficiency, permission hygiene, data handling accuracy, and audit readiness.
+
+Odoo’s integrated administrative framework ensures these KPIs can be tracked using native logs, user reports, and configuration audits—eliminating manual reviews and enabling proactive risk management.
+
+\textbf{Core Administrative Governance KPIs in Odoo}
+
+The following KPIs can be monitored using built-in features or simple custom reports—no third-party tools required:
+
+\begin{enumerate}
+    \item \textbf{User Provisioning Time}
+
+    \textbf{Definition:} Average time from HR request to active user account.
+
+    \textbf{Odoo Source:}
+    \begin{enumerate}
+        \item Compare \texttt{employee.create\_date} (HR) with \texttt{res.users.create\_date}
+        \item Or track invitation send vs. first login (via \texttt{res.users.log})
+    \end{enumerate}
+
+    \textbf{Why It Matters:} Slow onboarding delays productivity and increases IT workload.
+
+    \item \textbf{Inactive User Rate}
+
+    \textbf{Definition:} Percentage of active users who have not logged in for >90 days.
+
+    \textbf{Formula:}
+    \[
+    \frac{\text{Number of active users with no login in last 90 days}}{\text{Total active users}} \times 100
+    \]
+
+    \textbf{Odoo Source:}
+    \begin{enumerate}
+        \item \texttt{res.users} (filter by \texttt{active = True})
+        \item \texttt{res.users.log} (last login timestamp)
+    \end{enumerate}
+
+    \textbf{Why It Matters:} High inactive rate increases security risk and license costs.
+
+    \item \textbf{Orphaned Account Count}
+
+    \textbf{Definition:} Number of user accounts not linked to an active employee or partner.
+
+    \textbf{Odoo Source:}
+    \begin{enumerate}
+        \item Users where \texttt{employee\_ids} is empty and \texttt{partner\_id} is not a vendor/customer
+        \item Common for test, service, or legacy accounts
+    \end{enumerate}
+
+    \textbf{Why It Matters:} Orphaned accounts are high-risk attack vectors.
+
+    \item \textbf{Excessive Permission Rate}
+
+    \textbf{Definition:} Percentage of users assigned to high-privilege groups (e.g., \textit{Settings}, \textit{Administrator}) without documented justification.
+
+    \textbf{Odoo Source:}
+    \begin{enumerate}
+        \item \texttt{res.users} → \texttt{groups\_id}
+        \item Flag users in groups like \texttt{base.group\_system} or \texttt{account.group\_account\_manager}
+    \end{enumerate}
+
+    \textbf{Why It Matters:} Violates least-privilege principle; increases insider threat risk.
+
+    \item \textbf{Data Import Success Rate}
+
+    \textbf{Definition:} Percentage of import attempts that complete without errors.
+
+    \textbf{Formula:}
+    \[
+    \frac{\text{Successful imports}}{\text{Total import attempts}} \times 100
+    \]
+
+    \textbf{Odoo Source:}
+    \begin{enumerate}
+        \item Review import logs (via \texttt{base\_import.import} or UI feedback)
+        \item Track repeated failures for specific users or models
+    \end{enumerate}
+
+    \textbf{Why It Matters:} Low success rate indicates poor data quality or insufficient user training.
+
+    \item \textbf{Export Volume by User Role}
+
+    \textbf{Definition:} Frequency and volume of data exports by user group (e.g., HR vs. Sales).
+
+    \textbf{Odoo Source:}
+    \begin{enumerate}
+        \item Audit logs (Odoo Enterprise: \texttt{ir.logging})
+        \item Or track usage of \texttt{ir.exports} and export actions
+    \end{enumerate}
+
+    \textbf{Why It Matters:} Unusual export patterns may signal data exfiltration or policy violations.
+
+    \item \textbf{SSO Adoption Rate}
+
+    \textbf{Definition:} Percentage of logins using external authentication (LDAP, OAuth, SAML) vs. local passwords.
+
+    \textbf{Formula:}
+    \[
+    \frac{\text{SSO logins in period}}{\text{Total logins in period}} \times 100
+    \]
+
+    \textbf{Odoo Source:}
+    \begin{enumerate}
+        \item \texttt{res.users.log} (check authentication method if logged)
+        \item Proxy or IdP logs (for precise tracking)
+    \end{enumerate}
+
+    \textbf{Why It Matters:} Higher SSO adoption improves security and reduces password fatigue.
+
+    \item \textbf{Multi-Company Data Leak Incidents}
+
+    \textbf{Definition:} Number of records incorrectly visible across company boundaries.
+
+    \textbf{Odoo Source:}
+    \begin{enumerate}
+        \item Test via user impersonation: can User A (Company A) see records from Company B?
+        \item Validate \texttt{ir.rule} configurations for core models (\texttt{res.partner}, \texttt{account.move}, etc.)
+    \end{enumerate}
+
+    \textbf{Why It Matters:} Data leaks violate legal and compliance requirements (e.g., GDPR, SOX).
+
+    \item \textbf{Audit Log Coverage}
+
+    \textbf{Definition:} Percentage of critical administrative actions captured in audit logs.
+
+    \textbf{Odoo Source:}
+    \begin{enumerate}
+        \item Odoo Enterprise: \texttt{ir.logging} should include user creation, group changes, data exports
+        \item Verify logs exist for all high-risk operations
+    \end{enumerate}
+
+    \textbf{Why It Matters:} Incomplete logs undermine forensic investigations and compliance audits.
+\end{enumerate}
+
+\textbf{Accessing Governance KPIs in Odoo}
+\begin{enumerate}
+    \item \textbf{User Reports}
+    \begin{enumerate}
+        \item \texttt{Settings → Users \& Companies → Users}
+        \item Filter by last login, company, or group to assess provisioning and activity
+    \end{enumerate}
+
+    \item \textbf{Audit Logs (Enterprise)}
+    \begin{enumerate}
+        \item \texttt{Settings → Technical → Logs → Audit Logs}
+        \item Export to analyze permission changes, data exports, and configuration updates
+    \end{enumerate}
+
+    \item \textbf{Custom KPI Dashboards}
+    \begin{enumerate}
+        \item Use Odoo Studio (Enterprise) or custom modules to:
+        \begin{enumerate}
+            \item Build pivot tables of user activity
+            \item Set alerts (e.g., “Notify if admin group assignment occurs”)
+            \item Visualize inactive user trends
+        \end{enumerate}
+    \end{enumerate}
+
+    \item \textbf{Access Reviews}
+    \begin{enumerate}
+        \item Schedule quarterly reviews of:
+        \begin{enumerate}
+            \item Users in high-privilege groups
+            \item Orphaned or inactive accounts
+            \item Record rules for sensitive models
+        \end{enumerate}
+        \item Document approvals and cleanup actions
+    \end{enumerate}
+\end{enumerate}
+
+\textbf{Example: Setting Up an Inactive User Alert}
+\begin{enumerate}
+    \item Create a scheduled action (via \texttt{Settings → Technical → Automation → Scheduled Actions})
+    \item Query \texttt{res.users} where \texttt{login\_date < today - 90 days} and \texttt{active = True}
+    \item Send weekly email to IT admin with list of stale accounts
+    \item Archive accounts after 120 days of inactivity
+\end{enumerate}
+
+These KPIs empower System Administrators, Compliance Officers, and IT Managers to maintain a \textbf{secure, efficient, and auditable} Odoo environment—ensuring that governance keeps pace with business growth.
+
+\section{Available Administrative Reports and Dashboards}
+Odoo provides a comprehensive set of built-in administrative reports and dashboards that give System Administrators, HR Managers, and Compliance Officers full visibility into user activity, access control, data operations, and system health. These tools are generated from live system data—ensuring accuracy, enabling proactive governance, and supporting audit readiness.
+
+Most reports are accessible via \texttt{Settings → Users \& Companies}, \texttt{Settings → Technical}, or module-specific menus, and can be filtered by date, user, company, or group.
+
+\textbf{User and Access Management Reports}
+These reports help maintain secure, efficient, and compliant user governance.
+
+\begin{enumerate}
+    \item \textbf{User List and Activity Summary}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/user_list.png}
+        \caption{User List with Status and Login History}
+        \label{fig:User-List-in-Odoo}
+    \end{figure} 
+
+    \textbf{Purpose:} View all users, their status (active/archived), assigned groups, company, and last login date.
+
+    \textbf{Path:} \texttt{Settings → Users \& Companies → Users}
+
+    \textbf{Features:}
+    \begin{enumerate}
+        \item Filter by group (e.g., “Show all Admins”)
+        \item Sort by last login to identify inactive accounts
+        \item Export to Excel for access reviews
+    \end{enumerate}
+
+    \textbf{Use Case:} Quarterly access certification, offboarding validation, or license optimization.
+
+    \item \textbf{Security Groups and Permissions Report}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/security_group.png}
+        \caption{Security Groups and Assigned Users}
+        \label{fig:Security-Groups-Report}
+    \end{figure} 
+
+    \textbf{Purpose:} Review which users belong to each security group and what permissions the group grants.
+
+    \textbf{Path:} \texttt{Settings → Users \& Companies → Groups}
+
+    \textbf{Features:}
+    \begin{enumerate}
+        \item Click any group to see its access rights (menus, model permissions)
+        \item View member list with names and companies
+        \item Identify over-provisioned groups (e.g., too many “Settings” users)
+    \end{enumerate}
+
+    \textbf{Use Case:} Enforce least-privilege access and prepare for internal audits.
+
+    \item \textbf{Login Activity Log}
+    
+    \textbf{Purpose:} Track user sign-ins, including timestamp and (in some configurations) IP address.
+
+    \textbf{Path:} \texttt{Settings → Users \& Companies → Users} → Open user → \texttt{Log} tab  
+    (Also visible in \texttt{res.users.log} model via Developer Mode)
+
+    \textbf{Use Case:} Detect suspicious logins (e.g., unusual time/location) or verify onboarding completion.
+
+\end{enumerate}
+
+\textbf{Data Governance and Operational Reports}
+These reports support secure, accurate bulk data handling and system integrity.
+
+\begin{enumerate}
+    \item \textbf{Data Import/Export History}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/data_import.png}
+        \caption{Data Import/Export Activity}
+        \label{fig:Import-Export-Activity}
+    \end{figure} 
+
+    \textbf{Purpose:} Monitor who imported or exported data, when, and what type of records were affected.
+
+    \textbf{Path:}
+    \begin{enumerate}
+        \item \texttt{Settings → Technical → Sequences \& Identifiers → External Identifiers} (for import tracking)
+        \item Or use \texttt{ir.exports} to view saved export templates
+        \item (Odoo Enterprise) \texttt{Settings → Technical → Logs → Audit Logs} for full data export trails
+    \end{enumerate}
+
+    \textbf{Use Case:} Investigate data leaks, validate bulk operations, or comply with data access requests (e.g., GDPR).
+
+    \item \textbf{Record Rules Validation Report}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/record_rules.png}
+        \caption{Record Rules Overview}
+        \label{fig:Record-Rules-Overview}
+    \end{figure} 
+    
+    \textbf{Purpose:} Review active record rules that control data visibility across models.
+
+    \textbf{Path:} \texttt{Settings → Activate Developer Mode} → \texttt{Settings → Technical → Security → Record Rules}
+
+    \textbf{Details:}
+    \begin{enumerate}
+        \item Shows domain filters (e.g., \texttt{[('company\_id', '=', user.company\_id.id)]})
+        \item Lists associated groups and affected models
+    \end{enumerate}
+
+    \textbf{Use Case:} Verify multi-company isolation or troubleshoot “missing records” reported by users.
+
+    \item \textbf{Company and Multi-Entity Configuration Report}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/company_admin.png}
+        \caption{Company Configuration Overview}
+        \label{fig:Company-Configuration-Overview}
+    \end{figure} 
+
+    \textbf{Path:} \texttt{Settings → Users \& Companies → Companies}
+
+    \textbf{Details:} Lists all legal entities, their currency, logo, and tax ID.
+
+    \textbf{Use Case:} Ensure correct company setup before onboarding users or enabling multi-company mode.
+
+\end{enumerate}
+
+\textbf{Compliance and Audit Reports (Odoo Enterprise)}
+For organizations requiring formal compliance evidence.
+
+\begin{enumerate}
+    \item \textbf{Audit Log Report}
+
+    \textbf{Purpose:} Immutable record of critical system changes—user creation, permission updates, data exports, etc.
+
+    \textbf{Path:} \texttt{Settings → Technical → Logs → Audit Logs}
+
+    \textbf{Features:}
+    \begin{enumerate}
+        \item Filter by user, date, model (e.g., \texttt{res.users}, \texttt{ir.rule})
+        \item View field changes (before/after values)
+        \item Export full log for external audit
+    \end{enumerate}
+
+    \textbf{Use Case:} SOX, GDPR, or ISO 27001 compliance; forensic investigations.
+
+    \item \textbf{Authentication and SSO Configuration Report}
+    
+    \textbf{Purpose:} Document external identity provider settings (LDAP, OAuth, SAML).
+
+    \textbf{Path:} \texttt{Settings → Activate Developer Mode} → \texttt{Settings → Technical → Authentication}
+
+    \textbf{Use Case:} Security review, incident response, or third-party assurance.
+
+\end{enumerate}
+
+These administrative reports and dashboards empower your team to maintain a \textbf{secure, transparent, and compliant} Odoo environment—ensuring that governance is not an afterthought, but a continuous, data-driven practice.
+
+\section{Mastering Default Groups and Filters for Administrative Views}
+Odoo provides powerful grouping and filtering tools that allow administrators to organize, analyze, and act on user, access, and data governance information quickly—without spreadsheets or manual reviews. These features are available in key administrative list views (e.g., Users, Groups, Companies, Audit Logs) and are essential for onboarding, access reviews, compliance audits, and system monitoring.
+
+Understanding how to use default groups and custom filters improves operational efficiency, reduces security risks, and enables proactive governance.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{diagram/group_filter.png}
+    \caption{Group \& Filter in Odoo Administrative Views}
+    \label{fig:Group-Filter-in-Odoo-Admin}
+\end{figure}
+
+\textbf{What Are Groups and Filters?}
+
+\textbf{Filters:} Narrow down records based on criteria (e.g., “Inactive,” “Last Login > 90 Days Ago,” “Assigned to HR Group”).
+
+\textbf{Groups:} Organize records into collapsible sections by a field (e.g., group users by Company, Status, or Security Group).
+
+\textbf{Default Filters in Key Administrative Views}
+Odoo provides smart, context-aware default filters to help you focus on high-priority administrative tasks.
+
+\begin{enumerate}
+    \item \textbf{Users}
+
+    \textbf{Default Filters:}
+    \begin{enumerate}
+        \item \textbf{Active}: Currently enabled accounts
+        \item \textbf{Archived}: Deactivated accounts (offboarded users)
+        \item \textbf{Internal Users}: Excludes portal/partner users
+        \item \textbf{Employees}: Users linked to an HR employee record
+    \end{enumerate}
+
+    \textbf{Use Case:} Quickly identify users needing offboarding or audit for orphaned accounts.
+
+    \item \textbf{Security Groups}
+
+    \textbf{Default Filters:}
+    \begin{enumerate}
+        \item \textbf{Application Groups}: Groups tied to specific apps (e.g., Sales, HR)
+        \item \textbf{Custom Groups}: User-defined permission sets
+        \item \textbf{Groups with Users}: Hide empty groups
+    \end{enumerate}
+
+    \textbf{Use Case:} Review which groups are actively used and clean up obsolete ones.
+
+    \item \textbf{Companies}
+
+    \textbf{Default Filters:}
+    \begin{enumerate}
+        \item \textbf{My Company}: Your primary entity
+        \item \textbf{All Companies}: In multi-company setups
+    \end{enumerate}
+
+    \textbf{Use Case:} Verify company setup before user provisioning.
+
+    \item \textbf{Audit Logs (Odoo Enterprise)}
+
+    \textbf{Default Filters:}
+    \begin{enumerate}
+        \item \textbf{Today / This Week / This Month}
+        \item \textbf{User Creation}
+        \item \textbf{Group Assignment}
+        \item \textbf{Data Export}
+    \end{enumerate}
+
+    \textbf{Use Case:} Monitor high-risk events in real time during security investigations.
+\end{enumerate}
+
+\textbf{Tip:} Click the funnel icon (FilterWhere) next to the search bar to see all available default filters. All are accessible via the search bar at the top of any list view in Odoo.
+
+\textbf{Default Groupings}
+Grouping helps visualize administrative data hierarchically. Odoo applies sensible defaults to support common workflows.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|p{7cm}|}
+\hline
+\textbf{View} & \textbf{Default Group By} & \textbf{Purpose} \\
+\hline
+Users & Company & See all users per legal entity (critical in multi-company setups) \\
+\hline
+Users & Status & Separate active vs. archived users \\
+\hline
+Security Groups & Application & Organize groups by module (Sales, HR, Accounting, etc.) \\
+\hline
+Audit Logs & User & Track all actions performed by a specific administrator \\
+\hline
+Companies & Currency & Group entities by reporting currency \\
+\hline
+\end{tabular}
+\caption{Default Groupings in Odoo Administrative Views}
+\label{tab:default-admin-groupings}
+\end{table}
+
+\textbf{How to Change Grouping}
+\begin{enumerate}
+    \item Open any administrative list view (e.g., \texttt{Settings → Users \& Companies → Users}).
+    \item Click the \textbf{Group By} button (top-right, next to search bar).
+    \item Select a field (e.g., \textit{Last Login}, \textit{Security Group}, \textit{Company}).
+    \item Records instantly reorganize into collapsible sections.
+\end{enumerate}
+
+\textbf{Tip:} You can apply multiple levels of grouping (e.g., Group by Company, then by Security Group) by clicking \textbf{Group By} again after the first grouping.
+
+\textbf{Creating and Saving Custom Filters}
+
+\textbf{Step-by-Step: Create a Custom Filter}
+\begin{enumerate}
+    \item In any list view, click the \textbf{Filters} dropdown (funnel icon).
+    \item Select \textbf{Add Custom Filter}.
+    \item Choose a field (e.g., \textit{Last Login}), operator (e.g., \textit{is less than}), and value (e.g., \textit{90 days ago}).
+    \item Click \textbf{Apply}.
+\end{enumerate}
+
+\textbf{Example Custom Filters}
+\begin{itemize}
+    \item \textbf{Stale Accounts:}  
+    Status = Active + Last Login < 90 Days Ago
+
+    \item \textbf{Privileged Users:}  
+    Security Group = Settings (or group\_system)
+
+    \item \textbf{HR-Managed Users:}  
+    Company = “Main Corp” + Security Group = HR / Officer
+
+    \item \textbf{Recent Data Exports (Enterprise):}  
+    Model = ir.exports + Date > 7 Days Ago
+\end{itemize}
+
+\textbf{Saving Filters for Reuse}
+\begin{enumerate}
+    \item After applying a custom filter, click \textbf{Save Current Filter}.
+    \item Give it a descriptive name (e.g., “Inactive Users – Review”).
+    \item It will appear under \textbf{Favorites} for one-click access.
+\end{enumerate}
+
+\textbf{Note:} Saved filters are personal by default. Administrators can share them globally via \texttt{Settings → Technical → User-defined Filters} (Odoo Enterprise).
+
+These tools empower your team to maintain a \textbf{secure, efficient, and auditable} administrative environment—turning raw system data into actionable governance insights with just a few clicks.
+
+    \part{Governance and Enablement}
+    \chapter{Governance: User Roles and Access Rights}
+    \section{Defining Administrative User Roles: Viewer, Operator, and Administrator}
+Odoo uses a role-based access control (RBAC) system to ensure data security, operational efficiency, and compliance across all modules. In the context of \textbf{Administrative Management}, user roles determine who can view, create, modify, or manage system configurations, user accounts, data operations, and audit settings.
+
+While Odoo provides granular control via groups and record rules, most administrative responsibilities can be mapped to three practical roles:
+\begin{itemize}
+    \item \textbf{Viewer} (Read-Only Access)
+    \item \textbf{Operator} (Standard Admin / Data Steward)
+    \item \textbf{Administrator} (System Owner / Compliance Officer)
+\end{itemize}
+
+Understanding these roles helps organizations enforce least-privilege access while maintaining system integrity and audit readiness.
+
+\textbf{Role Definitions \& Permissions}
+\begin{enumerate}
+    \item \textbf{Viewer (Read-Only Access)}
+
+    \textbf{Typical Users:} Internal auditors, department managers, compliance reviewers, or external assessors.
+
+    \textbf{Access Level:} View-only access to administrative data—no ability to modify users, permissions, or configurations.
+
+    \textbf{Permissions:}
+    \begin{enumerate}
+        \item View active users, their assigned groups, and company affiliations
+        \item See security group definitions and associated permissions
+        \item Access company information (name, address, currency)
+        \item View saved export templates and import history (if permitted)
+        \item Cannot create, edit, archive users, or change access rights
+        \item Cannot trigger data imports or exports
+    \end{enumerate}
+
+    \textbf{Odoo Groups:}
+    \begin{enumerate}
+        \item Custom group (e.g., \textit{Admin / Viewer}) with read-only access to:
+        \begin{enumerate}
+            \item \texttt{res.users}
+            \item \texttt{res.groups}
+            \item \texttt{res.company}
+        \end{enumerate}
+        \item No access to \texttt{Settings} or \texttt{Technical} menus
+    \end{enumerate}
+
+    \textbf{Use Case:}  
+    A department manager needs to verify which team members have access to HR data but must not be able to grant or revoke permissions.
+
+    \textbf{Tip:} In Odoo Enterprise, consider using \textbf{Portal Access} or restricted internal users to avoid consuming full user licenses for read-only reviewers.
+
+    \item \textbf{Operator (Standard Admin / Data Steward)}
+
+    \textbf{Typical Users:} HR coordinators, IT support staff, data migration specialists, or onboarding officers.
+
+    \textbf{Access Level:} Full operational access to user management and data operations—but \textbf{not} system configuration or audit log access.
+
+    \textbf{Permissions:}
+    \begin{enumerate}
+        \item Create, activate, and archive user accounts
+        \item Assign users to predefined security groups (e.g., Sales / User, HR / Officer)
+        \item Import and export master data (Contacts, Users, Products) via CSV/Excel
+        \item View company details and switch between assigned companies
+        \item Use saved export templates
+        \item Cannot create or modify security groups, record rules, or authentication settings
+        \item Cannot access audit logs or Developer Mode
+        \item Cannot change system-wide parameters (e.g., session timeout, SSO config)
+    \end{enumerate}
+
+    \textbf{Odoo Groups:}
+    \begin{enumerate}
+        \item \texttt{base.group\_user} (Internal User)
+        \item Custom group: \textit{Admin / User Manager} (grants CRUD on \texttt{res.users})
+        \item Access to \texttt{base\_import} (Data Import/Export Engine)
+    \end{enumerate}
+
+    \textbf{Use Case:}  
+    An HR coordinator onboards new hires by creating user accounts and assigning them to the “Employees” and “HR / User” groups—but cannot grant administrator rights.
+
+    \textbf{Best Practice:} Never assign the \texttt{Settings} or \texttt{Administration} groups to Operators—this prevents accidental system changes.
+
+    \item \textbf{Administrator (System Owner / Compliance Officer)}
+
+    \textbf{Typical Users:} System administrators, CISOs, compliance officers, or ERP managers.
+
+    \textbf{Access Level:} Full access to all administrative data, configurations, and audit capabilities.
+
+    \textbf{Permissions:}
+    \begin{enumerate}
+        \item All Operator capabilities
+        \item Create, edit, and delete security groups and record rules
+        \item Configure external authentication (LDAP, OAuth, SAML)
+        \item Manage multi-company settings and data isolation rules
+        \item Access and export audit logs (Odoo Enterprise)
+        \item Modify system parameters (e.g., session timeout, password policy)
+        \item Activate Developer Mode and access technical settings
+        \item Install or customize administrative modules
+        \item Perform access reviews and permission audits
+    \end{enumerate}
+
+    \textbf{Odoo Groups:}
+    \begin{enumerate}
+        \item \texttt{base.group\_system} (Administration → Settings)
+        \item \texttt{base.group\_technical\_features} (Developer Mode)
+        \item (Enterprise) \texttt{auditlog.group\_auditlog\_manager}
+    \end{enumerate}
+
+    \textbf{Use Case:}  
+    A system administrator configures SSO with Azure AD, defines record rules for multi-company isolation, and exports audit logs for a SOC 2 review.
+
+    \textbf{Security Note:} The \texttt{base.group\_system} role grants unrestricted access to the entire database. Assign it only to highly trusted personnel and monitor usage via audit logs.
+\end{enumerate}
+
+\textbf{How to Assign Administrative Roles in Odoo}
+\begin{enumerate}
+    \item Go to \texttt{Settings → Users \& Companies → Users}.
+    \item Open a user record.
+    \item Under \textbf{Access Rights}, assign the appropriate groups:
+    \begin{enumerate}
+        \item For \textbf{Viewer}: Create a custom read-only group (via Developer Mode) or use a minimal internal user profile.
+        \item For \textbf{Operator}: Enable \texttt{Internal User} + custom \textit{User Manager} group + \texttt{base\_import} access.
+        \item For \textbf{Administrator}: Enable \texttt{Administration → Settings} and \texttt{Technical Features}.
+    \end{enumerate}
+    \item Save the user.
+\end{enumerate}
+
+\textbf{Advanced Control (Odoo Enterprise):}  
+Use \textbf{Odoo Studio} or custom modules to define fine-grained roles (e.g., “Can import users but not export,” “Can view audit logs but not modify SSO settings”). This enables precise alignment with your organization’s segregation-of-duties policy.
+
+\section{Access Rights Matrix: A Clear Table of Administrative Permissions}
+Odoo uses a granular role-based access control (RBAC) system to manage administrative permissions. While high-level roles like \textit{Operator} or \textit{Administrator} provide a useful abstraction, this Access Rights Matrix details exact permissions across core administrative operations.
+
+This matrix helps you:
+\begin{itemize}
+    \item Assign appropriate access during onboarding
+    \item Conduct internal compliance or access reviews
+    \item Troubleshoot permission-related issues
+    \item Enforce segregation of duties (SoD) for IT and HR functions
+\end{itemize}
+
+\noindent\textbf{Note:} Permissions are controlled via security groups (e.g., \texttt{base.group\_user}, \texttt{base.group\_system}) and record rules. The matrix below maps real-world administrative roles to these technical controls.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{diagram/access_roghts.png}
+    \caption{Administrative Access Rights in Odoo}
+    \label{fig:Administrative-Access-Rights-in-Odoo}
+\end{figure}
+
+\textbf{Access Rights Matrix for Administrative Roles}
+\begin{longtable}{|p{6.5cm}|c|c|c|}
+    \hline
+    \textbf{Administrative Operation} & \textbf{Viewer} & \textbf{Operator} & \textbf{Administrator} \\
+    \hline
+    View active users (name, email, company) & Yes & Yes & Yes \\
+    \hline
+    View user login history (last login) & Yes & Yes & Yes \\
+    \hline
+    View archived/inactive users & No & Yes & Yes \\
+    \hline
+    Create new user accounts & No & Yes & Yes \\
+    \hline
+    Send user invitation emails & No & Yes & Yes \\
+    \hline
+    Archive/deactivate user accounts & No & Yes & Yes \\
+    \hline
+    Assign users to security groups & No & Yes & Yes \\
+    \hline
+    Remove users from security groups & No & Yes & Yes \\
+    \hline
+    View security group definitions (menus, model access) & Yes & Yes & Yes \\
+    \hline
+    Create/edit security groups & No & No & Yes \\
+    \hline
+    View record rules (data visibility filters) & No & No & Yes \\
+    \hline
+    Create/edit record rules & No & No & Yes \\
+    \hline
+    Import data (CSV/Excel) into any model & No & Yes & Yes \\
+    \hline
+    Export data (filtered by user permissions) & Conditional* & Yes & Yes \\
+    \hline
+    Save custom export templates & No & Yes & Yes \\
+    \hline
+    View company information (name, address, logo) & Yes & Yes & Yes \\
+    \hline
+    Edit company information & No & No & Yes \\
+    \hline
+    Manage multi-company assignments for users & No & Yes & Yes \\
+    \hline
+    Configure LDAP/Active Directory integration & No & No & Yes \\
+    \hline
+    Configure OAuth/SAML (SSO) providers & No & No & Yes \\
+    \hline
+    Enable Developer Mode & No & No & Yes \\
+    \hline
+    Access Technical Settings (e.g., \texttt{ir.rule}, \texttt{ir.model.access}) & No & No & Yes \\
+    \hline
+    View audit logs (user actions, logins, exports) & No & No & Yes \\
+    \hline
+    Export audit logs & No & No & Yes \\
+    \hline
+    Modify system parameters (e.g., session timeout) & No & No & Yes \\
+    \hline
+    Install/uninstall apps or modules & No & No & Yes \\
+    \hline
+    Manage user-defined filters and dashboards & No & Yes & Yes \\
+    \hline
+    Impersonate other users (for testing) & No & No & Yes \\
+    \hline
+\caption{Access Rights Matrix for Odoo Administrative Roles}
+\label{tab:access-rights-matrix-odoo-admin}
+\end{longtable}
+
+\chapter{Learning and Development Resources}
+\section{Official Odoo Documentation and Video Tutorials}
+
+\textbf{Official Odoo Administrative Documentation}  
+The official Odoo documentation is your primary source for detailed instructions on user management, access control, data handling, and system configuration.
+
+\noindent\textbf{Odoo 16 Administration Documentation (Latest Stable Version)}  
+\url{https://www.odoo.com/documentation/16.0/administration.html}
+
+This section covers:
+\begin{itemize}
+    \item User and company management
+    \item Security groups and access rights
+    \item Record rules and data isolation
+    \item Multi-company configuration
+    \item Authentication (LDAP, OAuth, SAML)
+    \item Data import and export
+    \item Audit logging (Enterprise)
+    \item Developer Mode and technical settings
+\end{itemize}
+
+\textbf{Tip:} Always select the documentation version that matches your Odoo installation (e.g., 16.0, 17.0). Use the version dropdown at the top of the documentation page.
+
+\textbf{Official Odoo Video Tutorials}
+
+Odoo provides high-quality, step-by-step video tutorials on its official YouTube channel and eLearning platform—ideal for visual learners and system administrators.
+
+\noindent\textbf{Cybrosys Technologies YouTube Channel – Groups and Access Rights in Odoo}  
+\url{https://www.youtube.com/watch?v=PmSepSujsBk}  
+(Search for “Odoo User Management”, “Odoo Security”, or “Odoo Multi-Company”)
+
+\noindent\textbf{Odoo eLearning Platform (Free Courses)}  
+\url{https://www.odoo.com/slides/getting-started-15}  
+→ Browse under “Administration” and “Security” for interactive courses, including:
+\begin{itemize}
+    \item Managing Users and Companies
+    \item Configuring Access Rights and Record Rules
+    \item Setting Up SSO with LDAP or OAuth
+    \item Importing and Exporting Data
+\end{itemize}
+
+\textbf{Note:} The eLearning platform includes quizzes and downloadable guides to reinforce learning.
+
+\textbf{Odoo Community \& Support}
+
+For questions beyond the documentation:
+\begin{itemize}
+    \item \textbf{Odoo Forum:} \url{https://www.odoo.com/forum/help-1}  
+    (Use tags: \texttt{security}, \texttt{users}, \texttt{import}, \texttt{multi-company})
+    \item \textbf{GitHub Issues (Community Edition):} \url{https://github.com/odoo/odoo/issues}  
+    (Filter by labels: \texttt{access rights}, \texttt{users}, \texttt{import})
+\end{itemize}
+
+Enterprise users receive direct support via the Odoo Support portal or their account manager.
+
+\section{Community Forums and Learning Paths}
+
+While official documentation provides foundational knowledge, engaging with the Odoo community and following structured learning paths can significantly accelerate your proficiency in administrative governance. Below are trusted resources and curated learning journeys for Odoo 16.
+
+\begin{enumerate}
+    \item \textbf{Odoo Community Forums}
+
+    The Odoo Community Forum is a vibrant space where administrators, developers, and consultants share solutions for user management, security, and data governance.
+
+    \item \textbf{Odoo Help Forum (Official)} \\
+        \url{https://www.odoo.com/forum/help-1} \\
+        \begin{itemize}
+            \item Search for topics like “record rules not working”, “SSO setup”, or “user import fails”.
+            \item Filter by version (Odoo 16) and tags (\texttt{security}, \texttt{users}, \texttt{import}).
+            \item Many threads include XML/Python snippets and UI screenshots.
+
+        \item \textbf{Odoo Community Association (OCA)} \\
+        \url{https://odoo-community.org/} \\
+        \item Explore OCA modules like \texttt{auth\_oauth}, \texttt{base\_import}, and \texttt{auditlog}.
+            \item Access community-maintained documentation for advanced administrative features.
+    \end{itemize}
+
+    \textbf{Pro Tip:} Always search before posting—most common administrative issues (e.g., “user can’t see records”) have already been solved.
+
+    \item \textbf{Structured Learning Paths for Odoo 16 Administrative Management}
+
+    To build your skills systematically, follow these recommended paths—ideal for system administrators, IT managers, and compliance officers.
+
+    \textbf{Beginner Path: User \& Access Setup}
+    \begin{enumerate}
+        \item User and Company Creation \\
+        – Set up internal users, link to companies, send invitations.
+
+        \item Security Groups and Menus \\
+        – Assign users to predefined groups (Sales, HR, etc.).
+
+        \item Basic Data Import/Export \\
+        – Use CSV templates to bulk-load contacts or users.
+    \end{enumerate}
+
+    \textbf{Intermediate Path: Security \& Governance}
+    \begin{enumerate}
+        \item Record Rules and Data Isolation \\
+        – Configure row-level visibility (e.g., by company or department).
+
+        \item External Authentication \\
+        – Integrate LDAP, Azure AD, or Google SSO.
+
+        \item Multi-Company Administration \\
+        – Manage data separation across legal entities.
+
+        \item Access Reviews and Cleanup \\
+        – Identify and archive inactive users quarterly.
+    \end{enumerate}
+
+    \textbf{Advanced Path: Compliance \& Automation}
+    \begin{enumerate}
+        \item Audit Logging (Enterprise) \\
+        – Monitor user actions and generate compliance reports.
+
+        \item Custom Security Groups \\
+        – Build fine-grained roles (e.g., “HR Data Steward”).
+
+        \item Automated User Provisioning \\
+        – Use HR app to auto-create users on employee hire.
+
+        \item Backup and Recovery Strategy \\
+        – Schedule and test database restores.
+    \end{enumerate}
+
+    \item \textbf{Free \& Community-Driven Learning Resources}
+    \item \textbf{YouTube Tutorials (Community Creators)} \\
+        Channels like \textit{Odoo Mates}, \textit{Thinkwell}, and \textit{ERP School} offer practical walkthroughs. \\
+        Search: “Odoo 16 user management”, “Odoo record rules”, “Odoo SSO setup”
+
+        \item \textbf{GitHub Repositories (OCA)} \\
+        Explore open-source administrative modules: \\
+        \url{https://github.com/OCA/server-auth} \\
+        \url{https://github.com/OCA/server-tools} \\
+        \url{https://github.com/OCA/auditlog}
+
+        \item \textbf{Reddit \& LinkedIn Groups} \\
+        \begin{itemize}
+            \item r/odoo on Reddit: \url{https://www.reddit.com/r/odoo/} \\
+            \item LinkedIn: Search for “Odoo Administrators” or “Odoo Security Professionals”
+    \end{itemize}
+
+    \textbf{Note:} Always verify compatibility with Odoo 16, as administrative features and UIs evolve across versions.
+\end{enumerate}
+
+\section{Frequently Asked Questions (FAQs) and Troubleshooting Guide}
+This section covers the most common questions and issues encountered when managing users, access rights, data operations, and system configuration in Odoo (v16). Use this guide to quickly resolve errors, understand system behavior, and ensure secure, compliant administrative operations.
+
+\begin{enumerate}
+    \item \textbf{User Management}
+
+    \textbf{Q1: A new user didn’t receive the invitation email—what should I do?}
+
+    \textbf{A\@:}
+    \begin{enumerate}
+        \item Check if the email address was entered correctly in the user record.
+        \item Verify that Odoo’s outgoing mail server is configured (\texttt{Settings → General Settings → Discuss → Test Email Setup}).
+        \item Manually resend the invitation: open the user record → click \textbf{Send Reset Password Instructions}.
+        \item If using SSO (e.g., LDAP), ensure “Invite User” is enabled—some SSO setups skip email invites.
+    \end{enumerate}
+
+    \textbf{Q2: Why can’t a user log in even after activation?}
+
+    \textbf{A\@:}
+    \begin{enumerate}
+        \item Confirm the user is \textbf{Active} (not archived) in \texttt{Settings → Users \& Companies → Users}.
+        \item If using external authentication (LDAP/OAuth), verify the user exists in the identity provider.
+        \item Check for IP or session restrictions (e.g., via system parameters or firewall rules).
+    \end{enumerate}
+
+    \item \textbf{Access Rights \& Permissions}
+
+    \textbf{Q3: A user can’t see records they should have access to—why?}
+
+    \textbf{A\@:}
+
+    This is usually due to record rules or group misconfiguration:
+    \begin{enumerate}
+        \item Verify the user is assigned to the correct security group(s) (\texttt{Access Rights} tab on user form).
+        \item Check \texttt{Settings → Technical → Security → Record Rules} for domain filters that may restrict visibility (e.g., company-based rules).
+        \item In multi-company setups, ensure the user is linked to the correct company—and that “Allow Multi-Company” is enabled if needed.
+        \item Test by logging in as the user (use \textbf{Impersonate} in Developer Mode).
+    \end{enumerate}
+
+    \textbf{Q4: How do I give a user access to only one department’s data?}
+
+    \textbf{A\@:}
+    \begin{enumerate}
+        \item Create a custom record rule on the relevant model (e.g., \texttt{hr.employee}, \texttt{res.partner}).
+        \item Use a domain like \texttt{[('department\_id.name', '=', 'Sales')]}.
+        \item Assign the rule to a new security group, then add the user to that group.
+        \item \textit{Note:} Requires \textbf{Developer Mode} to configure.
+    \end{enumerate}
+
+    \item \textbf{Data Import/Export}
+
+    \textbf{Q5: My CSV import fails with “No value found for field…”—how do I fix it?}
+
+    \textbf{A\@:}
+    \begin{enumerate}
+        \item Download the official import template from the list view (click \textbf{Import} → \textbf{Download Template}).
+        \item Ensure column headers exactly match Odoo field names (case-sensitive).
+        \item For relational fields (e.g., Customer, Product), use the \textbf{name} or \textbf{External ID}—not internal database IDs.
+        \item Required fields (e.g., email for users) must not be empty.
+        \item Use \textbf{Test Import} before finalizing to catch errors early.
+    \end{enumerate}
+
+    \textbf{Q6: Why can’t a user export certain records even though they’re visible in the UI?}
+
+    \textbf{A\@:}
+    \begin{enumerate}
+        \item Odoo’s export function respects the same access rules as the UI—but sometimes record rules behave differently in batch operations.
+        \item Check if the user has \textbf{read} access to all fields being exported (via \texttt{ir.model.access}).
+        \item In multi-company setups, ensure the export filter includes only the user’s company.
+        \item If using custom modules, verify export permissions are not overridden.
+    \end{enumerate}
+
+    \item \textbf{Authentication \& SSO}
+
+    \textbf{Q7: LDAP login fails with “Wrong credentials”—but the password is correct.}
+
+    \textbf{A\@:}
+    \begin{enumerate}
+        \item Verify the LDAP server URL, port, and encryption (e.g., LDAPS on 636).
+        \item Check the \textbf{LDAP Bind DN} and \textbf{Password}—this is the service account Odoo uses to query LDAP.
+        \item Ensure the \textbf{LDAP Filter} matches your directory structure (e.g., \texttt{(uid=\%(login)s)} for Unix, \texttt{(sAMAccountName=\%(login)s)} for Active Directory).
+        \item Test connectivity using an LDAP client (e.g., Apache Directory Studio).
+    \end{enumerate}
+
+    \textbf{Q8: Can I enable both local login and SSO?}
+
+    \textbf{A\@:} Yes. Odoo supports mixed authentication:
+    \begin{enumerate}
+        \item Users with an external ID (e.g., from LDAP) will be redirected to SSO.
+        \item Users without an external ID can log in with a local password.
+        \item Configure this in \texttt{Settings → Technical → Authentication}.
+    \end{enumerate}
+
+    \item \textbf{Audit \& Compliance (Enterprise)}
+
+    \textbf{Q9: Why don’t I see audit logs for user creation?}
+
+    \textbf{A\@:}
+    \begin{enumerate}
+        \item Audit logging is an \textbf{Odoo Enterprise} feature—ensure you’re not using Community Edition.
+        \item Go to \texttt{Settings → Technical → Logs → Audit Logs} and verify logs are enabled.
+        \item By default, key models (\texttt{res.users}, \texttt{res.groups}) are tracked—custom models must be added manually.
+    \end{enumerate}
+
+    \textbf{Q10: How do I export audit logs for compliance review?}
+
+    \textbf{A\@:}
+    \begin{enumerate}
+        \item In \texttt{Audit Logs}, apply filters (e.g., date range, user, model).
+        \item Click \textbf{Export} (top-right) and choose Excel or CSV.
+        \item The export includes user, timestamp, IP address, and field changes.
+    \end{enumerate}
+\end{enumerate}
+
+\chapter{Comparison Between Enterprise and Community Editions}
+
+\begin{longtable}{|p{5cm}|p{5cm}|p{5cm}|}
+    \hline
+    \textbf{Feature} & \textbf{Community Edition} & \textbf{Enterprise Edition} \\
+    \hline
+    User and Group Management & Fully supported: create users, assign groups, manage companies & Fully supported, with enhanced UI and bulk actions \\
+    \hline
+    Record Rules (Row-Level Security) & Fully supported: enforce data isolation via domain filters & Fully supported, with visual rule builder in Studio \\
+    \hline
+    Data Import/Export Engine & Supported: CSV/Excel import/export in all list views & Supported, with enhanced templates, validation, and error highlighting \\
+    \hline
+    External Authentication (SSO) & 
+    \begin{itemize}
+        \item LDAP: Supported (manual config via Developer Mode)
+        \item OAuth 2.0: Limited (requires custom code)
+        \item SAML: Not supported
+    \end{itemize} & 
+    \begin{itemize}
+        \item LDAP: Fully supported with UI configuration
+        \item OAuth 2.0: Pre-built connectors (Google, Azure AD, GitHub)
+        \item SAML: Fully supported (Okta, OneLogin, etc.)
+    \end{itemize} \\
+    \hline
+    Audit Logging & 
+    \begin{itemize}
+        \item No built-in audit trail
+        \item Basic login logs via \texttt{res.users.log}
+        \item Custom logging requires third-party modules (e.g., OCA \texttt{auditlog})
+    \end{itemize} & 
+    \begin{itemize}
+        \item Full audit logging: tracks user actions, field changes, logins
+        \item Logs include user, timestamp, IP address, before/after values
+        \item Exportable for compliance (SOX, GDPR, ISO 27001)
+    \end{itemize} \\
+    \hline
+    Multi-Company Data Isolation & Supported via record rules and company fields & Supported, with visual validation and inter-company access controls \\
+    \hline
+    Role-Based Access Control (RBAC) & Fully supported via groups and ACLs & Fully supported, with Odoo Studio for no-code role customization \\
+    \hline
+    Developer Mode & Available: access technical settings, record rules, models & Available, with additional Enterprise-only debug tools \\
+    \hline
+    Custom Security Groups & Supported (via Developer Mode) & Supported, with drag-and-drop group builder in Studio \\
+    \hline
+    User Activity Monitoring & Limited to login timestamps & Real-time session tracking, last activity, and concurrent session alerts \\
+    \hline
+    Password Policy \& 2FA & 
+    \begin{itemize}
+        \item Basic password reset
+        \item 2FA not supported
+    \end{itemize} &
+    \begin{itemize}
+        \item Enforce password complexity
+        \item Built-in Two-Factor Authentication (TOTP, SMS, email)
+    \end{itemize} \\
+    \hline
+    Data Export Restrictions & Exports respect user permissions but no granular control & Fine-grained export policies (e.g., block exports for sensitive models) \\
+    \hline
+    Backup \& Recovery & Manual database dumps required & Automated daily backups (Odoo.sh), one-click restore \\
+    \hline
+    Mobile App Access & Not optimized for admin tasks & Full access to user management and settings via Odoo mobile app \\
+    \hline
+    Priority Support & Community forums and GitHub issues only & Direct access to Odoo support team with SLAs \\
+    \hline
+    \caption{Comparison of Odoo Administrative Features: Enterprise vs. Community Editions}
+    \label{tab:Comparison-of-Odoo-Administrative-Features}
+\end{longtable}
+
+
+\end{document}
