@@ -1,0 +1,3243 @@
+\documentclass[11pt,a4paper,openany]{book}
+\let\cleardoublepage\clearpage  
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % Better font rendering
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{xurl}
+\usepackage{ragged2e}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{tocloft} % For ToC customization
+\usepackage{hyperref} % Load LAST (except for cleveref)
+
+% === Typography & Spacing ===
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\raggedright}{\justifying}
+
+% === Page Layout ===
+\geometry{margin=1in, headheight=14pt}
+
+% === Hyperlinks ===
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={Finance \& Accounting Manual},
+    pdfauthor={Axon System},
+    pdfpagemode=UseOutlines,
+    bookmarksopen=true,
+    bookmarksnumbered=true
+}
+
+% === Section Formatting ===
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-30pt}{40pt}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries}{\thesubsubsection}{1em}{}
+
+% === Listings ===
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    showstringspaces=false,
+    keywordstyle=\color{blue!60!black},
+    commentstyle=\color{gray},
+    stringstyle=\color{red!60!black},
+    backgroundcolor=\color{gray!5},
+    rulecolor=\color{black}
+}
+
+% === Headers & Footers ===
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% === Table of Contents Styling ===
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % Dots for chapters too (optional)
+\setlength{\cftbeforechapskip}{6pt}
+\setlength{\cftbeforesecskip}{3pt}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+
+% === Title Info ===
+\title{Finance \& Accounting Manual}
+\author{Axon System}
+\date{\today}
+
+\begin{document}
+
+% === Title Page ===
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\Huge\bfseries Finance \& Accounting Manual\par}
+    \vspace{1cm}
+    {\Large Odoo Implementation Guide\par}
+    \vspace{2.5cm}
+    {\Large\textbf{Prepared by:} Axon System\par}
+    \vspace{0.5cm}
+    {\large\textbf{Date:} \today\par}
+    \vfill
+    \includegraphics[width=0.25\textwidth]{logo.png}
+    \vfill
+\end{titlepage}
+
+% === Front Matter ===
+\frontmatter
+\pdfbookmark{\contentsname}{toc} % Adds PDF bookmark without ToC entry
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\clearpage
+
+% === Main Content ===
+\mainmatter
+
+\part{The Strategic Foundation}
+
+\chapter{The TAO of Odoo Financial Management Module: Guiding Philosophy}
+
+Odoo Accounting is more than a tool for recording debits and credits—it is a living system designed to reflect the financial truth of your business in real time. This chapter explores the foundational mindset that shapes how Odoo approaches accounting: not as a siloed back-office function, but as an integrated, intelligent core that empowers every decision across your organization.
+
+\section{The Core Philosophy: A Unified Financial Nervous System}
+
+At its heart, Odoo Accounting functions as your company’s \textit{financial nervous system}—constantly sensing, processing, and responding to economic activity across departments. Unlike traditional accounting software that operates in isolation, Odoo Accounting is natively connected to every other business function: sales, purchases, inventory, payroll, projects, and more.
+
+Every invoice issued by the Sales team, every bill received from a vendor, every bank transaction, and every inventory movement automatically flows into the general ledger—without manual entry or file imports. This eliminates data duplication, reduces human error, and ensures that your financial records are always synchronized with operational reality.
+
+This unity transforms accounting from a historical record-keeper into a real-time strategic partner, providing leaders with accurate, up-to-the-minute insights to guide growth, control costs, and maintain compliance.
+
+\medskip
+`\noindent\textbf{Key Takeaway:} In Odoo, accounting doesn’t happen \textit{after} business—it happens \textit{with} business'
+
+\section{Guiding Principles: Clarity, Compliance, and Real-Time Insight}
+Odoo Accounting is built on three interlocking principles that define its user experience and functional design:
+
+Clarity
+
+Financial data should be understandable—not just to accountants, but to business owners, managers, and operational teams. Odoo achieves this through:
+\begin{itemize}
+    \item Clean, intuitive dashboards with visual KPIs (e.g., cash flow, profit \& loss, overdue invoices)
+    \item Plain-language transaction descriptions
+    \item Drill-down capabilities that let users trace any figure back to its source document
+\end{itemize}
+
+Compliance
+
+Global businesses face complex and evolving regulatory landscapes. Odoo Accounting embeds compliance into its core:
+\begin{itemize}
+    \item Automatic tax calculations based on country-specific rules (VAT, GST, sales tax, etc.)
+    \item Preconfigured chart of accounts aligned with local standards (e.g., PCG in France, GAAP in the U.S.)
+    \item Audit-ready reporting and secure, immutable transaction logs
+    \item Support for multi-currency, multi-company, and intercompany transactions
+\end{itemize}
+
+Real-Time Insight
+
+Waiting until month-end to understand your financial position is no longer necessary—or acceptable. Odoo delivers:
+\begin{itemize}
+    \item Live balance sheets and profit \& loss statements
+    \item Instant reconciliation with bank feeds (via Odoo Bank Synchronization)
+    \item Forecasting tools based on current receivables, payables, and cash positions
+\end{itemize}
+
+Together, these principles ensure that Odoo Accounting is not only accurate and compliant but also actionable—turning financial data into a catalyst for smarter, faster decisions.
+
+\section{Frame of Reference: Accounting as the Heart of the Business Ecosystem}
+In the Odoo ecosystem, accounting is not a peripheral module—it is the central hub that gives coherence to all business operations. Every action in Odoo generates a financial echo:
+\begin{itemize}
+    \item A sales order becomes an invoice, which affects accounts receivable, revenue recognition, and tax liability.
+    \item A purchase order triggers a vendor bill, impacting accounts payable, expense tracking, and inventory valuation.
+    \item An employee timesheet can feed into project costing and payroll expenses.
+    \item Even marketing campaigns can be tracked for ROI through integrated expense and revenue attribution.
+\end{itemize}
+
+This interconnectedness means that your financial statements are always a true reflection of your business activity—no spreadsheets, no manual adjustments, no lag.
+
+By placing accounting at the center, Odoo enables:
+\begin{itemize}
+    \item End-to-end visibility: From customer quote to cash in the bank.
+    \item Automated workflows: Approval rules, payment reminders, and reconciliation suggestions reduce manual effort.
+    \item Scalable control: As your business grows, your accounting system grows with it—supporting multiple entities, currencies, and fiscal regimes without fragmentation.
+\end{itemize}
+
+`In essence: Odoo Accounting doesn’t just track money—it reveals the story of your business.'
+
+\chapter{Strategic Context and Business Purpose}
+\section{System Context (C4-Level 1):}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{diagram/C1.png}
+    \caption{C1 Diagram: Odoo Accounting Module System Context}
+    \label{fig:c1-diagram}
+\end{figure}
+
+
+\noindent The C1 diagram shows the big picture of how the Odoo Accounting Module fits into the Odoo system. It outlines the users, internal modules in communication, and external systems, but also focuses on how each talks to or depends upon the accounting module.
+\bigskip
+\noindent\textbf{Interactions:}
+
+\noindent\textbf{Users:}
+\begin{enumerate}[label=\roman*.]
+    \item \textbf{Accountant:} Uses the accounting module to enter journal entries, process financial transactions, reconcile bank statements, and generate reports.
+    \item \textbf{Finance Manager:} Generates financial reports, authorizes transactions, monitors cash flows, and verifies overall finance compliance via the module.
+    \item \textbf{Auditor:} Puts accounting records into perspective to perform audits, ensures compliance checks, and submits regulatory ones.
+\end{enumerate}
+
+\noindent\textbf{Internal Odoo Modules:}
+\begin{enumerate}[label=\roman*.]
+    \item \textbf{Sales Module:} Sends customers' invoice and payment information to the accounting module for accounting revenues and monitoring receivables.
+    \item \textbf{Purchase Module:} Puts vendor bill and purchase transaction records into the module to process accounts payable.
+    \item \textbf{Inventory Module:} Provides stock value and COGS information to the financial ledgers for updating.
+    \item \textbf{HR Module:} Updates payroll, employee expense reimbursements, and salary-related journal entries into the accounting system.
+\end{enumerate}
+
+\noindent\textbf{External Systems:}
+\begin{enumerate}[label=\roman*.]
+    \item \textbf{Banking System:} Exchanges information bi-directionally with the accounting module. Imports bank statements for reconciling. Exports payment instructions for vendor payments and salary payments.
+    \item \textbf{Tax Authority System:} Accepts tax filings and compliance reports sent via the accounting module.
+    \item \textbf{External ERP APIs:} Allows integration with third-party ERP systems for data exchange, e.g., invoices, payments, or financial summaries.
+\end{enumerate}
+
+\noindent\textbf{Dependencies:}
+\begin{enumerate}[label=\roman*.]
+    \item \textbf{Data from other Odoo modules:} Depends on the Sales, Purchase, Inventory, and HR modules to automatically receive transaction data, minimizing manual data entry and errors.
+    \item \textbf{External banking integration:} Depends on connectivity to banking systems for statement imports and automatic payments.
+    \item \textbf{Tax system access:} Depends on integration with government or regional tax authority systems for compliant reporting.
+    \item \textbf{API integration:} Connects through APIs to connect with external ERPs, enhancing interoperability and facilitating real-time financial visibility across the platform.
+    \item \textbf{User roles and access control:} Requires proper user role configurations to enable secure and compliant access for accountants, managers, and auditors.
+\end{enumerate}
+
+\noindent\textbf{Summary}
+
+\noindent Interactions determine who uses the module and what systems send/receive data. Dependencies emphasize systems and sources of data required by the accounting module to accurately and efficiently operate. Combined, these linkages place the accounting module at the center of business operations, facilitating smooth financial management within and between departments and systems.
+
+\section{SIPOC Analysis: Mapping the Accounting Value Stream in Odoo}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{diagram/SIPOC.jpg}
+    \caption{SIPOC Diagram: Odoo Accounting Module Value Stream}
+    \label{fig:SIPOC-diagram}
+\end{figure}
+
+\textbf{Detailed SIPOC Breakdown:}
+\begin{itemize}
+    \item \textbf{Suppliers:}
+    These are the sources of financial data that feed into Odoo Accounting:
+    \begin{itemize}
+        \item External vendors: Submit bills and invoices.
+        \item Customers: Generate sales invoices and make payments.
+        \item Banks: Provide transaction feeds via bank statements or direct integrations.
+        \item Internal departments:
+        \begin{itemize}
+            \item Sales: Creates customer invoices.
+            \item Purchasing: Generates vendor bills.
+            \item Inventory: Triggers cost of goods sold (COGS) entries.
+            \item HR/Payroll: Supplies salary and expense data.
+        \end{itemize}
+        \item Tax authorities: Define tax rules, rates, and reporting formats.
+        \item System administrators: Configure chart of accounts, journals, and fiscal policies.
+    \end{itemize}
+
+    \item \textbf{Inputs:}
+    Key data and configurations required for accurate accounting:
+    \begin{itemize}
+        \item Vendor bills and credit notes
+        \item Customer invoices and payments
+        \item Bank statements (manual or automated via feeds)
+        \item Chart of Accounts (customized to your business)
+        \item Tax templates (VAT, GST, sales tax, etc.)
+        \item Fiscal year and accounting period settings
+        \item Opening balances (for migration or new setups)
+        \item Payment terms and journal rules
+        \item Multi-currency exchange rates (if applicable)
+    \end{itemize}
+
+    \item \textbf{Process Steps:}
+    Odoo automates and streamlines the following key steps:
+    \begin{enumerate}
+        \item Initial Setup
+        
+        Configure company details, chart of accounts, taxes, journals, and payment methods.
+
+        \item Transaction Recording
+        
+        Create and validate customer invoices, vendor bills, expenses, and manual journal entries.
+
+        \item Bank Reconciliation
+        
+        Match bank transactions with Odoo entries using smart suggestions or manual matching.
+
+        \item Periodic Operations
+        
+        Run recurring entries (e.g., rent, subscriptions), depreciation, and accruals.
+
+        \item Financial Reporting \& Closing
+        
+        Generate Trial Balance, Profit \& Loss, Balance Sheet, and Cash Flow statements.
+        
+        Perform month-end or year-end closing procedures.
+
+        \item Compliance \& Audit Support
+        
+        Export VAT/GST reports, maintain immutable audit trails, and archive records per legal requirements.
+    \end{enumerate}
+
+    \item \textbf{Outputs:}
+    Odoo produces reliable, real-time financial information, including:
+    \begin{itemize}
+        \item General ledger and sub-ledger entries
+        \item Financial statements (P\&L, Balance Sheet, Cash Flow)
+        \item Tax reports (e.g., VAT returns, 1099 filings)
+        \item Aged receivables and payables reports
+        \item Bank reconciliation summaries
+        \item Journal entry exports (for external accountants)
+        \item Dashboard KPIs (e.g., outstanding payments, cash position)
+    \end{itemize}
+
+    \item \textbf{Customers:}
+    \begin{itemize}
+        \item Finance \& Accounting Team: Daily management of books and cash flow.
+        \item Company Leadership: Strategic decisions based on P\&L and cash reports.
+        \item External Auditors: Verification of transactions and compliance.
+        \item Tax Authorities: Submission of statutory returns.
+        \item Investors or Lenders: Financial health assessments.
+        \item Other Odoo Users: Sales, Purchasing, and Inventory teams rely on accurate costing and payment status.
+    \end{itemize}
+\end{itemize}
+
+\section{The Pain-Gain Canvas: Problems Solved and Value Created by the Module}
+\noindent
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{diagram/Paingain.png}
+    \caption{Pain-Gain Diagram: Odoo Accounting Module Value Proposition}
+    \label{fig:paingain-diagram}
+\end{figure}
+
+\begin{tabularx}{\textwidth}{|>{\ttfamily}X|X|}
+    \hline
+    \textbf{Before Odoo} & \textbf{With Odoo} \\
+    \hline
+    Typed every invoice \& bill by hand in spreadsheets &
+    Invoices \& bills auto-created from Sales, Purchasing, and Expenses. \\
+    \hline
+    Spent hours matching bank transactions manually &
+    Smart bank reconciliation with auto-suggestions. \\
+    \hline
+    Waited days for financial reports &
+    Real-time P\&L, Balance Sheet, and cash flow—anytime. \\
+    \hline
+    Worried about tax errors &
+    Automatic tax calculation + one-click VAT/GST reports. \\
+    \hline
+    Lost track of who owes money &
+    Clear aging reports + automatic payment reminders. \\
+    \hline
+    Used separate tools for sales, inventory, and accounting &
+    All data in one system: Sales, Inventory, and Accounting connected. \\
+    \hline
+    Struggled during audits &
+    Full audit trail on every entry. \\
+    \hline
+    Managed multiple currencies with manual calculations &
+    Built-in multi-currency \& multi-company support. \\
+    \hline
+\end{tabularx} 
+
+\part{Architectural and Conceptual Framework}
+\chapter{Architectural Blueprint: Components and Containers}
+\section{Defining a “Container” in the Odoo Context}
+In Odoo Accounting, the term “container” is not a formal or native concept. However, users coming from other systems or workflows may use “container” informally to refer to one of the following Odoo structures that group or organize financial data:
+    \begin{enumerate}
+        \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/journal.png}
+        \caption{Journal as a Container in Odoo Accounting}
+        \label{fig:journa;}
+    \end{figure}
+    \item \textbf{Journal:}
+    A journal acts as a logical container for similar types of accounting entries. Common journals include:
+    \begin{itemize}
+        \item Customer Invoices (Sales Journal)
+        \item Vendor Bills (Purchase Journal)
+        \item Bank and Cash Journals
+        \item Miscellaneous Journal
+    \end{itemize}
+    Each journal defines:
+    \begin{itemize}
+        \item The type of transactions it handles
+        \item Default accounts and payment methods
+        \item Numbering sequences for entries
+    \end{itemize}
+    Use Case: All sales invoices are recorded in the Customer Invoices journal, effectively “containing” all receivable transactions. 
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/COA.png}
+        \caption{Chart of Accounts as a Container in Odoo Accounting}
+        \label{fig:COA}
+    \end{figure}
+    \item \textbf{Chart of Accounts:}
+    The chart of accounts is the master list of all general ledger accounts (e.g., Assets, Liabilities, Income, Expenses). It serves as the structural container for all financial classification.
+
+    Use Case: Every journal entry must post to at least two accounts from this chart, ensuring consistent financial categorization. 
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/analyticaccount.png}
+        \caption{Analytic Account as a Container in Odoo Accounting}
+        \label{fig:analyticaccount}
+    \end{figure}
+    
+    \item \textbf{Analytic Account (for Cost/Project Tracking):}
+    While not part of the general ledger, analytic accounts act as containers for tracking costs and revenues by project, department, or contract—enabling detailed profitability analysis.
+
+    Use Case: Assign an analytic account “Project Alpha” to all related expenses and invoices to monitor its financial performance separately. 
+
+    \item \textbf{Company or Fiscal Position (Multi-entity Context):}
+    In multi-company setups, each company functions as a legal and financial container with its own:
+    \begin{itemize}
+        \item Chart of accounts
+        \item Journals
+        \item Tax rules
+        \item Currency settings
+    \end{itemize}
+    Similarly, fiscal positions act as rule-based containers that adapt taxes and accounts based on customer location or type.
+\end{enumerate}
+
+\section{Identifying Key Containers: Odoo Backend, Frontend, and Database}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/C2.png}
+        \caption{C2 Diagram}
+        \label{fig:C2-diagram}
+    \end{figure}
+
+\noindent The C2 diagram highlights Odoo Accounting module technical architecture by depicting its major containers and how they interact. They include the Odoo server, the PostgreSQL database, and the Web client. Together, they form the system runtime and data-processing environment core.
+\medskip
+
+\noindent In the middle lies the Odoo Server, built using Python for business logic and XML for views and configuration. The server addresses all critical accounting tasks, including invoice management, journal entry, reconciliation of accounts, and reporting. Workflow logic is managed by the server, and communication from the database to the user interface is planned.
+\medskip
+
+\noindent The PostgreSQL database serves as the persistent storage for all the accounting information customer invoices, vendor bills, journal entries, tax information, and reporting information. All of the transactions initiated on the server are stored and retrieved within this robust relational database system, ensuring data integrity and transaction validity.
+\medskip
+
+\noindent The Web client, developed using JavaScript, provides the front-end interface through which users like finance managers and accountants interact with the system. These include the generation of invoices, looking at financial dashboards, bank statement reconciliation, and the generation of financial reports. The web client communicates in real-time with the Odoo server via RPC and REST calls to fetch or send data.
+
+\section{Mapping the Core Components of the Odoo Accounting Module}
+The Odoo Accounting module is a comprehensive, user-friendly financial management system designed to streamline bookkeeping, invoicing, payments, bank reconciliation, reporting, and tax compliance. Understanding its core components is essential for efficient setup, configuration, and daily use. Below is an overview of the main elements that constitute the Odoo Accounting module:
+\begin{enumerate}
+    \item Chart of Accounts
+    
+    The foundation of your accounting structure.
+    Preconfigured based on your country’s accounting standards (e.g., US GAAP, IFRS, local regulations).
+    Customizable to reflect your business’s specific needs.
+    Includes asset, liability, equity, income, and expense accounts.
+
+    \item Invoicing
+    
+    Customer Invoices: Create and send professional invoices with automatic tax calculation, payment terms, and multi-currency support.
+    Vendor Bills: Record and manage bills from suppliers, track due dates, and automate payment workflows.
+    Recurring Invoices: Set up templates for subscriptions or periodic billing.
+
+    \item Payments \& Bank Transactions
+    
+    Record customer payments and vendor payments manually or via integrated payment gateways.
+    Import bank statements automatically (via bank feeds or file upload).
+    Reconcile transactions with ease using Odoo’s smart reconciliation engine.
+
+    \item Bank \& Cash Accounts
+    
+    Manage multiple bank and cash accounts within a single company.
+    Track real-time balances and transaction history.
+    Configure journals for each account type (e.g., bank, cash, petty cash).
+
+    \item Taxes \& Fiscal Positions
+    
+    Define tax rates (VAT, GST, sales tax, etc.) and assign them to products, customers, or regions.
+    Use Fiscal Positions to automatically adapt taxes and accounts based on customer location or tax exemptions.
+
+    \item Reporting \& Dashboards
+    
+    Real-time financial reports: Profit \& Loss, Balance Sheet, Cash Flow, General Ledger, Trial Balance.
+    Customizable dashboards with key performance indicators (KPIs).
+    Drill-down capabilities for detailed transaction analysis.
+
+    \item Multi-Company \& Multi-Currency Support
+    
+    Manage accounting for multiple legal entities from a single database.
+    Handle transactions in multiple currencies with automatic exchange rate updates.
+
+    \item Integration with Other Odoo Apps
+    
+    Seamless connection with Sales, Purchase, Inventory, and Expenses modules.
+    Automatic journal entries generated from sales orders, purchase orders, or expense submissions.
+
+    \item Period Locking \& Audit Trail
+    
+    Lock accounting periods to prevent unauthorized changes.
+    Full audit trail of all journal entries and modifications for compliance and transparency
+
+    \item Configuration \& Settings
+    
+    Company-specific settings: fiscal year, currency, tax regime, payment terms.
+    User roles and access rights for accountants, advisors, and managers.
+\end{enumerate}
+
+\chapter{Ecosystem Integrations}
+\section{Core Odoo Integrations}
+Odoo’s Accounting module is designed to work in harmony with other business applications within the Odoo ecosystem. These native integrations eliminate manual data entry, reduce errors, and provide real-time financial visibility across departments. Below are the key integrations that enhance the functionality of Odoo Accounting:
+
+\begin{enumerate}
+    \item Sales Module
+    \begin{itemize}
+        \item Automatic Invoicing: When a sales order is confirmed and delivered, Odoo can automatically generate a customer invoice based on delivery or order confirmation rules.
+        \item Real-Time Revenue Recognition: Sales transactions are instantly reflected in accounting journals, ensuring up-to-date income tracking.
+        \item Payment Terms \& Credit Limits: Enforced during the sales process to prevent overbilling or sales to customers exceeding credit limits.
+    \end{itemize}
+    \item Purchase Module
+    \begin{itemize}
+        \item Vendor Bill Automation: Purchase orders can trigger draft vendor bills upon receipt of goods or services.
+        \item Three-Way Matching: Odoo supports matching purchase orders, received quantities, and vendor bills to prevent overpayment.
+        \item Expense Allocation: Bills are automatically categorized using the correct expense accounts based on product or service configuration.
+    \end{itemize}
+    \item Inventory \& Warehouse Management
+    \begin{itemize}
+        \item Automated Stock Valuation: Every inventory movement (receipts, deliveries, adjustments) generates corresponding journal entries for cost of goods sold (COGS) and stock valuation accounts.
+        \item Real-Time Inventory Accounting: Uses perpetual inventory costing methods (FIFO, average cost, etc.) aligned with your accounting policies.
+        \item Inter-Warehouse Transfers: Financial impact is tracked when moving stock between locations or companies.
+    \end{itemize}
+    \item Expenses Module
+    \begin{itemize}
+        \item Employee Expense Tracking: Employees submit expenses with receipts; upon approval, these are converted into vendor bills payable to the employee.
+        \item Automatic GL Posting: Expense categories map directly to general ledger accounts, streamlining reimbursement and cost center allocation.
+        \item Multi-Currency Support: Handles expenses in foreign currencies with automatic conversion using real-time or configured exchange rates.
+    \end{itemize}
+    \item Point of Sale (POS)
+    \begin{itemize}
+        \item Daily Sales Sync: POS transactions are batched and automatically posted to accounting journals at the end of each session.
+        \item Cash Register Reconciliation: Cash, card, and other payment methods are reconciled against actual bank or cash accounts.
+        \item Tax Compliance: POS applies correct tax rates per product and location, with totals flowing into tax reporting.
+    \end{itemize}
+    \item Bank Synchronization \& Payment Providers
+    \begin{itemize}
+        \item Bank Feeds: Connect directly to banks (via supported providers or file import) to fetch transactions for automatic reconciliation.
+        \item Online Payments: Integrated with payment acquirers (e.g., Stripe, PayPal, Adyen) to reconcile customer payments instantly.
+        \item Payment Follow-Ups: Automated reminders and dunning processes for overdue invoices.
+    \end{itemize}
+    \item Project \& Timesheets (for Service Businesses)
+    \begin{itemize}
+        \item Billable Time Tracking: Hours logged in timesheets can be invoiced automatically based on project contracts or hourly rates.
+        \item Revenue Recognition: Supports milestone-based or time-and-materials billing with corresponding journal entries.
+    \end{itemize}
+    \item HR \& Payroll (via Odoo Payroll or Third-Party Apps)
+    \begin{itemize}
+        \item Salary Expense Posting: Payroll runs generate journal entries for wages, taxes, benefits, and employer contributions.
+        \item Liability Tracking: Accrued payroll taxes and deductions are posted to appropriate liability accounts.
+    \end{itemize}
+    \item Multi-Company \& Intercompany Transactions
+    \begin{itemize}
+        \item Automated Intercompany Invoicing: When one company in your Odoo database sells to another, matching customer and vendor invoices are created automatically.
+        \item Consolidated Reporting: Financial data from all companies can be consolidated for group-level reporting.
+    \end{itemize}
+    \item CRM (Indirect but Strategic)
+    \begin{itemize}
+        \item While CRM doesn’t post directly to accounting, won deals in CRM convert to sales orders, which then flow into invoicing and revenue tracking—closing the loop from lead to ledger.
+    \end{itemize}
+\end{enumerate}
+
+\section{External System Integrations}
+While Odoo provides a powerful, all-in-one business suite, many organizations need to integrate their accounting system with external platforms such as banks, tax authorities, payment gateways, eCommerce sites, or legacy ERP systems. Odoo Accounting supports a range of external integrations—both native and via APIs or third-party connectors—to ensure seamless data exchange, regulatory compliance, and operational efficiency.
+\begin{enumerate}
+    \item Bank \& Financial Institution Integration
+    \begin{itemize}
+        \item Automated Bank Feeds: Connect directly to your bank using supported protocols (e.g., OFX, CAMT.053, or regional standards like PSD2 in Europe) to import transactions automatically.
+        \item Reconciliation: Imported bank statements are matched with Odoo invoices and payments using smart reconciliation rules, drastically reducing manual effort.
+        \item Supported via: Odoo’s built-in bank synchronization, third-party apps (e.g., Plaid, Yodlee, or local banking connectors), or direct file uploads (CSV, QIF, MT940).
+    \end{itemize}
+    \item Tax Compliance \& e-Invoicing Platforms
+    \begin{itemize}
+        \item Real-Time Tax Calculation: Integrate with services like Avalara, Vertex, or TaxJar for accurate, up-to-date sales tax, VAT, or GST calculations based on customer location and product type.
+        \item Mandatory e-Invoicing: In countries requiring electronic invoicing (e.g., Italy, Mexico, Brazil, Saudi Arabia), Odoo can connect to government-approved platforms (e.g., FatturaPA, SAT, ZATCA) via certified partners or built-in localization modules.
+        \item Digital Tax Reporting: Submit VAT returns directly to tax authorities through integrations like Making Tax Digital (MTD) in the UK or SII in Spain.
+    \end{itemize}
+    \item Payment Gateways
+    \begin{itemize}
+        \item Accept online payments and auto-reconcile them in accounting:
+        Stripe, PayPal, Adyen, Authorize.Net, Razorpay, and more.
+        \item Payments received through these gateways are automatically linked to customer invoices, updating payment status and reducing reconciliation time.
+        \item Multi-currency and refund handling are fully supported.
+    \end{itemize}
+    \item eCommerce Platforms
+    \begin{itemize}
+        \item Shopify, WooCommerce, Magento, and Amazon can be connected via Odoo’s eCommerce connectors or middleware (e.g., Zapier, Make, or Celigo).
+        \item Sales orders from external stores sync into Odoo, triggering automatic invoicing and inventory updates.
+        \item Ensures consistent financial records across online sales channels.
+    \end{itemize}
+    \item Payroll \& HR Systems
+    \begin{itemize}
+        \item If using an external payroll provider (e.g., ADP, Gusto, BambooHR, or local payroll bureaus), journal entries for salary expenses, taxes, and deductions can be imported via CSV or API.
+        \item Use Odoo’s Journal Import feature to post summarized payroll data into the general ledger without manual entry.
+    \end{itemize}
+    \item Legacy ERP or Custom Systems
+    \begin{itemize}
+        \item API-Driven Integration: Odoo provides a robust RESTful API and XML-RPC interface to exchange data with legacy systems.
+        \item Examples: Sync customer/vendor master data, post journal entries, or retrieve account balances.
+        \item Middleware Solutions: Tools like Zapier, Make (Integromat), Dell Boomi, or custom ETL scripts can bridge Odoo with virtually any external database or application.
+    \end{itemize}
+    \item Document Management \& E-Signature
+    \begin{itemize}
+        \item Integrate with DocuSign, Adobe Sign, or PandaDoc to send invoices for electronic signature and store signed copies in Odoo’s document management system.
+        \item Improves audit trails and accelerates approval workflows.
+    \end{itemize}
+    \item Audit \& Compliance Tools
+    \begin{itemize}
+        \item Export financial data in standardized formats (e.g., SAF-T, XBRL) for auditors or regulators.
+        \item Connect with compliance platforms for continuous monitoring and reporting.
+    \end{itemize}
+\end{enumerate}
+
+\chapter{Core Concepts and Key Digital Documents}
+\section{Key Concepts:}
+To use Odoo Accounting effectively, it’s essential to understand its foundational concepts. These “building blocks” form the backbone of your financial operations, ensure compliance, support decision-making, and enhance customer interaction. This section explains four key pillars:
+\begin{enumerate}
+    \item Chart of Accounts (The Financial Blueprint)
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/COA.png}
+            \caption{COA}
+            \label{fig:COA}
+        \end{figure}
+
+    The Chart of Accounts (CoA) is the structured list of all general ledger accounts used to categorize and track financial transactions. It serves as the foundation of your accounting system.
+    \begin{itemize}
+        \item Structure: Organized into five main types:
+        \begin{itemize}
+            \item Assets (e.g., Cash, Accounts Receivable, Inventory)
+            \item Liabilities (e.g., Accounts Payable, Loans)
+            \item Equity (e.g., Retained Earnings, Owner’s Capital)
+            \item Income/Revenue (e.g., Sales, Service Income)
+            \item Expenses (e.g., Rent, Utilities, Salaries)
+        \end{itemize}
+        \item Customization: While Odoo provides country-specific default charts (aligned with local GAAP or IFRS), you can add, modify, or archive accounts to match your business model.
+        \item Account Codes: Unique identifiers (e.g., 400000 for Sales) enable fast searching and reporting.
+        \item Best Practice: Avoid creating too many accounts—keep your CoA clean and scalable.
+    \end{itemize}
+    \item Fiscal Localization (Compliance by Design)
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/Fiscal_Localization.png}
+            \includegraphics[width=0.8\linewidth]{diagram/Fiscal_year.png}
+            \caption{Fiscal Localization}
+            \label{fig:FiscalYear}
+        \end{figure}
+        
+    Odoo’s Fiscal Localization ensures your accounting setup complies with your country’s tax laws, reporting standards, and legal requirements.
+    \begin{itemize}
+        \item Preconfigured Templates: When you select your country during setup, Odoo automatically loads:
+        \begin{itemize}
+            \item A compliant Chart of Accounts
+            \item Standard tax rates (VAT, GST, Sales Tax, etc.)
+            \item Legal report formats (e.g., VAT returns, balance sheet layouts)
+        \end{itemize}
+        \item Mandatory Features by Region:
+        \begin{itemize}
+            \item EU: VAT reporting, Intrastat declarations
+            \item India: GST-compliant invoicing, HSN/SAC codes
+            \item Saudi Arabia/UAE: ZATCA-compliant e-invoicing (Phase 2)
+            \item USA: 1099 reporting, sales tax by jurisdiction
+        \end{itemize}
+        \item Updates: Odoo regularly updates localizations to reflect regulatory changes—especially in Enterprise editions.
+    \end{itemize}
+    \item Financial Reporting (Insights at a Glance)
+    
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/report_architecture.png}
+            \caption{Report Architecture}
+            \label{fig:ReportArchitecture}
+        \end{figure}
+
+    Odoo provides real-time, dynamic financial reports that help you monitor performance, meet statutory obligations, and make informed decisions.
+
+    Key built-in reports include:
+    \begin{itemize}
+        \item Profit \& Loss (Income Statement): Shows revenues, costs, and net profit over a period.
+        \item Balance Sheet: Displays assets, liabilities, and equity at a point in time.
+        \item Cash Flow Statement: Tracks cash inflows and outflows from operating, investing, and financing activities.
+        \item General Ledger: Detailed log of all journal entries by account.
+        \item Trial Balance: Summarizes debit and credit balances to verify accounting accuracy.
+        \item Aged Receivables/Payables: Analyzes outstanding customer/vendor balances by due date.
+    \end{itemize}
+    All reports are:
+    \begin{itemize}
+        \item Filterable by date, journal, account, or analytic dimension
+        \item Exportable to PDF or Excel
+        \item Customizable using Odoo’s reporting engine (Enterprise)
+    \end{itemize}
+\end{enumerate}
+
+\section{Important Documents in the Workflow:}
+\begin{enumerate}
+    \item Customer Invoice
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/invoices.png}
+            \caption{Invoice}
+            \label{fig:Invoice}
+        \end{figure}
+
+    \begin{itemize}
+        \item Purpose: A formal request for payment sent to customers after goods/services are delivered.
+        \item Key Elements: Invoice number, customer details, itemized list of products/services, quantities, prices, taxes, total amount due, payment terms, and due date.
+        \item Workflow: Created from sales orders or manually; can be sent via email or printed; linked to payments and accounting entries.
+    \end{itemize}
+    \item Vendor Bill
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/bills.png}
+            \caption{Bills}
+            \label{fig:Bills}
+        \end{figure}    
+    \begin{itemize}
+        \item Purpose: A document received from suppliers requesting payment for goods/services provided.
+        \item Key Elements: Bill number, vendor details, itemized list of products/services, quantities, prices, taxes, total amount due, payment terms, and due date.
+        \item Workflow: Created from purchase orders or manually; must be validated before payment; linked to accounts payable and expense accounts.
+    \end{itemize}
+    \item Payment Receipt
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/payment-receipt.png}
+            \caption{Payment Receipt}
+            \label{fig:PaymentReceipt}
+        \end{figure}      
+    \begin{itemize}
+        \item Purpose: A confirmation document issued to customers upon receiving payment for an invoice.
+        \item Key Elements: Receipt number, customer details, invoice reference, payment method (cash, check, bank transfer), amount paid, date of payment.
+        \item Workflow: Generated automatically when a payment is registered against an invoice; can be emailed or printed for customer records.
+    \end{itemize}
+    \item Bank Statement
+    \begin{itemize}
+        \item Purpose: A periodic summary provided by banks detailing all transactions (deposits, withdrawals, fees) in a bank account.
+        \item Key Elements: Statement period, account number, transaction dates, descriptions, amounts (debit/credit), opening and closing balances.
+        \item Workflow: Imported into Odoo via bank feeds or file upload; used for reconciliation against recorded transactions in the accounting system.
+    \end{itemize}
+    \item Journal Entry
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/journal-entries.png}
+            \caption{Journal Entry}
+            \label{fig:JournalEntry}
+        \end{figure}     
+    \begin{itemize}
+        \item Purpose: The fundamental record of all financial transactions in double-entry bookkeeping.
+        \item Key Elements: Entry date, description/narration, debit and credit accounts with amounts, reference numbers (invoice/bill), and any analytic tags.
+        \item Workflow: Automatically created from invoices, bills, payments, and other transactions; can also be entered manually for adjustments or corrections; forms the basis
+    \end{itemize}
+\end{enumerate}
+
+\part{The Operational View: Workflows and Processes}
+\chapter{The Customer Journey: A Workflow Deep Dive}
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/customerJourney.png}
+            \caption{Customer Journey}
+            \label{fig:CustomerJourney}
+        \end{figure}  
+This journey illustrates the end-to-end process of managing a customer from onboarding to payment reconciliation using Odoo Accounting. 
+\begin{enumerate}
+    \item Create a Customer
+
+    Purpose: Register a new customer in the system to enable invoicing and financial tracking.
+
+    Steps:
+    \begin{itemize}
+        \item Go to Accounting (or Invoicing) app.
+        \item Navigate to Customers → Customers.
+        \item Click Create.
+        \item Fill in the following details:
+        \item Customer Name
+        \item Email, Phone, Address
+        \item Accounting-related info (e.g., Payment Terms, Fiscal Position, Salesperson)
+        \item (Optional) Set Customer Rank to ensure they appear in customer lists.
+        \item Click Save.
+    \end{itemize}
+
+    Tip: You can also create a customer directly from a Sales Order or Invoice. 
+
+    \item Create a Sales Order (Optional – if using Sales app)
+
+    If your business uses the Sales app alongside Accounting:
+    \begin{itemize}
+        \item Go to Sales → Orders → Quotations.
+        \item Create a new quotation for the customer.
+        \item Confirm the quotation → it becomes a Sales Order.
+        \item Click Create Invoice to generate a draft invoice.
+    \end{itemize}
+    If you don’t use the Sales app, skip to Step 3 and create an invoice directly. 
+
+    \item Create a Customer Invoice
+
+    Purpose: Issue a bill to the customer for goods or services provided.
+
+    Steps:
+    \begin{itemize}
+        \item Go to Accounting → Customers → Invoices.
+        \item Click Create.
+        \item Select the Customer.
+        \item Add invoice lines:
+        \begin{itemize}
+                \item Product/Service
+                \item Quantity
+                \item Unit Price
+                \item Taxes (if applicable)
+        \end{itemize}
+
+        \item Odoo auto-calculates totals, taxes, and applies payment terms.
+        \item Click Save to keep as draft, or Confirm to validate the invoice.
+        \item (Optional) Click Send by Email to deliver the invoice.
+    \end{itemize}
+
+    Once confirmed, the invoice status changes to Posted, and the accounting entries are created. 
+
+    \item Send Invoice to Customer
+    \begin{itemize}
+        \item Use the Send by Email button to email the invoice directly from Odoo.
+        \item Attachments and custom templates can be configured under Settings → Technical → Email Templates.
+    \end{itemize}
+    
+    \item Receive Payment
+
+    Purpose: Record payment received from the customer.
+
+    Option A: Register Payment from Invoice
+    \begin{itemize}
+        \item Open the Posted Invoice.
+        \item Click Register Payment.
+        \item Select:
+        \begin{itemize}
+            \item Payment Method (e.g., Bank, Cash, Credit Card)
+            \item Journal (e.g., Bank account)
+            \item Amount (usually auto-filled)
+            \item Payment Date
+        \end{itemize}
+        \item Click Save \& Confirm.
+    \end{itemize}
+    Option B: Create Payment via Customer Statement
+    \begin{itemize}
+        \item Go to Accounting → Customers → Customers.
+        \item Open the customer record.
+        \item Click Register Payment from the customer dashboard.
+        \item Select the invoice(s) to reconcile.
+        \item Fill in payment details and confirm.
+    \end{itemize}
+    Odoo automatically reconciles the payment with the invoice and updates the customer’s balance. 
+
+    \item Reconcile \& Monitor Receivables
+    \begin{itemize}
+        \item View outstanding invoices under Accounting → Reporting → Aged Receivables.
+        \item Use Customer Ledger (from customer form) to see full transaction history.
+        \item Unpaid invoices appear in Follow-up reports if payment reminders are configured.
+    \end{itemize}
+
+    \item Handle Partial Payments or Credit Notes (if needed)
+    \begin{itemize}
+        \item Partial Payment: Use the Register Payment option and enter a lower amount. The invoice remains partially open.
+        \item Credit Note (Refund):
+        \begin{itemize}
+            \item Open the invoice.
+            \item Click Reverse (or Create Credit Note).
+            \item Choose reason and confirm.
+            \item The credit note can be refunded or applied to future invoices.
+        \end{itemize}
+    \end{itemize}
+
+    \item Generate Reports
+    Common reports for customer accounting:
+    \begin{itemize}
+        \item Customer Statements
+        \item Aged Receivables
+        \item Invoices Analysis
+        \item Payment Reports
+        \item Access via Accounting → Reporting.
+    \end{itemize}
+
+\end{enumerate}
+
+\section{From Anonymous Visitor to Engaged Customer: A Detailed Sequence Diagram}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/sequence_accounting_diagram.png}
+        \caption{Sequence Diagram}
+        \label{fig:Sequence-Diagram}
+    \end{figure}  
+
+\noindent\textbf{Overview of key processes:}
+\begin{enumerate}
+    \item \textbf{Invoice to Journal Posting:}
+    
+    -Customer asks system to generate invoice from the Invoice System.
+
+	-System generates invoice ID, posts invoice to Journal, and receives acknowledgment.
+
+    \item \textbf{Payment Application to Invoice:}
+    
+    -Customer applies payment via the Payment System.
+
+	-Payment details are verified, applied to invoice, and payment confirmation is signaled.
+
+    \item \textbf{Bank Statement Import \& Reconciliation:}
+    
+    -The Bank System imports bank statements, extracts and reconciles transactions with journal entries.
+
+	-Confirmed and reconciled matched transactions, and status is done.
+
+    \item \textbf{Generating a Sales Report:}
+    
+    -The system facilitates choosing a date range, fetching revenue and expenses, summing totals, and returning the sales report.
+
+    \item \textbf{Creating a Customer:}
+    
+    -New customers are inserted via the system, and creating a customer is triggered.
+
+    \item \textbf{Creating a Vendor Bill:}
+    
+    -Vendors submit bills, which are validated and posted by the Vendor Bill System, with acknowledgment.
+
+\end{enumerate}
+
+\section{BPMN Diagram:The End-to-End Core Process}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/New BPMN diagram.png}
+        \caption{BPMN Diagram}
+        \label{fig:BPMN-Diagram}
+    \end{figure}  
+
+The Odoo Accounting \& Finance process is organized into four major functional areas: Accounts Receivable (A/R), Accounts Payable (A/P), General Ledger, and Audit \& Control. Each area follows a structured workflow designed to ensure accuracy, compliance, and timely financial reporting. In Accounts Receivable, the journey begins when a Sales Order is ready for invoicing — Odoo allows you to create a draft invoice directly from the order, which can then be reviewed and approved if required. Once approved, the invoice is posted to the ledger and sent to the customer. From there, the system monitors two possible triggers: either a payment is received (which leads to registering and applying the payment to close the invoice), or the due date is reached without payment, prompting an automatic collections process to follow up with the customer. In Accounts Payable, the cycle starts when a vendor bill is received — it must first be entered into Odoo and matched against the original purchase order and goods receipt (a 3-way match) to ensure accuracy. If the match is correct, the bill is approved for payment; if not, discrepancies are investigated and resolved before proceeding. Once approved, the bill is posted, payment is scheduled, and processed in batches — any issues during payment processing are flagged and resolved before finalizing the “Vendor Bill Paid” status. The General Ledger section handles period-end closing activities: once the accounting period begins, bank feeds are imported and reconciled with ledger entries. Simultaneously, accruals, prepayments, and depreciation are calculated and posted. These adjustments feed into the generation of draft financial statements, which are then reviewed by management. If revisions are needed, adjusting journal entries are made and the statements are regenerated until they’re accurate. Finally, under Audit \& Control, the completed financial reports undergo a formal management review. If everything is approved, the accounting period is locked to prevent further changes — ensuring data integrity and audit readiness. This entire flow ensures that every transaction is tracked, verified, and reported accurately, supporting both operational efficiency and financial governance within Odoo.
+
+\section{Step-by-Step Breakdown of the Customer Journey}
+Accounts Receivable (A/R) – Customer Invoicing \& Collections
+
+“How we bill customers and collect payments.” 
+
+Process Flow:
+\begin{enumerate}
+    \item SO Ready for Invoicing (Start Event)
+    
+    → Triggered when a Sales Order (SO) is confirmed or ready to be invoiced.
+    \item Create Draft Invoice
+    
+    → Generate invoice from SO or manually. You can edit lines, taxes, and payment terms.
+    \item Needs Approval? (Decision Gateway)
+    \begin{itemize}
+        \item Approved → Proceed to “Post Invoice”
+        \item Rejected → “Revise Invoice” → Loop back to editing
+    \end{itemize}
+
+    In Odoo: Enable approval workflows under Settings → Accounting → Configuration → Invoice Approval. 
+    \item Post Invoice
+    
+    → Finalize invoice. Creates accounting entries (Debit: Accounts Receivable, Credit: Revenue).
+    \item Send to Customer
+    
+    → Email or print invoice. Odoo tracks delivery status and due dates.
+    \item Payment Received (Message Event)
+    
+    → Customer pays via bank transfer, card, etc. Triggers next step.
+    \item Register \& Apply Payment
+    
+    → Record payment against invoice. Odoo auto-reconciles and closes invoice.
+    \item Invoice Closed (End Event)
+    
+    → Transaction complete. Customer balance updated.
+    \item Due Date Reached (Timer Event)
+    
+    → If no payment received by due date → triggers “Initiate Collections Process”
+
+    Collections Process: Send reminders, escalate to finance team, or mark as overdue. 
+\end{enumerate}
+
+Accounts Payable (A/P) – Vendor Bill Processing \& Payments
+
+“How we receive, verify, and pay vendor bills.” 
+
+Process Flow:
+\begin{enumerate}
+    \item Vendor Bill Received (Start Event)
+    
+    → Physical or digital bill received from supplier.
+    \item Enter Vendor Bill
+
+    → Input bill details: vendor, amount, date, taxes, account, etc.
+    \item Match Bill with PO/Receipt (3-Way Match)
+
+    → Verify bill matches:
+    \begin{itemize}
+        \item Purchase Order (PO)
+        \item Goods Receipt (Delivery)
+        \item Bill Amount
+    \end{itemize}
+    
+    Ensures you only pay for what you ordered AND received. 
+    \item Match OK? (Decision Gateway)
+    
+    Yes → “Approve Bill for Payment”
+    No → “Investigate Discrepancy” → “Process Halted” 
+    
+    If mismatch: Contact vendor, adjust quantities/prices, or reject bill. 
+    \item Approve Bill for Payment
+    
+    → Manager or authorized user approves. Can be automated based on thresholds.
+    \item Post Vendor Bill
+    
+    → Create accounting entry (Debit: Expense, Credit: Accounts Payable).
+    \item Schedule Payment
+
+    → Set payment date based on terms (e.g., Net 30). Can be batched.
+    \item Process Payment Batch
+
+    → Run payment batch (bank transfer, check, etc.). Odoo generates payment records.
+    \item Resolve Payment Issue (Error Handling)
+
+    → If payment fails (e.g., insufficient funds), resolve issue → retry payment.
+    \item Vendor Bill Paid (End Event)
+
+    → Payment recorded. Accounts Payable cleared.
+\end{enumerate}
+
+General Ledger – Period-End Closing \& Financial Reporting
+
+“How we close the books and prepare financial statements.” 
+
+Process Flow:
+\begin{enumerate}
+    \item Period-End Started (Timer Event)
+    
+    → Monthly/quarterly closing cycle begins.
+    \item Import Bank Feeds
+    
+    → Sync bank transactions automatically (if connected) or upload CSV.
+    \item Perform Bank Reconciliation
+
+    → Match bank transactions with Odoo entries. Resolve discrepancies.
+    \item Post Accruals \& Prepayments
+
+    → Record expenses incurred but not yet billed (accruals) or paid in advance (prepayments).
+    \item Calculate \& Post Depreciation
+
+    → Automate depreciation for fixed assets (if module installed).
+    \item Generate Draft Financial Statements
+
+    → Profit \& Loss, Balance Sheet, Cash Flow generated automatically.
+
+    Available under: Accounting → Reporting → Financial Reports. 
+    \item Management Review (User Task)
+
+    → Finance manager reviews draft reports for accuracy.
+    \item Reports OK? (Decision Gateway)
+    \begin{itemize}
+        \item Approved → Proceed to lock period
+        \item Revisions Needed → “Make Adjusting Entries” → Loop back to report generation
+    \end{itemize}
+
+    Adjusting entries fix errors or reflect accruals, deferrals, etc. 
+\end{enumerate}
+
+Audit \& Control – Final Review \& Period Locking
+
+“Final checks before closing the accounting period.” 
+
+Process Flow:
+\begin{enumerate}
+    \item Management Review (Continued from General Ledger)
+    
+    → Senior management or auditor reviews financials.
+    \item Reports OK? (Decision Gateway)
+    \begin{itemize}
+        \item Approved → “Lock Accounting Period”
+        \item Revisions Needed → Return to adjusting entries
+    \end{itemize}
+    \item Lock Accounting Period
+    
+    → Prevents any further changes to past transactions. Ensures data integrity.
+
+    In Odoo: Go to Accounting → Configuration → Settings → 
+    Lock Dates. 
+    \item Period Closed \& Reported (End Event)
+
+    → Officially closed. Financial statements finalized and distributed.
+\end{enumerate}
+
+\chapter{Daily Operations and Integrated Processes}
+\section{The Daily Accounting Operations Process}
+To maintain accurate, up-to-date financial records and ensure smooth cash flow, it’s essential to perform routine accounting tasks daily in Odoo. This section outlines the key daily activities for your finance team using the Odoo Accounting (Invoicing) module.
+
+Recommended: Assign these tasks to a responsible team member (e.g., Accounts Receivable Clerk, Bookkeeper) and complete them before end-of-day. 
+\begin{enumerate}
+    \item Review and Process New Sales Orders (If Using Sales App)
+    \begin{itemize}
+        \item Go to Sales → Orders → Confirmed Orders
+        \item Identify orders ready for invoicing (e.g., delivered or service completed).
+        \item Click Create Invoice → Choose “Invoiceable lines” → Validate.
+        \item Tip: Use the “Invoicing” smart button on customer records for quick access.
+    \end{itemize}
+
+    \item Create and Send Customer Invoices
+    \begin{itemize}
+        \item Navigate to Accounting → Customers → Invoices
+        \item Create invoices for:
+        \begin{itemize}
+            \item New services delivered
+            \item Recurring subscriptions (use Recurring Invoices if configured)
+            \item Manual billing requests
+        \end{itemize}
+        \item Confirm the invoice to post it.
+        \item Click Send by Email to deliver instantly.
+        \item Ensure payment terms and due dates are correctly set.
+    \end{itemize}
+
+    \item Record and Reconcile Incoming Payments
+    \begin{itemize}
+        \item Go to Accounting → Customers → Payments
+        \item Register payments received via:
+        \begin{itemize}
+            \item Bank transfer
+            \item Cash
+            \item Credit card
+            \item Online payment gateways (e.g., Stripe, PayPal)
+        \end{itemize}
+        \item Match payments to open invoices using Reconciliation:
+        \begin{itemize}
+            \item Go to Accounting → Dashboard → Bank \& Cash
+            \item Click on your bank journal → Reconcile
+            \item Match bank lines with customer invoices automatically or manually.
+        \end{itemize}
+
+    Odoo auto-suggests matches based on amount, date, and reference.
+    \end{itemize}
+    
+    \item Process Vendor Bills and Payments
+    \begin{itemize}
+        \item Check Accounting → Vendors → Bills for newly received bills.
+        \item Validate bills after verifying:
+        \begin{itemize}
+            \item Purchase Order match
+            \item Goods receipt confirmation
+            \item Correct tax and account coding
+        \end{itemize}
+        \item For bills due today:
+        \begin{itemize}
+            \item Go to Accounting → Vendors → Payments
+            \item Create a payment batch or pay individually.
+            \item Confirm payment and print/check payment status.
+        \end{itemize}
+    \end{itemize}
+
+    \item Monitor Overdue Invoices \& Send Reminders
+    \begin{itemize}
+        \item Go to Accounting → Reporting → Aged Receivables
+        \item Identify customers with overdue invoices.
+        \item Use Follow-ups (if configured):
+        \begin{itemize}
+            \item Go to Accounting → Customers → Follow-ups
+            \item Odoo auto-generates reminders based on your follow-up levels.
+            \item Click Send Reminder or call the customer directly.
+        \end{itemize}
+
+    Configure follow-up levels under: Accounting → Configuration → Follow-up Levels. 
+    \end{itemize}
+
+    \item Review Bank \& Cash Transactions
+    \begin{itemize}
+        \item Open Accounting → Dashboard → Bank \& Cash
+        \item Ensure all daily bank transactions are:
+        \begin{itemize}
+            \item Imported (via bank sync or manual upload)
+            \item Reconciled with Odoo entries
+        \end{itemize}
+        \item Investigate and resolve any unreconciled items immediately.
+    \end{itemize}
+
+    \item Backup \& System Checks (Optional but Recommended)
+    \begin{itemize}
+        \item Verify that:
+        \begin{itemize}
+            \item Automated bank feeds are syncing
+            \item Email templates for invoices are working
+            \item User permissions are up to date
+        \end{itemize}
+    \end{itemize}
+
+\end{enumerate}
+
+\section{Operational WorkFlow}
+This workflow outlines the standard operating procedures for managing financial transactions in Odoo, from customer onboarding to period closing. It ensures accuracy, compliance, and efficiency across Accounts Receivable (A/R), Accounts Payable (A/P), Bank Reconciliation, and Financial Reporting.
+
+Scope: Applies to businesses using Odoo Accounting (Invoicing)—with or without Sales, Purchase, or Helpdesk modules. 
+\begin{enumerate}
+    \item Customer \& Vendor Setup
+    \begin{enumerate}
+        \item Create Customer
+        \begin{itemize}
+            \item Go to Accounting → Customers → Customers → Create
+            \item Enter:
+            \begin{itemize}
+                \item Name, email, address
+                \item Payment Terms (e.g., Net 30)
+                \item Fiscal Position (if multi-country)
+                \item Salesperson (optional)
+            \end{itemize}
+            \item Save → Odoo auto-creates a receivable account.
+        \end{itemize}
+
+        \item Create Vendor
+        \begin{itemize}
+            \item Go to Accounting → Vendors → Vendors → Create
+            \item Enter vendor details and default expense account.
+            \item Assign Payment Terms and preferred Payment Method.
+        \end{itemize}
+
+    Tip: Enable “Vendor Bills” and “Customer Invoices” in contact settings. 
+    \end{enumerate}
+
+
+    \item Invoicing \& Billing (Accounts Receivable)
+    \begin{enumerate}
+        \item Create Customer Invoice
+        \begin{itemize}
+            \item From Sales Order (if using Sales app) → Create Invoice, OR
+            \item Manually: Accounting → Customers → Invoices → Create
+            \item Add products/services, taxes, and discounts.
+            \item Click Confirm to post → Status: Posted
+        \end{itemize}
+
+        \item Send Invoice
+        \begin{itemize}
+            \item Open invoice → Click Send by Email
+            \item Odoo uses your configured email template and tracks delivery.
+        \end{itemize}
+
+        \item Handle Recurring Invoices (Optional)
+        \begin{itemize}
+            \item Use Accounting → Recurring Invoices for subscriptions or retainers.
+            \item Set frequency, start/end date, and auto-post rules.
+        \end{itemize}
+
+    \end{enumerate}
+
+    \item Payment Collection \& Reconciliation
+    \begin{enumerate}
+        \item Receive Payment
+        \begin{itemize}
+            \item Customer pays via bank transfer, card, cash, etc.
+        \end{itemize}
+        \item Register Payment
+        \begin{itemize}
+            \item Option A: From invoice → Register Payment
+            \item Option B: Accounting → Customers → Payments → Create
+            \begin{itemize}
+                \item Select customer, journal (e.g., Bank), amount, date
+                \item Click Save \& Confirm
+            \end{itemize}
+        \end{itemize}
+        \item Reconcile Bank Transactions
+        \begin{itemize}
+            \item Go to Accounting → Dashboard → Bank \& Cash
+            \item Click your bank journal → Reconcile
+            \item Match incoming payments with open invoices (Odoo suggests matches)
+            \item Click Validate to complete reconciliation
+        \end{itemize}
+
+    Unreconciled items appear in red—resolve daily. 
+    \end{enumerate}
+
+    \item Vendor Bill Processing (Accounts Payable)
+    \begin{enumerate}
+        \item Enter Vendor Bill
+        \begin{itemize}
+            \item Accounting → Vendors → Bills → Create
+            \item Select vendor, add bill lines (product/account, tax, amount)
+            \item Attach PDF if available
+        \end{itemize}
+
+        \item Validate Bill
+        \begin{itemize}
+            \item Click Confirm → Status: Posted
+            \item Accounting entry created:
+            
+            Debit: Expense Account | Credit: Accounts Payable
+        \end{itemize}
+
+        \item Pay Vendor Bill
+        \begin{itemize}
+            \item From bill → Register Payment, OR
+            \item Use Payment Batches:
+
+            Accounting → Vendors → Payments → Create Batch
+            \item Select bills → Choose payment method → Confirm
+        \end{itemize}
+    \end{enumerate}
+
+    \item Bank \& Cash Management
+    \begin{enumerate}
+        \item Import Bank Statements
+        \begin{itemize}
+            \item Connect bank via Bank Synchronization (Plaid, Yodlee, etc.), OR
+            \item Upload CSV/OFX file: Bank Journal → Import
+        \end{itemize}
+
+        \item Daily Reconciliation
+        \begin{itemize}
+            \item Reconcile all transactions within 24–48 hours
+            \item Investigate discrepancies (e.g., fees, failed payments)
+        \end{itemize}
+
+        \item Manage Petty Cash (If Applicable)
+        \begin{itemize}
+            \item Use a Cash Journal for small expenses
+            \item Record via Accounting → Dashboard → Cash → New Transaction
+        \end{itemize}
+    \end{enumerate}
+
+    \item Financial Reporting \& Period Close
+    \begin{enumerate}
+        \item Run Key Reports Weekly
+        \begin{itemize}
+            \item Aged Receivables: Track overdue customer invoices
+
+            → Accounting → Reporting → Aged Receivables
+            \item Aged Payables: Monitor upcoming vendor payments
+            \item General Ledger: Review all journal entries
+        \end{itemize}
+
+        \item Month-End Closing Steps
+        \begin{itemize}
+            \item Reconcile all bank \& cash accounts
+            \item Post recurring entries (rent, depreciation, etc.)
+            \item Review and post accruals/prepayments
+            \item Generate Financial Statements:
+            \begin{itemize}
+                \item Profit \& Loss
+                \item Balance Sheet
+                \item Cash Flow Statement
+
+                → Accounting → Reporting → Financial Reports
+            \end{itemize}
+            
+            \item Management Review: Validate numbers with stakeholders
+            \item Lock the Accounting Period:
+            \begin{itemize}
+                \item Go to Accounting → Configuration → Settings → Lock Dates
+                \item Set Lock Date for Non-Advisers (e.g., last day of month)
+            \end{itemize}
+
+        \end{itemize}
+
+    Locked periods prevent unauthorized edits—critical for audit compliance. 
+    \end{enumerate}
+
+
+    \item Audit, Compliance \& Controls
+    \begin{itemize}
+        \item User Access: Restrict journal/posting rights via Settings → Users \& Companies
+        \item Approval Workflows: Enable for invoices/bills over threshold
+
+        → Accounting → Configuration → Settings → Approval
+        \item Audit Trail: All entries show user, timestamp, and original data
+        \item Backups: Ensure daily database backups (via Odoo.sh or server)
+    \end{itemize}
+
+\end{enumerate}
+
+\section{Operational Integration}
+Odoo Accounting is designed as the financial backbone of your business and integrates natively with other Odoo modules—eliminating manual data entry, reducing errors, and ensuring real-time financial visibility. This section outlines key operational integrations and how they enhance your accounting processes.
+
+Note: All integrations described below are native (no third-party connectors required) when using Odoo’s standard apps. 
+\begin{enumerate}
+    \item Integration with Sales
+    
+    How It Works:
+    \begin{itemize}
+        \item  When a Sales Order is confirmed and delivered, you can create an invoice directly from the order.
+        \item Odoo auto-populates:
+        \begin{itemize}
+            \item Customer
+            \item Products/services
+            \item Quantities, prices, and taxes
+            \item Payment terms (from customer or order)
+        \end{itemize}
+    \end{itemize}
+
+Benefits:
+\begin{itemize}
+    \item No duplicate data entry
+    \item Revenue recognized only when goods/services are delivered
+    \item Real-time tracking of uninvoiced sales
+\end{itemize}
+
+Where to Use:
+\begin{itemize}
+    \item Sales → Orders → [Order] → Create Invoice
+    \item Invoices appear instantly in Accounting → Customers → Invoices
+\end{itemize}
+
+    \item Integration with Purchase
+
+    How It Works:
+    \begin{itemize}
+        \item When you receive products from a vendor, Odoo can auto-generate a draft bill based on the Purchase Order (PO) and Receipt.
+        \item Supports 3-way matching: PO vs. Receipt vs. Bill
+    \end{itemize}
+
+Benefits:
+\begin{itemize}
+    \item Prevents overpayment
+    \item Ensures you only pay for goods actually received
+    \item Streamlines vendor bill approval
+\end{itemize}
+
+Where to Use:
+\begin{itemize}
+    \item Purchase → Orders → [PO] → Create Bill
+    \item Bills appear in Accounting → Vendors → Bills
+\end{itemize}
+
+    \item Integration with Inventory
+
+    How It Works:
+    \begin{itemize}
+        \item Every stock movement (receipt, delivery, internal transfer) triggers automated accounting entries based on your product costing method (FIFO, Average, Standard).
+        \item Example:
+
+        Delivering a product → Debits Cost of Goods Sold (COGS), Credits Inventory Asset
+    \end{itemize}
+
+Benefits:
+\begin{itemize}
+    \item Accurate COGS and gross margin reporting
+    \item Real-time inventory valuation in the Balance Sheet
+    \item No manual journal entries for stock movements
+\end{itemize}
+
+Configuration:
+\begin{itemize}
+    \item Set Accounting tab on each product (Income, Expense, COGS, Inventory accounts)
+    \item Define valuation method in Inventory → Configuration → Settings
+\end{itemize}
+
+    \item Integration with Expenses
+
+    How It Works:
+    \begin{itemize}
+        \item Employees submit expenses via Expenses app.
+        \item Approved expenses auto-create vendor bills (with employee as vendor).
+        \item Reimbursed via payment batch or direct transfer.
+    \end{itemize}
+
+Benefits:
+\begin{itemize}
+    \item Full audit trail from receipt → approval → reimbursement → GL posting
+    \item Categorize by project, analytic account, or expense type
+\end{itemize}
+
+Where to Use:
+\begin{itemize}
+    \item Expenses → My Expenses → Submit
+    \item Bills appear in Accounting → Vendors → Bills (vendor = employee)
+\end{itemize}
+
+    \item Integration with Subscriptions \& Recurring Billing
+
+    How It Works:
+    \begin{itemize}
+        \item Define subscription products (e.g., SaaS plans, retainers).
+        \item Odoo auto-generates invoices on schedule (monthly, quarterly, etc.).
+        \item Supports prorated charges, discounts, and upgrades/downgrades.
+    \end{itemize}
+
+Benefits:
+\begin{itemize}
+    \item Predictable recurring revenue
+    \item Reduced billing admin
+    \item Automatic dunning for failed payments (with payment tokens)
+\end{itemize}
+
+Where to Use:
+\begin{itemize}
+    \item Subscriptions → Subscriptions → Create
+    \item Invoices appear in Accounting → Recurring Invoices
+\end{itemize}
+
+\end{enumerate}
+
+\part{Configuration, Data, and Analytics}
+\chapter{Configuration and Underlying Business Logic}
+\section{Documenting Accounting Configuration Settings}
+Proper configuration of Odoo Accounting ensures accurate financial reporting, compliance with local regulations, and seamless integration with other business operations. This section documents all key accounting settings that must be reviewed and configured before going live—and periodically thereafter.
+
+Access Path:
+Go to Accounting → Configuration → Settings (or Accounting → Configuration for advanced options). 
+\begin{enumerate}
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/COA.png}
+            \caption{Chart of Accounts Setup}
+            \label{fig:Chart-of-Accounts-Setup}
+        \end{figure}  
+    \item Chart of Accounts
+
+    Purpose:    
+
+    Defines the structure of your general ledger (assets, liabilities, income, expenses, equity).
+
+    Configuration:
+    \begin{itemize}
+        \item Select a pre-built chart based on your country (e.g., “US GAAP”, “UK Chart of Accounts”, “French PCG”).
+        \item Odoo auto-creates accounts, taxes, and fiscal positions.
+        \item Do not modify account codes unless required by your accountant or local law.
+    \end{itemize}
+
+    Tip: You can add custom accounts later under Accounting → Chart of Accounts. 
+
+    \item Company Information \& Legal Details
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/company-info.png}
+            \caption{Company Information Setup}
+            \label{fig:Company-Information-Setup}
+        \end{figure}  
+    Purpose:
+
+    Ensures invoices and financial reports display correct legal entity information.
+
+    Configuration:
+    \begin{itemize}
+        \item Go to Settings → Companies → [Your Company]
+        \item Fill in:
+        \begin{itemize}
+            \item Legal Name (must match tax registration)
+            \item Address
+            \item Tax ID / VAT Number
+            \item Company Registry Number (if applicable)
+        \end{itemize}
+        \item These details appear automatically on invoices, credit notes, and reports.
+    \end{itemize}
+
+    Critical for compliance in EU, LATAM, and other regulated regions. 
+
+    \item Fiscal Year \& Period Locking
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/fiscallocalization.png}
+
+            \caption{Fiscal Year \& Period Locking Setup}
+            \label{fig:Fiscal-Year-Period-Locking-Setup}
+        \end{figure}  
+    Purpose:
+
+    Controls when users can post journal entries and prevents unauthorized changes after closing.
+
+    Configuration:
+    \begin{itemize}
+        \item Fiscal Year: Usually auto-set to Jan–Dec, but can be customized (e.g., Apr–Mar).
+        \item Lock Dates (under Accounting → Configuration → Settings):
+        \begin{itemize}
+            \item Lock Date for Non-Advisers: Prevents non-accountants from editing entries before this date.
+            \item Lock Date for All Users: Hard lock—even accountants cannot edit (use after audit).
+        \end{itemize}
+    Best Practice: Lock the prior month on the 5th of the new month. 
+    \end{itemize}
+
+    \item Payment Terms
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.8\linewidth]{diagram/payment-term.png}
+            \caption{Payment Terms Setup}
+            \label{fig:Payment-Terms-Setup}
+        \end{figure}      
+    Purpose:
+
+    Defines when customers/vendors are expected to pay (e.g., Net 30, 2% 10 Net 30).
+
+    Configuration:
+    \begin{itemize}
+        \item Go to Accounting → Configuration → Payment Terms → Create
+        \item Set:
+        \begin{itemize}
+            \item Due Days (e.g., 30)
+            \item Discounts (e.g., 2\% if paid within 10 days)
+            \item Late Fees (optional)
+        \end{itemize}
+
+    Assign to customers/vendors or default in company settings.
+    \end{itemize}
+
+    Used automatically on invoices and bills. 
+
+    \item Taxes \& Fiscal Positions
+ 
+    Purpose:
+
+    Ensures correct tax calculation based on customer location and product type.
+
+    Configuration:
+    \begin{enumerate}
+        \item Taxes
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.8\linewidth]{diagram/Taxes.png}
+                \caption{Taxes Setup}
+                \label{fig:Taxes-Setup}
+            \end{figure} 
+        \begin{itemize}
+            \item Pre-loaded based on your country’s chart of accounts.
+            \item Verify rates (e.g., VAT 20\%, Sales Tax 8.5\%).
+            \item Assign default Customer Tax and Vendor Tax in company settings.
+        \end{itemize}
+
+        \item Fiscal Positions
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.8\linewidth]{diagram/fiscal-position.png}
+                \caption{Fiscal Positions Setup}
+                \label{fig:Fiscal-Positions-Setup}
+            \end{figure} 
+        \begin{itemize}
+            \item Map taxes when customer is in a different region (e.g., EU customer → apply VAT; US customer → no VAT).
+            \item Go to Accounting → Configuration → Fiscal Positions
+            \item Example: “Intra-EU B2B” → sets VAT to 0\% with reverse charge.
+        \end{itemize}
+
+    Essential for businesses selling across borders. 
+    \end{enumerate}
+
+
+    \item Bank \& Cash Journals
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.8\linewidth]{diagram/bank.png}
+                \includegraphics[width=0.8\linewidth]{diagram/cash.png}
+                \caption{Bank \& Cash Journal Setup}
+                \label{fig:BankCash-Journal-Setup}
+            \end{figure}     
+    Purpose:
+
+    Defines how cash and bank transactions are recorded.
+
+    Configuration:
+    \begin{itemize}
+        \item Go to Accounting → Configuration → Journals
+        \item For each bank account:
+        \begin{itemize}
+            \item Set Bank Account Number and Currency
+            \item Enable Bank Synchronization (Plaid, Yodlee, etc.)
+            \item Assign Payment Methods (e.g., wire transfer, check)
+        \end{itemize}
+        \item For cash:
+        \begin{itemize}
+            \item Create a Cash Journal with starting balance
+            \end{itemize}
+    \end{itemize}
+
+    Each journal = a real-world bank account or cash register. 
+
+    \item Payment Acquirers (Online Payments)
+
+    Purpose:
+
+    Enables customers to pay invoices online via Stripe, PayPal, etc.
+
+    Configuration:
+    \begin{itemize}
+        \item Go to Accounting → Configuration → Payment Acquirers
+        \item Enable and configure:
+        \begin{itemize}
+            \item Stripe, PayPal, Adyen, etc.
+            \item Link to correct Bank Journal
+            \item Set Transaction Fee Account (e.g., “Bank Fees” expense account)
+        \end{itemize}
+    \end{itemize}
+
+    Payments auto-reconcile and reduce Days Sales Outstanding (DSO). 
+
+    \item Analytic Accounting (Optional but Recommended)
+
+    Purpose:
+
+    Track costs and revenues by project, department, or cost center.
+
+    Configuration:
+    \begin{itemize}
+        \item Enable Analytic Accounting in Settings
+        \item Create Analytic Plans (e.g., “Projects”, “Departments”)
+        \item Assign default analytic accounts to products, customers, or journals
+    \end{itemize}
+
+    Enables profitability analysis in reports. 
+
+    \item Currency \& Exchange Rates
+
+    Purpose:
+
+    Supports multi-currency transactions and automatic FX revaluation.
+
+    Configuration:
+    \begin{itemize}
+        \item Enable Multi-Currencies in Settings
+        \item Set Base Currency (your company’s reporting currency)
+        \item Add foreign currencies (USD, EUR, GBP, etc.)
+        \item Enable Automatic Exchange Rate Updates (via ECB or manual)
+    \end{itemize}
+
+    Foreign invoices auto-convert; gains/losses posted to “Foreign Exchange” account. 
+
+    \item Invoice \& Report Templates
+
+    Purpose:
+
+    Customize how invoices, credit notes, and financial reports appear.
+
+    Configuration:
+    \begin{itemize}
+        \item Go to Settings → Technical → User Interface → Views
+        \item Search for report\_invoice (QWeb template)
+        \item Modify layout, add logo, legal text, or payment instructions
+        \item Use placeholders like {{ invoice.partner\_id.vat }} for dynamic data
+    \end{itemize}
+
+    Ensure all legally required fields are present (e.g., tax ID, invoice number). 
+
+    \item User Access \& Approval Workflows
+
+    Purpose:
+
+    Control who can create, approve, or post financial documents.
+
+    Configuration:
+    \begin{itemize}
+        \item Go to Settings → Users \& Companies → Groups
+        \item Assign roles:
+        \begin{itemize}
+            \item Billing Administrator: Full access
+            \item Invoicing User: Create invoices only
+            \item Accountant: Post entries, reconcile
+        \end{itemize}
+        \item Enable Invoice/Bill Approval:
+        \begin{itemize}
+            \item Set thresholds (e.g., > \$5,000 requires manager approval)
+        \end{itemize}
+    \end{itemize}
+
+    Segregation of duties reduces fraud risk. 
+\end{enumerate}
+
+\section{The Business Logic Behind Key Features}
+Odoo Accounting isn’t just a tool for recording transactions—it’s built on core accounting principles and real-world business workflows. Understanding the business logic behind its key features helps your team use the system more effectively, avoid errors, and align financial operations with best practices.
+
+Below, we break down the purpose, accounting rationale, and practical impact of Odoo’s most important features.
+
+\begin{enumerate}
+    \item Double-Entry Accounting Engine
+
+    What It Is:
+
+    Every transaction in Odoo automatically creates at least two journal entries: a debit and a credit of equal value.
+
+    Business Logic:
+    \begin{itemize}
+        \item Ensures the accounting equation always balances:
+        \item Assets = Liabilities + Equity
+        \item Prevents data entry errors and maintains audit integrity.
+        \item Required by GAAP, IFRS, and most national accounting standards.
+    \end{itemize}
+    Example:
+    
+    When you confirm a customer invoice for \$1,000:
+    \begin{itemize}
+        \item Debit: Accounts Receivable (\$1,000) → You’re owed money
+        \item Credit: Revenue (\$1,000) → You’ve earned income
+    \end{itemize}
+
+    Result: Your balance sheet and income statement stay accurate and compliant. 
+
+    \item Automatic Invoice → Journal Entry Link
+
+    What It Is:
+
+    When you confirm an invoice or bill, Odoo instantly creates a journal entry in the general ledger.
+
+    Business Logic:
+    \begin{itemize}
+        \item Eliminates manual journal posting → reduces errors and delays.
+        \item Ensures real-time financial visibility—no waiting for month-end.
+        \item Maintains a clear audit trail from source document (invoice) to ledger.
+    \end{itemize}
+
+    Impact:
+    \begin{itemize}
+        \item Finance team sees live P\&L and cash flow.
+        \item Auditors can trace any GL entry back to its original invoice.
+    \end{itemize}
+
+    \item Bank Reconciliation with Smart Matching
+
+    What It Is:
+
+    Odoo suggests matches between bank statement lines and outstanding invoices/payments using amount, date, and reference.
+
+    Business Logic:
+    \begin{itemize}
+        \item Reconciliation is not just verification—it’s cash validation.
+        \item Unreconciled items = risk of fraud, errors, or missed payments.
+        \item Smart matching saves hours vs. manual line-by-line checks.
+    \end{itemize}
+
+    Real-World Need:
+    \begin{itemize}
+        \item A \$2,500 payment from “ABC Corp” should auto-match to their open invoice \#INV/2025/042.
+        \item If it doesn’t, it flags a potential issue: wrong amount, duplicate payment, or unapplied credit.
+    \end{itemize}
+
+    \item Fiscal Positions for Tax Compliance
+
+    What It Is:
+
+    Rules that automatically change taxes on invoices based on customer location or type (e.g., B2B vs. B2C).
+
+    Business Logic:
+    \begin{itemize}
+        \item Tax laws vary by jurisdiction. You must charge the correct tax to avoid penalties.
+        \item Fiscal positions enforce local compliance without manual intervention.
+    \end{itemize}
+
+    Example:
+    \begin{itemize}
+        \item Customer in Germany (B2B) → Apply reverse charge VAT (0\%) + show VAT ID.
+        \item Customer in France (B2C) → Apply 20\% French VAT.
+    \end{itemize}
+
+    Critical for businesses selling across borders—especially in the EU. 
+
+    \item Payment Terms with Discounts \& Due Dates
+
+    What It Is:
+
+    Rules like “Net 30” or “2\% 10 Net 30” that control when payment is due and if early-payment discounts apply.
+
+    Business Logic:
+    \begin{itemize}
+        \item Encourages faster cash inflow (via discounts).
+        \item Sets clear expectations with customers/vendors.
+        \item Enables accurate cash flow forecasting and aging reports.
+    \end{itemize}
+
+    Accounting Impact:
+    \begin{itemize}
+        \item If a customer pays early with a 2\% discount, Odoo:
+        \begin{itemize}
+            \item Records full invoice amount as revenue
+            \item Books the 2\% as a “Cash Discount” expense
+            \item Updates receivables accordingly
+        \end{itemize}
+    \end{itemize}
+
+    \item Recurring Invoices for Subscriptions
+
+    What It Is:
+
+    Automatically generates invoices on a schedule (monthly, quarterly, etc.).
+
+    Business Logic:
+    \begin{itemize}
+        \item Reflects accrual accounting: revenue is recognized when earned, not when cash is received.
+        \item Supports predictable revenue streams (SaaS, retainers, leases).
+        \item Reduces billing admin and human error.
+    \end{itemize}
+
+    Best Practice:
+    \begin{itemize}
+        \item Use subscription products with defined start/end dates.
+        \item Odoo ensures no double-billing and handles prorated changes.
+    \end{itemize}
+
+    \item Multi-Currency with Automatic FX Revaluation
+
+    What It Is:
+
+    Records transactions in foreign currencies and revalues balances at period-end using current exchange rates.
+
+    Business Logic:
+    \begin{itemize}
+        \item Required under IFRS/GAAP for companies with foreign operations.
+        \item Shows true financial position by adjusting for currency fluctuations.
+        \item Tracks foreign exchange gains/losses separately.
+    \end{itemize}
+
+    Example:
+    \begin{itemize}
+        \item You invoice a UK client £1,000 when 1 GBP = 1.25 USD → \$1,250 receivable.
+        \item At month-end, rate = 1.20 → Receivable = \$1,200.
+        \item Odoo books a \$50 FX loss automatically.
+    \end{itemize}
+
+    \item Period Locking for Audit Control
+
+    What It Is:
+
+    Prevents users from editing or posting entries in closed accounting periods.
+
+    Business Logic:
+    \begin{itemize}
+        \item Ensures financial statements are final and tamper-proof after review.
+        \item Meets internal control and SOX compliance requirements.
+        \item Builds trust with auditors, investors, and regulators.
+    \end{itemize}
+
+    Workflow:
+    \begin{itemize}
+        \item Close books on the 5th of the month
+        \item Lock period for non-advisers
+        \item After audit, lock for all users
+    \end{itemize}
+
+    Once locked, only a system administrator (with justification) can override. 
+
+    \item Analytic Accounting for Cost Tracking
+
+    What It Is:
+
+    Tracks income and expenses by project, department, or cost center—separate from the general ledger.
+
+    Business Logic:
+    \begin{itemize}
+        \item GAAP/IFRS govern financial reporting (GL), but managers need operational insights.
+        \item Answers: Which product is most profitable? Which project is over budget?
+    \end{itemize}
+
+    Business Impact:
+    \begin{itemize}
+        \item Sales team sees margin by customer.
+        \item CFO reviews departmental P\&L without affecting statutory accounts.
+    \end{itemize}
+
+    \item Customer/Vendor Ledger as a Single Source of Truth
+
+    What It Is:
+
+    A real-time view of all transactions with a customer or vendor (invoices, payments, credits).
+
+    Business Logic:
+    \begin{itemize}
+        \item Replaces error-prone Excel trackers or paper ledgers.
+        \item Enables accurate aging reports and credit decisions.
+        \item Resolves disputes faster with full history.
+    \end{itemize}
+
+    Example:
+
+    Before approving a new order, check the customer’s ledger:
+        \begin{itemize}
+        \item Are they 30+ days overdue?
+        \item Do they have an outstanding credit note?
+    \end{itemize}
+\end{enumerate}
+
+\chapter{Master Data: Schema and Structure}
+\section{Understanding the Code and Class Structure}
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.8\linewidth]{diagram/C3.png}
+                \caption{C3 Diagram of Odoo Accounting Module}
+                \label{fig:C3-Diagram-of-Odoo-Accounting-Module}
+            \end{figure}  
+
+\noindent This component diagram provides a high-level description of the Odoo Accounting Module, breaking it down into its primary functional components and how they interact with each other. Each component embodies a specific set of duties that collectively enable end-to-end financial management within the system.
+
+\begin{enumerate}
+    \item \textbf{Invoice Management}
+    
+    \textbf{Description:} Manages the creation, modification, and life cycle of customer and vendor invoices.
+    \medskip
+
+    \textbf{Key Responsibilities:}
+    \begin{enumerate}
+        \item Create, update, and delete invoice records.
+        \item Create and export invoice documents (PDFs).
+        \item Control invoice statuses (e.g., Draft, Posted, Paid, Cancelled).
+    \end{enumerate}
+
+    \textbf{Interfaces:}
+    \begin{enumerate}
+        \item Create and fetch invoice data.
+        \item Update invoice state and related fields.
+    \end{enumerate}
+
+    \textbf{Dependencies:}
+    \begin{enumerate}
+        \item Tax Engine – for calculation of tax in real-time.
+        \item Payment Handling – for linking payments and for updation of invoice payment status.
+    \end{enumerate}
+
+    \item \textbf{Payment Handling}
+    
+    \textbf{Description:} Responsible for handling the processing and recording of payments that come in and go out.
+    \medskip
+
+    \textbf{Key Responsibilities:}
+    \begin{enumerate}
+        \item Record customer payments and vendor disbursements.
+        \item Link payments with related invoices or bills.
+        \item Generate payment receipts and reconcile books of accounts.
+    \end{enumerate}
+
+    \textbf{Interfaces:}
+    \begin{enumerate}
+        \item Register and read payment information.
+        \item Associate payments with accounting documents.
+    \end{enumerate}
+
+    \textbf{Dependencies:}
+    \begin{enumerate}
+        \item Invoice Management – to account for payments.
+        \item Reconciliation Engine – to reconcile payments with bank accounts.
+    \end{enumerate}
+
+    \item \textbf{Reconciliation Engine}
+        
+    \textbf{Description:} Reconciles bank statement line with internal accounting postings.
+    \medskip
+
+    \textbf{Key Responsibilities:}
+    \begin{enumerate}
+        \item Import and interpret bank statements.
+        \item Automatically match transactions according to configurable rules.
+        \item Offer manual and auto-recommended reconciliations.
+    \end{enumerate}
+
+    \textbf{Interfaces:}
+    \begin{enumerate}
+        \item Import bank information and define reconciliation logic.
+        \item Review and approve reconciliations.
+    \end{enumerate}
+
+    \textbf{Dependencies:}
+    \begin{enumerate}
+        \item Payment Handling – to read payment records.
+        \item Reporting \& Analytics – to enable reconciliation reporting and auditing.
+    \end{enumerate}
+
+    \item \textbf{Reporting \& Analytics}
+            
+    \textbf{Description:} Generates financial and analytical reports to external and internal stakeholders.
+    \medskip
+
+    \textbf{Key Responsibilities:}
+    \begin{enumerate}
+        \item Prepare primary financial statements (e.g., P\&L, Balance Sheet).
+        \item Provide dynamic dashboards and drill-down.
+        \item Generate customized financial reports.
+    \end{enumerate}
+
+    \textbf{Interfaces:}
+    \begin{enumerate}
+        \item Configure report parameters and layouts.
+        \item Export data to PDF, Excel, or web views.
+    \end{enumerate}
+
+    \textbf{Dependencies:}
+    \begin{enumerate}
+        \item Dependent on all other components for data aggregation and metrics.
+    \end{enumerate}
+
+    \item \textbf{Tax Engine}
+                
+    \textbf{Description:} Verifies compliance with local tax legislation and calculates taxes.
+    \medskip
+
+    \textbf{Key Responsibilities:}
+    \begin{enumerate}
+        \item Calculate recoverable taxes upon invoice or bill processing.
+        \item Schedule tax codes, tax rates, and fiscal postings.
+        \item Prepare statutory tax reports.
+    \end{enumerate}
+
+    \textbf{Interfaces:}
+    \begin{enumerate}
+        \item Develop and implement tax regulations.
+        \item Generate reports (e.g., VAT, GST summaries).
+    \end{enumerate}
+
+    \textbf{Dependencies:}
+    \begin{enumerate}
+        \item Invoice Management – in aid of calculation of tax on transactions.
+    \end{enumerate}
+
+\end{enumerate}
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/C4_model.png}
+        \caption{C4 Diagram of Odoo Accounting Module}
+        \label{fig:C4-Diagram-of-Odoo-Accounting-Module}
+    \end{figure}  
+
+\noindent This diagram illustrates the core components of the Odoo Accounting source code and their interactions. The Invoice component manages customer and vendor invoices, creating journal entries in the Account module, which defines models for accounts, ledgers, and journal entries. The Reconciliation Engine handles matching bank data to existing account records to ensure 
+accurate financial reconciliation. The Report Generator component is responsible for producing financial reports in PDF or Excel formats and shares these reports with third parties. The Tax Engine manages tax calculations and rules, triggering tax computations during invoice 
+processing and submitting relevant tax data externally. All report sharing and tax submission 
+activities interact with the External API Interface, which exposes API endpoints to enable 
+third-party systems to access reports and tax-related data. Overall, these components work 
+together to facilitate robust, automated accounting processes within Odoo.
+
+\newpage
+\section{Master Data Schema}
+\noindent\textbf{Core Tables}
+\medskip
+
+\begin{longtable}{|l|p{8cm}|}
+    \hline
+    \textbf{Table} & \textbf{Description} \\
+    \hline
+    \texttt{account\_move} & Contains journal entries, the basic unit of double-entry accounting. \\
+    \hline
+    \texttt{account\_move\_line} & Contains individual debit/credit lines of a journal entry. \\
+    \hline
+    \texttt{account\_account} & Holds the Chart of Accounts — ledger accounts used for classifying transactions. \\
+    \hline
+    \texttt{account\_journal} & Stores definitions of journals such as Sales Journal, Purchase Journal, Bank, Cash, etc. \\
+    \hline
+    \texttt{account\_payment} & Stores payment postings such as customer receipts and vendor payments. \\
+    \hline
+    \texttt{account\_tax} & Declares tax regulations (e.g., VAT, GST, sales tax) applied to financial transactions. \\
+    \hline
+    \texttt{account\_fiscal\_position} & Maps fiscal rules for partners by location or business type (e.g., tax exemptions, account mapping). \\
+    \hline
+    \texttt{account\_fiscal\_position\_tax} & Links taxes to fiscal positions for automatic tax substitution. \\
+    \hline
+    \texttt{account\_fiscal\_position\_account} & Maps accounts in fiscal positions (e.g., replace receivable/payable accounts). \\
+    \hline
+    \texttt{res\_partner} & Stores customer, vendor, and other third-party contact and accounting info (e.g., receivable/payable accounts). \\
+    \hline
+    \texttt{res\_company} & Stores company data, enabling multi-company setups with separate accounting. \\
+    \hline
+    \texttt{account\_account\_type} & Categorizes accounts into types such as Income, Expense, Receivable, Payable, Bank, etc. \\
+    \hline
+    \texttt{account\_reconcile\_model} & Defines rules for auto-reconciliation of bank statements and journal items. \\
+    \hline
+    \texttt{account\_bank\_statement} & Represents bank statements used for reconciliation. \\
+    \hline
+    \texttt{account\_bank\_statement\_line} & Individual lines in a bank statement. \\
+    \hline
+    \texttt{account\_analytic\_account} & Master data for analytic (cost/profit center) accounting. \\
+    \hline
+    \texttt{account\_analytic\_line} & Tracks actual analytic costs/revenues (linked to journal items or timesheets). \\
+    \hline
+    \texttt{account\_group} & Groups accounts hierarchically in the Chart of Accounts (for reporting). \\
+    \hline
+    \texttt{account\_root} & Used internally for fast account code lookups and tree structures. \\
+    \hline
+    \texttt{account\_payment\_method} & Defines payment methods (e.g., check, credit card, wire transfer). \\
+    \hline
+    \texttt{account\_payment\_term} & Stores payment terms (e.g., Net 30, 2\% 10 Net 30) used in invoices. \\
+    \hline
+    \texttt{account\_payment\_term\_line} & Lines defining the structure of a payment term (percentages, days, etc.). \\
+    \hline
+    \texttt{account\_incoterms} & Standard international commercial terms (e.g., FOB, CIF) used in invoices and shipping. \\
+    \hline
+    \texttt{account\_cash\_rounding} & Defines cash rounding rules for invoices (e.g., round to nearest 0.05). \\
+    \hline
+    \texttt{account\_report} & Base model for financial reports (Balance Sheet, Profit \& Loss, etc.). \\
+    \hline
+    \texttt{account\_financial\_report} & Defines structure of custom financial reports (hierarchical). \\
+    \hline
+    \texttt{account\_tax\_group} & Groups taxes for reporting purposes (e.g., VAT Output, VAT Input). \\
+    \hline
+    \texttt{account\_tax\_rep\_distribution} & Controls how tax amounts are distributed across lines in reports. \\
+    \hline
+    \texttt{account\_account\_tag} & Tags used for regulatory reporting (e.g., tax report tags like “VAT base” or “VAT amount”). \\
+    \hline
+    \texttt{account\_chart\_template} & Template used to install a Chart of Accounts for a new company. \\
+    \hline
+    \texttt{account\_account\_template} & Template version of accounts used during CoA setup. \\
+    \hline
+    \texttt{account\_tax\_template} & Template for taxes used during initial configuration. \\
+    \hline
+    \texttt{account\_journal\_group} & Groups journals for access control or reporting (Odoo Enterprise feature). \\
+    \hline
+    \texttt{res\_currency} & Stores currency definitions (USD, EUR, etc.) and exchange rates. \\
+    \hline
+    \texttt{res\_currency\_rate} & Historical exchange rates for multi-currency accounting. \\
+    \hline
+    \caption{Master Data Tables in Odoo Accounting Module}
+    \label{tab:master-data-tables-odoo-accounting}
+\end{longtable}
+
+\chapter{Reporting, Dashboards, and Analytics}
+\section{Key Performance Indicators (KPIs) for Accounting}
+Key Performance Indicators (KPIs) are measurable values that demonstrate how effectively a company is achieving its financial and operational objectives. In Odoo Accounting, KPIs provide real-time insights into cash flow, profitability, liquidity, receivables, payables, and overall financial health. These metrics empower finance teams, managers, and executives to make data-driven decisions and proactively address potential issues.
+
+Odoo’s integrated architecture ensures that KPIs are automatically calculated from live transactional data—eliminating manual spreadsheets and reducing reporting delays.
+
+\textbf{Core Accounting KPIs in Odoo}
+
+Odoo Accounting (and Odoo Finance apps) supports the following essential KPIs, either natively through dashboards, reports, or via customizable metrics:
+\begin{enumerate}
+    \item Cash Flow
+    
+    Definition: Net movement of cash in and out of the business over a period.
+
+    Odoo Source:
+    \begin{itemize}
+        \item Cash Flow Statement (under Accounting > Reporting > Cash Flow)
+        \item Bank and Cash dashboard tiles
+    \end{itemize}
+
+
+    Why It Matters: Indicates short-term viability and ability to cover operational expenses.
+    \item Accounts Receivable (A/R) Aging
+
+    Definition: Breakdown of outstanding customer invoices by due date (e.g., current, 1–30 days, 31–60 days, >90 days).
+
+    Odoo Source:
+    \begin{itemize}
+        \item Receivables Report (Accounting > Reporting > Receivables)
+        \item Customer ledger views
+    \end{itemize}
+
+    KPI Example:
+
+    \% of A/R > 60 days = (Overdue invoices >60 days / Total receivables) × 100
+
+    Why It Matters: High aging indicates collection inefficiencies or credit risk.
+    \item Accounts Payable (A/P) Aging
+
+    Definition: Summary of outstanding vendor bills by due date.
+
+    Odoo Source:
+    \begin{itemize}
+        \item Payables Report (Accounting > Reporting > Payables)
+    \end{itemize}
+
+
+    KPI Example:
+
+    Average payment days = Total days to pay bills / Number of bills
+
+    Why It Matters: Helps manage supplier relationships and optimize cash outflow timing.
+    \item Profitability (Gross \& Net Profit)
+
+    Definition:
+
+    Gross Profit = Revenue – Cost of Goods Sold (COGS)
+
+    Net Profit = Gross Profit – Operating Expenses – Taxes – Interest
+
+    Odoo Source:
+    \begin{itemize}
+        \item Profit and Loss (Income Statement) (Accounting > Reporting > Profit and Loss)
+        \item Analytic Accounting (for department/project-level profitability)
+    \end{itemize}
+
+    Why It Matters: Core measure of business performance and sustainability.
+    \item Current Ratio (Liquidity)
+
+    Definition: Current Assets ÷ Current Liabilities
+
+    Odoo Source:
+    \begin{itemize}
+        \item Balance Sheet (Accounting > Reporting > Balance Sheet)
+        \item Target: Typically => 1.5 (varies by industry)
+    \end{itemize}
+
+    Why It Matters: Assesses short-term financial health and ability to meet obligations.
+    \item Days Sales Outstanding (DSO)
+
+    Definition: Average number of days to collect payment after a sale.
+
+    Formula:
+\[
+\text{Days Sales Outstanding (DSO)} = 
+\frac{\text{Accounts Receivable}}{\text{Total Credit Sales}} \times \text{Number of Days in Period}
+\]
+
+    Odoo Source:
+    \begin{itemize}
+        \item Custom calculation using Receivables and Sales data (can be automated via Odoo Studio or custom report)
+    \end{itemize}
+
+    Why It Matters: Lower DSO = faster cash conversion.
+    \item Days Payable Outstanding (DPO)
+
+    Definition: Average number of days the company takes to pay its suppliers.
+
+    Formula:
+\[
+\text{Days Payable Outstanding (DPO)} = 
+\frac{\text{Accounts Payable}}{\text{Cost of Sales}} \times \text{Number of Days in Period}
+\]
+
+    Odoo Source:
+    \begin{itemize}
+        \item Derived from Payables and Purchases data
+    \end{itemize}
+
+    Why It Matters: Optimizing DPO improves cash flow without harming supplier relations.
+    \item Tax Compliance \& Reporting Accuracy
+
+    Definition: Timeliness and correctness of tax filings (VAT, GST, etc.).
+
+    Odoo Source:
+    \begin{itemize}
+        \item Tax Reports (Accounting > Reporting > Tax Report)
+        \item Fiscal Position and Tax Tags ensure correct classification
+    \end{itemize}
+
+    Why It Matters: Avoids penalties and audit risks.
+\end{enumerate}
+
+    \textbf{Accessing KPIs in Odoo}
+    \begin{enumerate}
+        \item Built-in Dashboards
+        \begin{itemize}
+            \item Go to Accounting > Dashboard
+            \item Widgets display real-time KPIs:
+            \begin{itemize}
+                \item Overdue invoices
+                \item Unpaid bills
+                \item Profitability trends
+                \item Cash balance
+            \end{itemize}
+        \end{itemize}
+
+    \item Financial Reports
+    \begin{itemize}
+        \item Balance Sheet, Profit \& Loss, and Cash Flow reports are automatically generated.
+        \item Filter by date, journal, company, or analytic account.
+    \end{itemize}
+
+    \item Custom KPIs
+    \begin{itemize}
+        \item Use Odoo Studio (Enterprise) or custom modules to:
+        \begin{itemize}
+            \item Create calculated fields (e.g., DSO)
+            \item Build pivot tables or dashboards
+            \item Set alerts (e.g., “Notify if A/R > 90 days exceeds \$10,000”)
+        \end{itemize}
+    \end{itemize}
+
+    \item Analytic Accounting Integration
+    \begin{itemize}
+        \item Track KPIs by:
+        \begin{itemize}
+            \item Project
+            \item Department
+            \item Product line
+            \item Salesperson
+        \end{itemize}
+        \item Enables granular performance analysis.
+    \end{itemize}
+
+    \end{enumerate}
+
+\textbf{Example:} Setting Up a Receivables KPI Dashboard
+\begin{enumerate}
+    \item Go to Accounting > Reporting > Receivables.
+    \item Group by “Due Date” and filter “Overdue”.
+    \item Export or pin to dashboard.
+    \item (Optional) Create a custom report showing:
+    \begin{itemize}
+        \item Total Receivables
+        \item \% Overdue (>30 days)
+        \item Top 5 delinquent customers
+    \end{itemize}
+\end{enumerate}
+
+\section{Available Reports and Dashboards}
+Odoo Accounting provides a rich suite of real-time financial reports and interactive dashboards that give businesses full visibility into their financial performance, cash flow, compliance status, and operational efficiency. All reports are generated automatically from live transactional data—ensuring accuracy, eliminating manual reconciliation, and enabling timely decision-making.
+
+Reports and dashboards are accessible via Accounting > Reporting and Accounting > Dashboard, and can be filtered by date, journal, company, analytic account, or partner.
+
+\textbf{Core Financial Statements}
+These are the three fundamental reports required for financial analysis and statutory compliance.
+\begin{enumerate}
+    \item Balance Sheet
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/balancesheet.png}
+        \caption{Balance Sheet Report in Odoo Accounting}
+        \label{fig:Balance-Sheet-Report-in-Odoo-Accounting}
+    \end{figure} 
+    Purpose: Shows the company’s assets, liabilities, and equity at a specific point in time.
+
+    Path: Accounting > Reporting > Balance Sheet
+
+    Features:
+    \begin{itemize}
+        \item Hierarchical view based on account groups
+        \item Compare multiple periods (e.g., current vs. previous year)
+        \item Export to PDF or Excel
+    \end{itemize}
+
+    Use Case: Assess solvency, liquidity, and capital structure.
+    \item Profit and Loss (Income Statement)
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/pl-report.png}
+        \caption{Profit and Loss Report in Odoo Accounting}
+        \label{fig:profit-and-Loss-Report-in-Odoo-Accounting}
+    \end{figure} 
+    Purpose: Summarizes revenues, costs, and expenses over a period to determine net profit or loss.
+
+    Path: Accounting > Reporting > Profit and Loss
+
+    Features:
+    \begin{itemize}
+        \item Drill down into individual accounts
+        \item Filter by analytic dimensions (e.g., department, project)
+        \item Multi-currency support
+    \end{itemize}
+
+    Use Case: Evaluate operational profitability and cost control.
+    \item Cash Flow Statement
+
+    Purpose: Tracks cash inflows and outflows from operating, investing, and financing activities.
+
+    Path: Accounting > Reporting > Cash Flow
+
+    Method: Indirect method (net income adjusted for non-cash items and changes in working capital).
+
+    Use Case: Monitor liquidity and short-term financial health.
+
+    Note: In Odoo, the Cash Flow report is automatically configured based on account types and journal entries—no manual entry required. 
+\end{enumerate}
+
+\textbf{Operational \& Compliance Reports}
+\begin{enumerate}
+    \item General Ledger
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/general-ledger.png}
+        \caption{General Ledger Report in Odoo Accounting}
+        \label{fig:general-ledger-Report-in-Odoo-Accounting}
+    \end{figure} 
+    Path: Accounting > Reporting > General Ledger
+
+    Details: Lists all journal entries posted to each account over a selected period.
+
+    Use Case: Audit trail, account reconciliation, and detailed transaction review.
+    \item Trial Balance
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/trialbalance.png}
+        \caption{Trial Balance Report in Odoo Accounting}
+        \label{fig:trial-balance-Report-in-Odoo-Accounting}
+    \end{figure} 
+    Path: Accounting > Reporting > Trial Balance
+
+    Details: Shows debit and credit balances for all accounts at period-end.
+
+    Use Case: Verify accounting equation (Assets = Liabilities + Equity) and prepare financial statements.
+    \item Tax Reports
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/tax report.png}
+        \caption{Tax Report in Odoo Accounting}
+        \label{fig:tax-Report-in-Odoo-Accounting}
+    \end{figure} 
+    Path: Accounting > Reporting > Tax Report
+
+    Details:
+    \begin{itemize}
+        \item Summarizes collected (output) and paid (input) taxes (e.g., VAT, GST)
+        \item Uses tax tags and fiscal positions for accurate classification
+        \item Supports country-specific formats (e.g., VAT return in EU)
+    \end{itemize}
+
+    Use Case: Prepare and file tax declarations confidently.
+    \item Aged Receivables \& Payables
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/age-receivable.png}
+        \caption{Age Receivable Report in Odoo Accounting}
+        \label{fig:age-receivable-Report-in-Odoo-Accounting}
+    \end{figure} 
+        \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/age-payable.png}
+        \caption{Age Payable Report in Odoo Accounting}
+        \label{fig:age-payable-Report-in-Odoo-Accounting}
+    \end{figure} 
+    Paths:
+    \begin{itemize}
+        \item Accounting > Reporting > Receivables (Customer aging)
+        \item Accounting > Reporting > Payables (Vendor aging)
+    \end{itemize}
+
+    Details: Categorizes outstanding invoices by due date (e.g., current, 1–30, 31–60, 61–90, >90 days).
+
+    Use Case: Manage collections, assess credit risk, and plan payments.
+    \item Bank Reconciliation Report
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/bank-reconciliation.png}
+        \caption{Bank Reconciliation in Odoo Accounting}
+        \label{fig:bank-reconciliation-in-Odoo-Accounting}
+    \end{figure} 
+    Path: Accounting > Reporting > Bank Reconciliation
+
+    Details: Shows unreconciled bank statement lines vs. journal items.
+
+    Use Case: Ensure all bank transactions are accounted for and prevent discrepancies.
+\end{enumerate}
+
+\section{Mastering Default Groups and Filters}
+Odoo Accounting provides powerful grouping and filtering tools that allow users to organize, analyze, and act on financial data quickly—without spreadsheets or complex queries. These features are available on almost every list view (e.g., Journal Entries, Invoices, Payments, Bank Statements) and are essential for daily accounting operations, reconciliation, and reporting.
+
+Understanding how to use default groups and custom filters improves efficiency, reduces errors, and enables faster decision-making.
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\linewidth]{diagram/UI_two.png}
+        \caption{Group \& Filter in Odoo Accounting}
+        \label{fig:Group-filter-in-Odoo-Accounting}
+    \end{figure} 
+\textbf{What Are Groups and Filters?}
+
+Filters: Narrow down records based on criteria (e.g., “Overdue,” “This Month,” “Draft Invoices”).
+
+Groups: Organize records into collapsible sections by a field (e.g., group invoices by Customer, Status, or Journal).
+
+\textbf{Default Filters in Key Accounting Views}
+Odoo provides smart, context-aware default filters to help you focus on what matters most.
+\begin{enumerate}
+    \item Customer Invoices
+
+    Default Filters:
+    \begin{itemize}
+        \item To Invoice: Draft invoices
+        \item To Send: Validated but not sent
+        \item Overdue: Invoices past due date
+        \item This Month / Last Month
+    \end{itemize}
+
+    Use Case: Quickly identify invoices needing follow-up or sending.
+    \item Vendor Bills
+
+    Default Filters:
+    \begin{itemize}
+        \item Waiting Approval (if approval workflow is enabled)
+        \item To Pay: Validated bills not yet paid
+        \item Overdue
+        \item Late Activities
+    \end{itemize}
+    Use Case: Prioritize payments and avoid late fees.
+    \item Journal Entries
+
+    Default Filters:
+    \begin{itemize}
+        \item Unposted: Draft entries
+        \item This Month
+        \item Bank/Cash Journals (via journal filter)
+    \end{itemize}
+
+    Use Case: Review unposted entries before period close.
+    \item Payments
+
+    Default Filters:
+    \begin{itemize}
+        \item Customer Payments
+        \item Vendor Payments
+        \item Reconciled / Unreconciled
+    \end{itemize}
+
+    Use Case: Track reconciliation status and cash movements.
+    \item Bank Statements
+
+    Default Filters:
+    \begin{itemize}
+        \item New: Unreconciled statements
+        \item Reconciled
+    \end{itemize}
+
+    Use Case: Focus on unreconciled transactions during daily reconciliation.
+\end{enumerate}
+
+    Tip: Click the funnel icon (FilterWhere) next to the search bar to see all available default filters. Both are accessible via the search bar at the top of any list view in Odoo.
+
+    \textbf{Default Groupings}
+    Grouping helps visualize data hierarchically. Odoo applies sensible defaults, but you can change them on the fly.
+    
+    \newpage
+    Common Default Groupings
+
+    \begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|l|p{7cm}|}
+    \hline
+    \textbf{View} & \textbf{Default Group By} & \textbf{Purpose} \\
+    \hline
+    Customer Invoices & Customer & See all invoices per client \\
+    \hline
+    Vendor Bills & Vendor & Track bills by supplier \\
+    \hline
+    Journal Entries & Journal & Separate entries by Sales, Purchase, Bank, etc. \\
+    \hline
+    Payments & Payment Type & Distinguish customer vs. vendor payments \\
+    \hline
+    Bank Statements & Bank Account & Organize by account when multiple banks exist \\
+    \hline
+    \end{tabular}
+    \caption{Default Groupings in Odoo Accounting Views}
+    \label{tab:default-groupings}
+    \end{table}
+
+    \textbf{How to Change Grouping}
+    \begin{itemize}
+        \item Open any list view (e.g., Accounting > Customers > Invoices).
+        \item Click the Group By button (top-right, next to search bar).
+        \item Select a field (e.g., Status, Due Date, Salesperson, Analytic Account).
+        \item Records instantly reorganize into collapsible sections.
+    \end{itemize}
+    
+    Tip: You can apply multiple levels of grouping (e.g., Group by Customer, then by Status) by clicking Group By again after the first grouping. 
+
+    \textbf{Creating and Saving Custom Filters}
+    
+    Step-by-Step: Create a Custom Filter
+    \begin{enumerate}
+        \item In any list view, click the Filters dropdown (funnel icon).
+        \item Select Add Custom Filter.
+        \item Choose a field (e.g., Due Date), operator (e.g., is less than), and value (e.g., today).
+        \item Click Apply.
+    \end{enumerate}
+
+    Example Custom Filters
+    \begin{itemize}
+        \item High-Value Overdue Invoices:
+    
+        Status = Posted + Amount > 5000 + Due Date < Today
+        \item Unreconciled Bank Transactions:
+    
+        Statement Line = True + Reconciled = False
+        \item Invoices by Sales Team:
+    
+        Salesperson Team = "Enterprise"
+    \end{itemize}
+    Saving Filters for Reuse
+    \begin{itemize}
+        \item After applying a custom filter, click Save Current Filter.
+        \item Give it a name (e.g., “Critical Overdues”).
+        \item It will appear under Favorites for one-click access.
+    \end{itemize}
+
+    Note: Saved filters are personal by default. Admins can share them globally via Technical Settings > User-defined Filters (Enterprise). 
+
+    \part{Governance and Enablement}
+    \chapter{Governance: User Roles and Access Rights}
+    \section{Defining User Roles: Public User, Editor, and Administrator}
+    Odoo uses a role-based access control (RBAC) system to ensure data security, operational efficiency, and segregation of duties. In the context of Odoo Accounting, user roles determine who can view, create, edit, approve, or delete financial records such as invoices, journal entries, payments, and reports.
+
+    While Odoo offers granular access rights via groups and record rules, most accounting teams can be mapped to three practical roles:
+    \begin{itemize}
+        \item Public User (Read-Only Viewer)
+        \item Editor (Standard Accountant / Bookkeeper)
+        \item Administrator (Finance Manager / System Admin)
+    \end{itemize}
+
+    Understanding these roles helps organizations assign appropriate access while maintaining compliance and data integrity.
+
+    \textbf{Role Definitions \& Permissions}
+    \begin{enumerate}
+        \item Public User (Read-Only Viewer)
+
+        Typical Users: External auditors, department heads, sales managers, or read-only stakeholders.
+
+        Access Level: View-only access to selected accounting data.
+
+        Permissions:
+        \begin{itemize}
+            \item View posted invoices, bills, and payments
+            \item Access financial reports (Profit \& Loss, Balance Sheet, etc.)
+            \item View customer/vendor balances
+            \item Cannot create, edit, delete, or post entries
+            \item Cannot access draft documents or unreconciled transactions
+        \end{itemize}
+
+        Odoo Group:
+        \begin{itemize}
+            \item Billing → See invoices and payments (no “Create” or “Edit” rights)
+            \item Accounting → Read-only access (custom group often needed)
+        \end{itemize}
+
+        Use Case:
+
+        A sales manager needs to check a customer’s outstanding balance but should not modify accounting records.
+
+        Tip: In Odoo Enterprise, use Portal Access or custom access groups to grant secure read-only views without full internal user licenses. 
+
+        \item Editor (Standard Accountant / Bookkeeper)
+
+        Typical Users: Accountants, bookkeepers, AP/AR clerks.
+
+        Access Level: Full operational access to day-to-day accounting tasks—but not system configuration.
+
+        Permissions:
+        \begin{itemize}
+            \item Create, validate, and send customer invoices
+            \item Register and pay vendor bills
+            \item Record payments and reconcile bank statements
+            \item Post journal entries (if allowed by workflow)
+            \item View and export all accounting reports
+            \item Cannot modify Chart of Accounts, journals, taxes, or fiscal positions
+            \item Cannot change accounting settings or user roles
+        \end{itemize}
+
+        Odoo Groups:
+        \begin{itemize}
+            \item Accounting → Billing
+            \item Accounting → Accountant (grants full transactional access)
+        \end{itemize}
+
+        Use Case:
+
+        A bookkeeper manages daily invoicing, payments, and bank reconciliation but does not configure tax rules or fiscal year settings.
+
+        Best Practice: Avoid giving “Adviser” or “Administrator” rights to routine accounting staff to prevent accidental system changes. 
+
+
+        \item Administrator (Finance Manager / System Admin)
+
+        Typical Users: CFOs, finance managers, Odoo system administrators.
+
+        Access Level: Full access to all accounting data and configuration.
+
+        Permissions:
+        \begin{itemize}
+            \item All Editor capabilities
+            \item Configure Chart of Accounts, journals, taxes, and fiscal positions
+            \item Manage payment terms, analytic accounts, and accounting periods
+            \item Approve special transactions (e.g., manual journal entries)
+            \item Manage user roles and access rights
+            \item Lock/unlock accounting periods
+            \item Install or customize accounting modules
+        \end{itemize}
+
+        Odoo Groups:
+        \begin{itemize}
+            \item Accounting → Adviser (grants access to configuration menus)
+            \item Administration → Settings (full system control)
+        \end{itemize}
+
+
+        Use Case:
+
+        A finance manager sets up multi-currency accounting, defines tax rules for new regions, and reviews period-end closings.
+
+        Security Note: The “Adviser” role in Odoo Accounting is powerful—it bypasses some validation rules (e.g., allows editing posted entries). Assign it only to trusted users. 
+    \end{enumerate}
+
+\textbf{How to Assign Roles in Odoo}
+\begin{itemize}
+    \item Go to Settings > Users \& Companies > Users.
+    \item Open a user record.
+    \item Under Access Rights, check the appropriate groups:
+    \begin{itemize}
+        \item For Editor: Enable Billing and Accountant.
+        \item For Administrator: Also enable Adviser (under Accounting) and Settings (under Administration).
+        \item For Public User: Only enable See invoices and payments (or create a custom read-only group).
+    \end{itemize}
+    \item Save the user.
+\end{itemize}
+
+Enterprise Feature: Use Role-Based Access in Odoo Studio or Custom Groups to fine-tune permissions (e.g., “Can approve bills under \$10,000”). 
+
+\section{Access Rights Matrix: A Clear Table of Permissions}
+Odoo Accounting uses a granular role-based access control system to manage user permissions. While roles like Editor or Administrator offer a high-level view, this Access Rights Matrix breaks down exact permissions for common user types across key accounting operations.
+
+This matrix helps you:
+\begin{itemize}
+    \item Assign appropriate access during onboarding
+    \item Conduct internal compliance reviews
+    \item Troubleshoot permission-related issues
+    \item Implement segregation of duties (SoD)
+\end{itemize}
+
+Note: Permissions are controlled via Access Groups in Odoo (e.g., Billing, Accountant, Adviser). The matrix below maps real-world roles to these technical groups. 
+
+ \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{diagram/Access Rights.png}
+    \bigskip
+    \includegraphics[width=0.8\linewidth]{diagram/access_rights_details.png}
+    \caption{Access Rights in Odoo}
+    \label{fig:Access-Rights-in-Odoo}
+\end{figure}  
+
+\textbf{Access Rights Matrix}
+\begin{longtable}{|p{6cm}|c|c|c|}
+    \hline
+    \textbf{Accounting Operation} & \textbf{Public User} & \textbf{Editor} & \textbf{Administrator} \\
+    \hline
+    View Posted Customer Invoices & Yes & Yes & Yes \\
+    \hline
+    View draft Customer Invoices & No & Yes & Yes \\
+    \hline
+    Create Customer Invoices & No & Yes & Yes \\
+    \hline
+    Edit Customer Invoices & No & Yes & Yes \\
+    \hline
+    Edit Posted Customer Invoices & No & No & Yes \\
+    \hline
+    Send \ Email Customer Invoices & No & Yes & Yes \\
+    \hline
+    Validate Customer Invoices & No & Yes & Yes \\
+    \hline
+    Cancel Customer Invoices & No & Yes & Yes \\
+    \hline
+    View posted vendor bills & Yes & Yes & Yes \\
+    \hline
+    View draft vendor bills & No & Yes & Yes \\
+    \hline
+    Create vendor bills & No & Yes & Yes \\
+    \hline
+    Edit vendor bills (draft) & No & Yes & Yes \\
+    \hline
+    Edit posted vendor bills & No & No & Yes \\
+    \hline
+    Validate (post) vendor bills & No & Yes & Yes \\
+    \hline
+    Request bill approval (if workflow enabled) & No & Yes & Yes \\
+    \hline
+    Approve vendor bills & No & Conditional & Yes \\
+    \hline
+    Pay vendor bills & No & Yes & Yes \\
+    \hline
+    Record customer payments & No & Yes & Yes \\
+    \hline
+    Record vendor payments & No & Yes & Yes \\
+    \hline
+    Reconcile bank statements & No & Yes & Yes \\
+    \hline
+    View unreconciled transactions & No & Yes & Yes \\
+    \hline
+    Create manual journal entries & No & Yes & Yes \\
+    \hline
+    Post journal entries & No & Yes & Yes \\
+    \hline
+    Edit posted journal entries & No & No & Yes \\
+    \hline
+    View journal entries (all) & Conditional & Yes & yes \\
+    \hline
+    View General Ledger & Yes & Yes & Yes \\
+    \hline
+    View Trial Balance & Yes & Yes & Yes \\
+    \hline
+    View Profit \& Loss (Income Statement) & Yes & Yes & Yes \\
+    \hline
+    View Balance Sheet & Yes & Yes & Yes \\
+    \hline
+    View Cash Flow Statement & Yes & Yes & Yes \\
+    \hline
+    Export financial reports (PDF/Excel) & No & Yes & Yes \\
+    \hline
+    View aged receivables/payables & Yes & Yes & Yes \\
+    \hline
+    View tax reports (VAT/GST summaries) & Yes & Yes & Yes \\
+    \hline
+    Configure Chart of Accounts & No & No & Yes \\
+    \hline
+    Create/edit ledger accounts & No & No & Yes \\
+    \hline
+    Configure journals (Sales, Purchase, Bank, etc.) & No & No & Yes \\
+    \hline
+    Manage tax configurations & No & No & Yes \\
+    \hline
+    Manage fiscal positions & No & No & Yes \\
+    \hline
+    Set payment terms & No & No & Yes \\
+    \hline
+    Define payment methods & No & No & Yes \\
+    \hline
+    Manage analytic accounts & No & No & Yes \\
+    \hline
+    Lock/unlock accounting periods & No & No & Yes \\
+    \hline
+    Manage multi-currency settings & No & No & Yes \\
+    \hline
+    Install/uninstall accounting modules & No & No & Yes \\
+    \hline
+    Manage user access rights & No & No & Yes \\
+    \hline
+    Enable “Adviser” mode & No & No & Yes \\
+    \hline
+    \caption{Access Rights Matrix for Odoo Accounting Roles}
+    \label{tab:access-rights-matrix-odoo-accounting}
+\end{longtable}
+
+\chapter{Learning and Development Resources}
+\section{Official Odoo Documentation and Video Tutorials}
+
+\textbf{Official Odoo Accounting Documentation}
+The official Odoo documentation is your primary source for detailed instructions, feature explanations, configuration steps, and troubleshooting tips.
+
+Odoo 16 Accounting Documentation (Latest Stable Version)
+\url{https://www.odoo.com/documentation/16.0/applications/finance/accounting.html}
+
+This section covers:
+\begin{itemize}
+    \item Setting up your chart of accounts
+    \item Managing customers and vendors
+    \item Invoicing and payments
+    \item Bank synchronization and reconciliation
+    \item Expense management
+    \item Reporting and financial statements
+    \item Tax configuration (VAT, sales tax, etc.)
+    \item Multi-company and multi-currency setups
+\end{itemize}
+
+Tip: Always select the documentation version that matches your Odoo installation (e.g., 16.0, 17.0). You can switch versions using the dropdown menu at the top of the documentation page. 
+
+\textbf{Official Odoo Video Tutorials}
+
+Odoo provides high-quality, step-by-step video tutorials on its official YouTube channel and within the Odoo eLearning platform. These are ideal for visual learners and quick onboarding.
+
+Odoo Official YouTube Channel – Accounting Playlist
+\url{https://www.youtube.com/watch?v=8D7-C66qQr4&list=PLeJtXzTubzj_Do0kR4D10ly-_IVqw7DT4}
+
+(Search for “Odoo Accounting” or “Odoo Finance” playlists)
+Odoo eLearning Platform (Free Courses)
+\url{https://www.odoo.com/slides}
+→ Browse under “Accounting \& Finance” for interactive courses, including:
+\begin{itemize}
+    \item Introduction to Odoo Accounting
+    \item Invoicing Workflow
+    \item Bank Reconciliation
+    \item Expense Management
+\end{itemize}
+
+Note: The eLearning platform includes quizzes and downloadable resources to reinforce learning. 
+
+\textbf{Odoo Community \& Support}
+
+If you have questions beyond the documentation:
+\begin{itemize}
+    \item Odoo Forum: \url{https://www.odoo.com/forum/help-1}
+    \item GitHub Issues (for Community Edition): \url{https://github.com/odoo/odoo/issues}
+\end{itemize}
+
+For enterprise users, direct support is available through your Odoo account manager or the Odoo Support portal.
+
+\section{Community Forums and Learning Paths}
+While official documentation provides foundational knowledge, engaging with the Odoo community and following structured learning paths can significantly accelerate your proficiency in Odoo Accounting. Below are trusted community resources and curated learning journeys designed for Odoo 16.
+\begin{enumerate}
+    \item Odoo Community Forums
+The Odoo Community Forum is a vibrant space where users, developers, and consultants share solutions, best practices, and troubleshooting tips. It’s especially useful for real-world scenarios not covered in standard guides.
+\begin{itemize}
+    \item Odoo Help Forum (Official)
+
+    \url{https://www.odoo.com/forum/help-1}
+    \begin{itemize}
+        \item Search or ask questions about accounting workflows, configuration issues, or reporting.
+        \item Filter by tags like accounting, invoice, reconciliation, or Odoo 16.
+        \item Many threads include screenshots, code snippets, and step-by-step resolutions.
+    \end{itemize}
+
+    \item Odoo Community Association (OCA) Discussions
+
+    \url{https://odoo-community.org/}
+    \begin{itemize}
+        \item Focused on open-source collaboration and module development.
+        \item Useful if you’re using OCA accounting modules (e.g., account-financial-tools, account-payment).
+    \end{itemize}
+\end{itemize}
+
+Pro Tip: Before posting a new question, use the forum’s search function—chances are, your issue has already been addressed! 
+
+    \item Structured Learning Paths for Odoo 16 Accounting
+    To build your skills systematically, follow these recommended learning paths. These are ideal for accountants, bookkeepers, and finance managers new to Odoo.
+
+    \textbf{Beginner Path: Core Accounting Setup \& Daily Operations}
+    \begin{enumerate}
+        \item Company \& Fiscal Year Configuration
+        
+        – Set up your company, chart of accounts, and fiscal positions.
+        
+        \item Customer \& Vendor Management
+        
+        – Create partners, payment terms, and tax settings.
+        
+        \item Invoicing Basics
+
+        – Create sales and purchase invoices, apply discounts, and manage payments.
+
+        \item Bank Reconciliation
+
+        – Import bank statements and reconcile transactions.
+
+    \end{enumerate}
+    \textbf{Intermediate Path: Automation \& Compliance}
+    \begin{enumerate}
+        \item Recurring Invoices \& Subscriptions
+
+        – Automate billing for retainers or subscriptions.
+
+        \item Expense Management
+
+        – Submit, approve, and reimburse employee expenses.
+
+        \item Tax \& VAT Reporting
+
+        – Configure tax groups, file VAT returns, and generate legal reports 
+        (region-specific).
+
+        \item Multi-Currency \& Multi-Company Accounting
+
+        – Handle foreign transactions and consolidate books across entities.
+    \end{enumerate}
+
+\textbf{Advanced Path: Customization \& Integration}
+\begin{enumerate}
+    \item Custom Financial Reports
+
+    – Use Odoo Studio or developer tools to build tailored P\&L or balance sheet views.
+
+    \item API \& Third-Party Integrations
+
+    – Connect with payment gateways, e-commerce platforms, or payroll systems.
+
+    \item Audit Trails \& Journal Locking
+
+    – Enforce period closures and maintain compliance.
+\end{enumerate}
+
+\item Free \& Community-Driven Learning Resources
+\begin{itemize}
+    \item Odoo Tutorials on YouTube (Community Creators)
+    
+    Channels like Odoo Mates, Thinkwell, and ERP School offer practical Odoo 16 accounting walkthroughs.
+
+    Search: “Odoo 16 accounting tutorial” or “Odoo bank reconciliation 16”
+    
+    \item GitHub Repositories (OCA)
+    
+    Explore open-source accounting modules and documentation:
+
+    \url{https://github.com/OCA/account-financial-tools}
+
+    \url{https://github.com/OCA/account-invoicing}
+
+    \item Reddit \& LinkedIn Groups
+    \begin{itemize}
+        \item r/odoo on Reddit: https://www.reddit.com/r/odoo/
+        \item LinkedIn: Search for “Odoo Accounting Professionals” or “Odoo Users Group”
+    \end{itemize}
+
+Note: Always verify compatibility with Odoo 16, as features and interfaces may differ across versions. 
+\end{itemize}
+\end{enumerate}
+
+\section{Frequently Asked Questions (FAQs) and Troubleshooting Guide}
+This section covers the most common questions and issues encountered when using Odoo Accounting (v16), along with practical troubleshooting steps. Use this guide to quickly resolve errors, understand system behavior, and ensure smooth financial operations.
+\begin{enumerate}
+    \item General Accounting Setup
+
+    Q1: Why can’t I see the Accounting app after installation?
+
+    A\@:
+    \begin{itemize}
+        \item Ensure your user has the “Adviser” or “Billing” role in Settings > Users \& Companies > Users.
+        \item If using Odoo Community Edition, verify that the Invoicing app is installed (Accounting features are part of the Invoicing app in Community).
+        \item In Enterprise, install the Accounting app from the Apps menu.
+    \end{itemize}
+
+    Q2: How do I change my Chart of Accounts after setup?
+
+    A\@:
+    \begin{itemize}
+        \item Go to Accounting > Configuration > Accounting > Chart of Accounts.
+        \item You can edit account names, codes, and types, but you cannot switch to a completely different country’s chart after transactions exist.
+        \item Warning: Changing core accounts after posting entries may affect reporting integrity.
+    \end{itemize}
+
+
+    \item Invoicing \& Payments
+
+    Q3: My customer invoice shows “Nothing to invoice” – why?
+
+    A\@:
+
+    This typically occurs in sales orders when:
+    \begin{itemize}
+        \item The product’s Invoicing Policy is set to Delivered quantities, but no delivery has been confirmed.
+        \item The order line is already fully invoiced.
+
+        Fix:
+        \begin{itemize}
+            \item Go to the Sales Order → click Create Invoice → select Invoiceable lines.
+            \item Ensure the product is set to Ordered quantities if you want to invoice before delivery.
+        \end{itemize}
+
+    \end{itemize}
+
+    Q4: How do I apply a partial payment to an invoice?
+
+    A\@:
+    \begin{itemize}
+        \item Open the invoice.
+        \item Click Register Payment.
+        \item Enter the partial amount (less than the total due).
+        \item Odoo will automatically mark the invoice as Partially Paid and create a journal entry.
+    \end{itemize}
+
+    The remaining balance stays open until fully paid. 
+
+    Q5: Why is my payment not reconciling automatically with the invoice?
+
+    A\@:
+
+    Common causes:
+    \begin{itemize}
+        \item The partner on the payment doesn’t match the invoice.
+        \item The currency or amount differs slightly (e.g., due to rounding).
+        \item Bank statement lines aren’t linked to the correct invoice.
+
+        Fix:
+        \begin{itemize}
+            \item Go to Accounting > Bank > Reconciliation and manually match the payment to the invoice.
+        \end{itemize}
+    \end{itemize}
+
+    \item Bank Reconciliation
+
+    Q6: Imported bank statements show “No match found” – what should I do?
+
+    A\@:
+
+    Odoo uses rules to auto-reconcile based on:
+    \begin{itemize}
+        \item Partner name
+        \item Reference/communication field
+        \item Amount
+    \end{itemize}
+
+    Troubleshooting steps:
+    \begin{enumerate}
+        \item Ensure the bank statement description includes the invoice number or partner name.
+        \item Go to Accounting > Configuration > Bank Rules and create a custom reconciliation rule.
+        \item Manually select the correct invoice during reconciliation.
+    \end{enumerate}
+
+    Q7: Can I undo a bank reconciliation?
+
+    A\@:
+
+    Yes—but only if the journal entry hasn’t been locked.
+    \begin{enumerate}
+        \item Go to the reconciled journal entry (Accounting > Accounting > Journal Entries).
+        \item Click More > Unreconcile.
+        \item The transaction will return to the reconciliation queue.
+    \end{enumerate}
+
+Note: You cannot unreconcile entries in a locked period (e.g., closed fiscal year). 
+
+    \item Taxes \& Reporting
+
+    Q8: Why is tax not appearing on my invoice?
+
+    A\@:
+
+    Check the following:
+    \begin{itemize}
+        \item The product has a tax assigned (in Product form > Sales tab).
+        \item The customer’s fiscal position isn’t overriding or removing the tax.
+        \item Your company’s tax settings are correctly configured under Accounting > Configuration > Taxes.
+    \end{itemize}
+
+    Q9: How do I file a VAT return in Odoo?
+
+    A\@:
+    \begin{enumerate}
+        \item Go to Accounting > Reporting > VAT Report.
+        \item Select the reporting period.
+        \item Odoo auto-calculates input and output VAT based on posted invoices.
+        \item Click File Report (Enterprise) or export the data for manual submission (Community).
+    \end{enumerate}
+
+VAT report formats vary by country—ensure your localization package is installed. 
+
+\end{enumerate}
+
+\chapter{Comparison Between Enterprise and Community Editions}
+\begin{longtable}{|p{4.2cm}|p{4.2cm}|p{4.2cm}|}
+    \hline
+    \textbf{Feature} & \textbf{Community Edition} & \textbf{Enterprise Edition} \\
+    \hline
+    Core Accounting (General Ledger, Journal Entries, Trial Balance) & Fully Supported & Fully Supported \\
+    \hline
+    Automated Bank Reconciliation & Manual reconciliation only & Smart auto-reconciliation using AI-based matching rules \\
+    \hline
+    Bank Synchronization & Not Available & Direct bank feeds via Plaid, Yodlee, or file import (OFX, CAMT, etc.) \\
+    \hline
+    Payment Follow-Ups \& Reminders & Not Available & Automated dunning: schedule email/SMS reminders for overdue invoices  \\
+    \hline
+    Aged Receivables/Payables Reports & Basic aging report & Enhanced aging reports with filters, drill-down, and email capability  \\
+    \hline
+    Multi-Currency Handling & Supported (manual exchange rates) & Supported with
+    automatic exchange rate updates  \\
+    \hline
+    Asset Management (Depreciation) & Not available & Full fixed asset module with automated depreciation schedules  \\
+    \hline
+    Deferred Revenue \& Expenses & Not available & Automatic recognition of revenue/expenses over time  \\
+    \hline
+    Budget Management & Not available & Create, track, and alert on budget vs. actual spending  \\
+    \hline
+    Analytic Accounting (Cost Centers, Projects) & Basic analytic accounts & Advanced analytics with grids, planning, and real-time dashboards  \\
+    \hline
+    Customizable Dashboards & Limited to standard views & Fully customizable accounting dashboards with KPIs and charts  \\
+    \hline
+    Document Recognition (Invoice Scanning) & Not available & Upload supplier bills → auto-extract data using AI (Odoo IAP)  \\
+    \hline
+    Batch Payments (SEPA, Check, etc.) & Basic support (manual creation) & Automated batch payment generation and file export (e.g., SEPA XML)  \\
+    \hline
+    Audit Trail / Logging & No built-in audit log & Track changes to journal entries, taxes, and key accounting data  \\
+    \hline
+    Multi-Company \& Intercompany Transactions & Basic support & Full intercompany automation (auto-create cross-company invoices)  \\
+    \hline
+    Mobile App Access & Not optimized & Fully supported on Odoo mobile app (approve bills, view dashboards)  \\
+    \hline
+    Priority Support \& Updates & Community forums only & Direct access to Odoo support team and guaranteed SLAs \\
+    \hline
+    \caption{Comparison of Odoo Accounting Features: Enterprise vs. Community Editions}
+    \label{tab:Comparison-of-Odoo-Accounting-Features}
+\end{longtable}
+
+
+\end{document}

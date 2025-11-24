@@ -1,0 +1,497 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{xcolor}
+\renewcommand{\raggedright}{\justifying}
+\setlength{\baselineskip}{1.5\baselineskip} % Fixed: was 1.5in (too large)
+
+% Page layout
+\geometry{margin=1in}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=false,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Documentation},
+    pdfpagemode=FullScreen,
+}
+
+% Custom section formatting
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries}{\thesubsubsection}{1em}{}
+
+% Listings setup for code
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    showstringspaces=false,
+    keywordstyle=\color{black},
+    commentstyle=\color{gray},
+    stringstyle=\color{red}
+}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+
+% Title page info
+\title{Finance \& Accounting Manual}
+\author{Axon System}
+\date{\today}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \vspace*{2cm}
+    {\Huge\bfseries Brief Introduction on: \par}
+    {\Large\bfseries Odoo Accounting \& Finance for “Coffee Shop” \par}
+    \vspace{2cm}
+    \includegraphics[width=0.9\textwidth]{logo.png}
+    \vspace{2cm}
+
+    {\Large \textbf{Author:} Axon System\par}
+    \vspace{0.5cm}
+    {\Large \textbf{Date:} \today\par}
+\end{titlepage}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% Main content starts here
+\section{Introduction: Coffee Shop Simulation}
+\textbf{Event Date:} \today
+
+\noindent \textbf{Simulation Theme:} “From Beans to Balance Sheets”
+
+\medskip
+\noindent In this immersive business simulation, students will operate a fictional but realistic coffee shop named “Coffee Shop” — from sourcing green coffee beans to serving customers and managing financial records using Odoo ERP.
+
+\medskip
+\noindent The goal is not merely to learn accounting software — but to experience the full lifecycle of financial operations in a small retail business using Odoo as the central nervous system.
+
+\noindent
+\begin{minipage}{0.5\textwidth}
+\medskip
+\noindent Students will form teams representing key functional departments. Each team will use specific Odoo modules to manage real-time transactions: purchases, sales, inventory, payroll, bank reconciliations, invoicing, budgeting, and reporting.
+
+\medskip
+\noindent Why a Coffee Shop?
+
+\noindent A coffee shop is a microcosm of retail commerce:
+
+\medskip
+\noindent High-volume, low-margin transactions
+
+\noindent Perishable inventory (beans, milk)
+
+\noindent Daily cash flow cycles
+
+\noindent Multiple suppliers (roasters, dairy, sugar, cups)
+
+\noindent Staff wages, rent, utilities, marketing
+
+\noindent Using Odoo Accounting \& Finance, students will simulate everything from recording a \$3 latte sale to preparing monthly P\&L statements — all within a single integrated platform.
+
+\medskip
+\noindent “You don’t just run a coffee shop — you run a financial engine.” 
+\end{minipage}%
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/coffee.png}
+\end{minipage}
+
+\section{The Expo Day: “Coffee \& Cash” Financial Fair}
+On the final day of the simulation, we host the “Coffee \& Cash” Financial Fair — a live expo where students present their Odoo-powered coffee shop operations to faculty, staff, and guest evaluators.
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/accounting.png}
+\end{center}
+
+\medskip
+\noindent How It Works:
+\begin{itemize}
+    \item Every visitor (faculty/staff) receives “BrewCash” vouchers worth NPR 1,000–2,000.
+    \item Visitors spend these vouchers purchasing coffee, pastries, or merchandise at the simulated café counter.
+    \item Sales are recorded live in Odoo by the Sales \& Accounting teams.
+    At the end of the day, teams submit:
+    \begin{itemize}
+        \item Real-time sales reports
+        \item Inventory usage logs
+        \item Expense summaries
+        \item Profitability analysis
+    \end{itemize} 
+\end{itemize}
+
+\medskip
+\noindent Winner Announcement:
+The team with the most accurate, transparent, and professional financial documentation — demonstrating best practices in Odoo — wins the “Golden Espresso Cup” Award.
+
+\medskip
+\noindent Each student will also demonstrate mastery of one Odoo module they personally managed during the simulation.
+
+\section{List of Teams \& Accomplishments}
+\begin{center}
+    \includegraphics[width=\linewidth]{images/teams.png}
+\end{center}
+\begin{tabular}{|l|p{8cm}|}
+    \hline
+    \textbf{Team Name} & \textbf{Responsibility} \\
+    \hline
+    \texttt{Accounting \& Finance Team} & Manages general ledger, journals, bank reconciliation, taxes, financial reports. \\
+    \hline
+    \texttt{Purchase \& Procurement Team} & Sources coffee beans, milk, sugar, cups; manages RFQs, vendor bills, payments. \\
+    \hline
+    \texttt{Sales \& Point-of-Sale (POS) Team} & Handles customer sales via Odoo POS, receipts, returns, discounts. \\
+    \hline
+    \texttt{Inventory \& Logistics Team} & Tracks stock levels, expiry dates, warehouse movements, reorder points. \\
+    \hline
+    \texttt{HRM \& Payroll Team} & Manages employee profiles, attendance, leaves, salary calculations, payslips. \\
+    \hline
+    \texttt{Administration \& Configuration Team} & Sets up users, access rights, company settings, chart of accounts, fiscal years. \\
+    \hline
+    \texttt{Marketing \& CRM Team} & Runs promotions, tracks customer loyalty, manages email campaigns via Odoo. \\
+    \hline
+\end{tabular}
+
+\medskip
+\noindent `All teams collaborate using shared Odoo tools: Calendar, Notes, Timesheets, Expenses, Projects.'
+
+\section{Teams and Responsibilities}
+\begin{enumerate}
+    \item \textbf{Accounting \& Finance Team}
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/accountingteam.png}
+        \includegraphics[width=\linewidth]{images/COA.png}
+        \includegraphics[width=\linewidth]{images/TAX.png}
+    \end{center}
+    \begin{itemize}
+        \item Configure Chart of Accounts (CoA) tailored to a café (e.g., “Coffee Sales,” “Barista Wages,” “Packaging Costs”).
+        \item Record daily journal entries: sales, purchases, expenses, bank deposits.
+        \item Reconcile bank statements with Odoo bank feeds.
+        \item Generate financial statements: Profit \& Loss, Balance Sheet, Cash Flow Statement.
+        \item Calculate and record VAT/GST on sales and purchases.
+        \item Prepare monthly closing reports and management dashboards.
+    \end{itemize}
+    `Deliverable: Monthly Financial Report with visual charts in Odoo.'
+    \item \textbf{Purchase \& Procurement Team}
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/purchaseteam.png}
+        \includegraphics[width=\linewidth]{images/purchase.png}
+    \end{center}
+    \begin{itemize}
+        \item Identify and add vendors (coffee roaster, dairy supplier, cup manufacturer).
+        \item Create Request for Quotations (RFQs) and compare prices.
+        \item Convert approved RFQs into Purchase Orders (POs).
+        \item Receive goods and match them with POs and vendor bills.
+        \item Schedule and approve payments via Odoo payment register.
+        \item Maintain vendor payment history and aging reports.
+    \end{itemize}
+    `Deliverable: Vendor Comparison Table + Approved POs with attached invoices.'
+        \item \textbf{Sales \& Point-of-Sale (POS) Team}
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/salesteam.png}
+        \includegraphics[width=\linewidth]{images/sales.png}
+    \end{center}
+    \begin{itemize}
+        \item Configure Odoo POS terminal with menu items (latte, cappuccino, croissant, etc.).
+        \item Set item prices, taxes, discounts, and product categories.
+        \item Process customer sales using tablet/POS hardware simulators.
+        \item Handle returns, refunds, and loyalty card redemptions.
+        \item Sync POS data with accounting module automatically.
+        \item Generate daily sales reports and reconcile cash drawer totals.
+    \end{itemize}
+    `Deliverable: Daily Sales Summary + Receipt Samples.' 
+        \item \textbf{Inventory \& Logistics Team}
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/inventoryteam.png}
+        \includegraphics[width=\linewidth]{images/inventory.png}
+    \end{center}
+    \begin{itemize}
+        \item Define products as “Storable” (beans, milk) vs. “Consumable” (cups, napkins).
+        \item Set safety stock levels and reordering rules.
+        \item Track inventory valuation (FIFO method).
+        \item Record physical inventory counts and adjustments.
+        \item Monitor expiry dates for perishables (milk, cream).
+        \item Manage internal transfers between storage and counter.
+    \end{itemize}
+    `Deliverable: Inventory Valuation Report + Stock Movement Log.'
+        \item \textbf{HRM \& Payroll Team}
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/HRMteam.png}
+        \includegraphics[width=\linewidth]{images/payroll.png}
+    \end{center}
+    \begin{itemize}
+        \item Create employee profiles (baristas, manager, cleaner).
+        \item Define job positions and wage rates (hourly or monthly).
+        \item Track attendance via Odoo timesheets or biometric simulator.
+        \item Manage leave requests (sick, casual).
+        \item Run payroll: calculate gross pay, deductions (tax, provident fund), net pay.
+        \item Generate payslips and send via email through Odoo.
+        \item Link payroll expenses to accounting ledger.
+    \end{itemize}
+    `Deliverable: Monthly Payroll Register + Payslip Sample.'
+        \item \textbf{Administration \& Configuration Team}
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/administrationteam.png}
+        \includegraphics[width=\linewidth]{images/admin.png}
+    \end{center}
+    \begin{itemize}
+        \item Set up company profile: name, address, currency, tax IDs.
+        \item Configure fiscal year and accounting periods.
+        \item Create user accounts and assign roles (e.g., accountant, cashier, manager).
+        \item Enable required modules: Accounting, Inventory, HR, POS, Purchase.
+        \item Customize Chart of Accounts if needed.
+        \item Manage website portal (if applicable) for online orders or loyalty sign-ups.
+        \item Ensure data integrity and audit trails.
+    \end{itemize}
+    `Deliverable: User Access Matrix + System Configuration Guide.'
+        \item \textbf{Marketing \& CRM Team}
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/marketingteam.png}
+        \includegraphics[width=\linewidth]{images/marketing.png}
+    \end{center}
+    \begin{itemize}
+        \item Create promotional campaigns (e.g., “Happy Hour 20\% off 3–5 PM”).
+        \item Use Odoo Email Marketing to send newsletters to customers.
+        \item Track customer interactions (who buys what, frequency).
+        \item Set up loyalty program: “Buy 9 coffees, get 1 free.”
+        \item Record marketing expenses and measure ROI.
+        \item Collect feedback via Odoo Surveys.
+    \end{itemize}
+    `Deliverable: Campaign Performance Report + Customer Segmentation.'
+\end{enumerate}
+
+\section{How the Simulation Works: Front Office vs. Back Office}
+\begin{tabular}{|l|p{8cm}|}
+    \hline
+    \textbf{Front Office (Customer-Facing)} & \textbf{Back Office (Odoo Backend)} \\
+    \hline
+    \texttt{Baristas serve coffee to customers} & Sales recorded in POS → Auto-posted to Accounting \\
+    \hline
+    \texttt{Customers pay with cash/card} & Cash receipt auto-matched to bank journal \\
+    \hline
+    \texttt{Loyalty cards scanned} & CRM tracks repeat customers \\
+    \hline
+    \texttt{Promotions announced} & Marketing campaign tracked in Odoo \\
+    \hline
+    \texttt{Feedback forms filled out} & Survey responses stored in Odoo \\
+    \hline
+\end{tabular}
+
+\medskip
+"The magic happens when front-office actions trigger back-office automation.
+Every latte sold = one journal entry. Every bean purchased = one bill paid." 
+
+\newpage
+\textbf{Frontend:}
+\begin{center}
+    \includegraphics[width=\linewidth]{images/frontend.png}
+\end{center}
+
+\textbf{Backend:}
+\begin{center}
+    \includegraphics[width=\linewidth]{images/accounting.png}
+    \includegraphics[width=\linewidth]{images/invoives.png}
+    \includegraphics[width=\linewidth]{images/payment.png}
+    \includegraphics[width=\linewidth]{images/JournalEntries.png}
+    \includegraphics[width=\linewidth]{images/admin.png}
+\end{center}
+
+\newpage
+\section{ Group Tasks \& Common Modules}
+All teams must use these shared Odoo productivity tools to coordinate:
+
+\medskip
+\begin{tabular}{|l|p{12cm}|}
+    \hline
+    \textbf{Tool} & \textbf{Purpose} \\
+    \hline
+    \texttt{Calendar} & Schedule meetings, inventory counts, payroll runs \\
+    \hline
+    \texttt{Notes} & Document procedures, meeting minutes, SOPs \\
+    \hline
+    \texttt{Discuss} & Team chat for quick queries and updates \\
+    \hline
+    \texttt{Timesheets} & Log hours worked per task (e.g., “2 hrs configuring CoA”) \\
+    \hline
+    \texttt{Expenses} & Submit personal reimbursements (e.g., coffee samples) \\
+    \hline
+    \texttt{Projects} & Track overall project milestones and deadlines \\
+    \hline
+    \texttt{Employees} & Central hub for HR data across teams \\
+    \hline
+\end{tabular}
+
+\begin{center}
+    \includegraphics[width=\linewidth]{images/tools.png}
+\end{center}
+
+\section{Final Term Assignments \& Deliverables}
+\begin{tabular}{|l|p{10cm}|}
+    \hline
+    \textbf{Deliverables} & \textbf{Description} \\
+    \hline
+    \texttt{Departmental Report} & 3-page reflection: Challenges, Learnings, Improvements \\
+    \hline
+    \texttt{Product Profile} & Detailed description of 3 key products (e.g., Ethiopian Dark Roast, Almond Milk Latte, Chocolate Croissant) with cost, price, margin \\
+    \hline
+    \texttt{App Mastery Guide} & Step-by-step “How-To” manual for your assigned Odoo module (with screenshots) \\
+    \hline
+    \texttt{Financial Dashboard} & Exported PDF of P\&L, Balance Sheet, Cash Flow from Odoo \\
+    \hline
+    \texttt{Participation in Expo} & Active role during “Coffee \& Cash” fair – answer questions, demonstrate app \\
+    \hline
+    \texttt{Integrated Workflow Video} & 2-min video showing how a sale flows from POS → Accounting → Inventory → Payroll \\
+    \hline
+\end{tabular}
+
+\section{Assessment Criteria}
+\begin{tabular}{|l|p{5cm}|}
+    \hline
+    \textbf{Criterion} & \textbf{Weight} \\
+    \hline
+    \texttt{Accuracy \& Completeness of Financial Records} & 25\% \\
+    \hline
+    \texttt{Proficiency in Odoo Module Mastery} & 20\% \\
+    \hline
+    \texttt{Team Collaboration \& Communication} & 15\% \\
+    \hline
+    \texttt{Realism \& Practicality of Business Decisions} & 15\% \\
+    \hline
+    \texttt{Clarity \& Professionalism of Documentation} & 15\% \\
+    \hline
+    \texttt{Innovation in Using Odoo Features} & 10\% \\
+    \hline
+\end{tabular}
+
+\medskip
+Note: Plagiarism in reports or manuals = automatic failure. 
+
+\section{Learning Outcomes}
+By the end of this simulation, students will be able to:
+
+\begin{enumerate}
+    \item Configure and navigate Odoo Accounting \& Finance modules for a small business.
+    \item Record and reconcile sales, purchases, payments, and payroll transactions.
+    \item Generate and interpret key financial statements: P\&L, Balance Sheet, Cash Flow.
+    \item Integrate operational data (inventory, sales, HR) with financial records.
+    \item Apply real-world accounting principles (accruals, depreciation, GST/VAT).
+    \item Use technology to automate workflows and reduce manual errors.
+    \item Collaborate cross-functionally across departments using digital tools.
+    \item Make data-driven decisions based on financial analytics.
+    \item Document processes professionally for audit and training purposes.
+    \item Understand the interconnectedness of business functions in a digital ERP environment.
+\end{enumerate}
+
+\section{Appendix I: Purpose of Team Leader Meeting}
+Date: \today
+
+\noindent Time: 9:00 PM – 10:00 PM
+
+\noindent Venue: Google Meet
+
+\medskip
+\noindent \textbf{Agenda for Team Leads:}
+\begin{enumerate}
+    \item Finalize pricing strategy and profit margins for all menu items.
+    \item Agree on vendor selection and negotiate bulk purchase terms.
+    \item Define inventory reorder points and safety stock levels.
+    \item Approve payroll structure and wage rates per role.
+    \item Finalize Chart of Accounts and tax configurations.
+    \item Review budget allocation: Rent, Utilities, Marketing, Labor.
+    \item Confirm POS setup and discount policies.
+    \item Assign roles for Expo Day demonstrations.
+    \item Review timeline for report submissions and system testing.
+    \item Q\&A: Clarify doubts on Odoo functionalities.
+\end{enumerate}
+
+`All leads must come prepared with spreadsheets/data drafts.'
+
+\section{Invitation to the Expo Day}
+\textbf{Subject:} You’re Invited: “Coffee \& Cash” Financial Fair – Coffee Shop Simulation
+
+\medskip
+\noindent Dear Sir,
+
+\medskip
+\noindent We are thrilled to invite you to the final showcase of our Business Simulation course:
+\medskip
+\noindent “Coffee \& Cash” Financial Fair
+
+\noindent Presented by the VI Semester Batch, Business Studies Department
+
+\noindent Date: \today
+
+\noindent Time: 9:00 PM – 10:00 PM
+
+\noindent Venue: Google Meet
+
+\medskip
+\noindent Over the past 10 weeks, our students have transformed from learners into Odoo-powered financial managers of a fully simulated coffee shop — Coffee Shop.
+
+\medskip
+\noindent During the fair, you will:
+
+\begin{itemize}
+    \item Enjoy freshly brewed coffee made by our student baristas
+    \item Spend BrewCash vouchers (provided) on our menu
+    \item Witness live Odoo accounting in action
+\end{itemize}
+
+\noindent Meet our teams as they demonstrate mastery of Odoo modules
+Vote for the “Golden Espresso Cup” winner!
+This isn’t just a presentation — it’s a living, breathing example of how modern businesses use integrated ERP systems to thrive.
+
+\medskip
+\noindent We’d be honored by your presence, insights, and support.
+
+\medskip
+\noindent Warm regards,
+
+\noindent Sanjay Tamang
+
+\noindent Odoo Developer
+
+\noindent Axon System
+
+\section{Notes}
+\begin{itemize}
+    \item All images, screenshots, and data used in this simulation are fictional but realistic.
+    \item Odoo Community Edition will be used for the simulation. Students will receive login credentials.
+    \item No prior accounting experience required — only curiosity, collaboration, and attention to detail.
+\end{itemize}
+
+“A great coffee doesn’t just taste good — it balances perfectly.”
+
+— Coffee Shop Motto 
+
+\end{document}

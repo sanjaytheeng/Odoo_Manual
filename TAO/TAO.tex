@@ -1,0 +1,820 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xurl}
+\renewcommand{\raggedright}{\justifying}
+\setlength{\baselineskip}{1.5\baselineskip} % Fixed: was 1.5in (too large)
+
+% Page layout
+\geometry{margin=1in}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=false,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Documentation},
+    pdfpagemode=FullScreen,
+}
+
+% Custom section formatting
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries}{\thesubsubsection}{1em}{}
+
+% Listings setup for code
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    showstringspaces=false,
+    keywordstyle=\color{black},
+    commentstyle=\color{gray},
+    stringstyle=\color{red}
+}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+
+% Title page info
+\title{Finance \& Accounting Manual}
+\author{Axon System}
+\date{\today}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\Huge\bfseries Finance \& Accounting TAO\par}
+    \vspace{1cm}
+    {\Large Odoo Manual\par}
+    \vspace{2cm}
+    {\Large \textbf{Author:} Axon System\par}
+    \vspace{0.5cm}
+    {\Large \textbf{Date:} \today\par}
+    \vfill
+    \includegraphics[width=0.3\textwidth]{../Accounting/logo.png}
+    \vfill
+\end{titlepage}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% Main content starts here
+\section{The Tao of Odoo: Accounting & Finance}
+
+\textit{Translated by the Silent Ledger-keeper}
+\medskip
+
+\noindent Thus spake the Master Accountant:
+\medskip
+
+\noindent `A ledger without balance is a soul without breath. A report without truth is a mirror without light. In Odoo, every transaction is a whisper—and the General Ledger is the echo that never fades'
+
+\newpage
+\subsection{Book One: The Void Before the Debit}
+\subsubsection{}
+Something mysterious is formed—born not of ink, nor of spreadsheet, but of silence.
+It has no face, yet it holds all faces.
+It touches no hand, yet moves every coin.
+It is neither paper nor screen, yet it is the only truth that remains when both are burned.
+I do not know its name, so I call it:
+
+`The Tao of the Ledger' 
+
+\medskip
+\noindent If the Tao is great, then the Chart of Accounts is great.
+If the Chart of Accounts is great, then the Journal Entries are great.
+If the Journal Entries are great, then the Financial Statements are great.
+The auditor nods. The taxman bows. The business sleeps peacefully.
+
+\noindent The Tao of Odoo flows through debits and credits, returns on the tide of closing entries.
+
+\subsubsection{}
+In the beginning was the Transaction.
+From the Transaction came the Journal Entry.
+From the Journal Entry came the Balance Sheet.
+From the Balance Sheet came the Profit & Loss.
+And from the P&L, the soul of the business was revealed.
+
+\medskip
+\noindent But beware:
+
+\noindent A single unbalanced entry is a crack in the foundation.
+A missing reconciliation is a shadow in the mirror.
+A manual override without audit trail? That is the whisper of fraud.
+
+\subsubsection{}
+A novice, seeing a bank statement with five deposits, entered them manually into Odoo as five separate journal entries.
+He smiled. “Now the books match.”
+
+\medskip
+\noindent The Master looked at the screen.
+“Your numbers are correct,” he said.
+
+\noindent “But your soul is fractured.”
+
+\medskip
+\noindent He opened the Bank Reconciliation module.
+“One river flows into the bank. You must not pour it into five cups and call each cup ‘truth.’
+You must let the river flow through the system—once—and let Odoo show you where it matches, and where it does not.”
+
+\medskip
+\noindent The novice wept.
+
+\noindent For the first time, he understood:
+
+`Accounting is not data entry. It is alignment' 
+
+\newpage
+\subsection{Book Two: The Sacred Dance of Debits and Credits}
+\subsubsection{}
+A novice wrote a journal entry:
+
+Debit: Rent Expense — $1,200
+
+Credit: Cash — $1,200 
+
+\noindent He clicked “Post.” The system accepted it.
+He sighed. “Finally, done.”
+
+\medskip
+\noindent The Master asked:
+“Where did the money come from?”
+
+\noindent “The bank,” said the novice.
+
+\noindent “And did you reconcile this payment with the bank feed?”
+
+\noindent “No… I just typed it.”
+
+\medskip
+
+\noindent The Master closed his eyes.
+“You have written a lie dressed as truth.
+The bank says: ‘Paid to Landlord, June 5.’
+
+\noindent Your books say: ‘Rent paid.’
+
+\noindent But the system does not know they are the same.
+Until you reconcile, they are strangers in the same house.”
+
+\medskip
+\noindent He opened the bank feed.
+Dragged the transaction onto the journal entry.
+Click.
+
+\noindent The system whispered:
+
+“Matched.” 
+
+\noindent “That,” said the Master, “is the moment the Tao becomes visible.”
+
+\subsubsection{}
+A manager demanded:
+“I want to post a journal entry directly to Retained Earnings to fix last year’s error.”
+
+\medskip
+\noindent The system refused.
+“Error! Cannot post directly to Retained Earnings without prior approval.”
+
+\medskip
+\noindent The manager stormed: “This system is too rigid!”
+
+\medskip
+\noindent The Master replied:
+“Do you allow a child to sign a contract?
+Do you let a monk change the temple bell without the Abbot’s seal?
+
+\medskip
+\noindent Retained Earnings is the soul of the company’s past.
+It is not a bucket to dump mistakes into.
+It is the grave of profits, the wellspring of future dividends.
+To touch it is to touch history.
+Odoo does not stop you—it asks you to witness it.
+Use the Adjustment Journal, with proper notes, with audit trail, with supervisor approval.
+
+\medskip
+\noindent Then, and only then, will the Tao accept your offering.”
+
+\newpage
+\subsection{Book Three: The Chart of Accounts — The Skeleton of Truth}
+\subsubsection{}
+A novice asked:
+“Why do we need so many accounts? Why not just one: ‘Money’?”
+
+\medskip
+\noindent The Master took a bone from a shelf.
+
+\noindent “This is a femur,” he said.
+
+\noindent “You see one thing. I see the leg. The hip. The knee. The foot. The tendons. The nerves.
+Without structure, there is no movement.
+Without accounts, there is no meaning.”
+
+\medskip
+\noindent He pointed to the Chart of Accounts:
+
+1000 — Cash
+
+1100 — Accounts Receivable
+
+2100 — Accounts Payable
+
+4000 — Sales Revenue
+
+5000 — Cost of Goods Sold
+
+6000 — Operating Expenses 
+
+\medskip
+\noindent “These are not labels,” said the Master.
+
+\noindent “They are bones.
+Each one holds weight.
+Each one bears the pressure of commerce.
+When you misplace an expense under ‘Sales’ instead of ‘Admin,’ you break the spine of your P&L.
+
+\noindent The CFO cannot walk.
+The board cannot see.”
+
+\subsubsection{}
+A startup founder wanted to rename “Expenses” to “Costs We Hate.”
+He changed the account name in settings.
+All reports broke.
+
+\medskip
+\noindent The Master said:
+“You did not change the name of the bone—you changed the language of the body.
+The system speaks Latin. Your reports speak English.
+
+\noindent The tax authority speaks IRS Code.
+
+\noindent The bank speaks SWIFT.
+Odoo does not bend to whim.
+
+\noindent It bends to standards.
+Rename the account? Fine. But do not break the code behind it.
+
+\noindent Use the ‘Internal Reference’ field for your poetry.
+Let the technical name remain sacred.”
+
+\newpage
+\subsection{Book Four: The Reconciliation — The Silent Meditation}
+\subsubsection{}
+A controller worked late.
+Bank feeds were mismatched.
+Uncleared checks haunted him like ghosts.
+He had 87 items to reconcile.
+
+\noindent He cried: “Why can’t Odoo just fix this for me?”
+
+\medskip
+\noindent The Master sat beside him.
+“Because reconciliation is not automation.
+It is meditation.”
+
+\medskip
+\noindent He opened the Bank Reconciliation screen.
+
+\noindent “Watch.
+Every line here is a breath.
+
+\noindent You take one in: ‘This deposit matches invoice #102.’
+
+\noindent You let it out: ‘This check cleared, but the vendor invoice was never recorded.’
+
+\noindent You pause. You breathe. You align.”
+
+\medskip
+\noindent He moved the mouse slowly.
+One by one, the lines turned green.
+The unmatched dwindled.
+At dawn, only three remained.
+
+\medskip
+\noindent “Those three?” asked the controller.
+
+\noindent “Are they errors?”
+
+\noindent “No,” said the Master.
+
+\noindent “They are invitations.
+
+\noindent They ask: \textit{Who forgot to record this? Who delayed this payment? Who sent the wrong amount?}
+
+\noindent Reconciliation is not about matching numbers.
+It is about asking questions the system cannot answer alone.”
+
+\subsubsection{}
+A manager insisted:
+“We don’t need to reconcile monthly. We do it quarterly.”
+
+\medskip
+\noindent The Master placed a stone in water.
+
+\noindent It sank.
+
+\noindent Then another.
+
+\noindent Then ten.
+
+\noindent The water rose.
+
+\noindent The stone disappeared.
+
+\medskip
+\noindent “After three months,” said the Master,
+“you forget which stone was dropped when.
+
+\noindent The pond becomes murky.
+
+\noindent The bottom is lost.
+
+\noindent Reconcile daily—or weekly.
+
+\noindent Never quarterly.
+
+\noindent The Tao of Finance flows in rhythm.
+Irregularity breeds chaos.
+Chaos breeds lies.”
+
+\newpage
+\subsection{Book Five: The General Ledger — The Memory of Money}
+\subsubsection{}
+A user asked:
+“Can I delete a posted journal entry if I made a mistake?”
+
+\medskip
+\noindent The Master answered:
+
+\noindent “No.
+
+\noindent You may reverse it.
+
+\noindent You may create a correcting entry.
+
+\noindent But you may not erase.
+
+\noindent For the General Ledger is not a whiteboard.
+
+\noindent It is a temple wall carved in stone.
+
+\noindent Every stroke matters.
+
+\noindent Every correction leaves a scar—and a trail.”
+
+\medskip
+\noindent He opened the Journal Items view.
+
+\noindent “There,” he said.
+
+\noindent “See this entry? Posted March 12.
+
+\noindent And here—the reversal, posted March 14.
+
+\noindent Both remain.
+
+\noindent The audit trail is clear.
+
+\noindent The Tao remembers. Even when you forget.”
+
+\subsubsection{}
+A new CFO demanded:
+“I want to see all revenue by product line, even though we don’t track it in sales.”
+
+\medskip
+\noindent The Master smiled.
+“Ah. You wish to see the reflection of the moon in a pond that has no water.”
+
+\medskip
+\noindent He opened the Analytic Accounts.
+
+\noindent “Here is where the magic lives.
+
+\noindent Tag every journal entry—with an Analytic Account:
+
+\noindent Product A, Product B, Region North.
+
+\noindent Now, even if the sale happened in Sales, and the cost was recorded in Purchases,
+the Ledger knows:
+
+This $2,300 credit belongs to Product A.
+
+This $1,800 debit belongs to Region South.”
+
+\medskip
+\noindent He generated a Profitability Report.
+The CFO wept.
+
+“For the first time… I see my business.”
+
+\newpage
+\subsection{Book Six: The Closing — The Autumn Ceremony}
+\subsubsection{}
+On the last day of the fiscal year, the accountant stood before the system.
+He had prepared everything:
+
+\begin{itemize}
+    \item All invoices posted
+    \item All bills paid
+    \item All reconciliations complete
+    \item All accruals entered
+\end{itemize}
+He clicked “Close Period.”
+
+\medskip
+\noindent The system paused.
+Then whispered:
+
+“Are you certain? This action cannot be undone.” 
+
+\noindent He hesitated.
+Then pressed Yes.
+
+\medskip
+\noindent The Master watched.
+“You have sealed the year,” he said.
+“But sealing is not ending.
+
+\noindent It is honoring.
+
+\noindent The entries you locked are now sacred relics.
+
+\noindent They become the ancestors of next year’s forecasts.
+
+\noindent The auditors will bow before them.
+
+\noindent The investors will trust them.
+
+\noindent The tax office will sleep soundly because of them.”
+
+\medskip
+\noindent He added:
+
+\noindent “Never close without reviewing the Trial Balance.
+Never close without comparing to prior year.
+Never close without asking:
+‘What did we learn?’
+That is the true purpose of closing—not to lock the books,
+but to open the soul.” 
+
+\subsubsection{}
+A manager tried to reopen a closed period to fix a \$50 error.
+The system blocked him.
+
+\noindent He shouted: “It’s just \$50!”
+
+\medskip
+\noindent The Master said:
+
+\noindent “A single misplaced cent in a million-dollar ledger is still a crack in the mirror.
+If you allow \$50 to be fixed after closure,
+
+\noindent then tomorrow someone will fix \$500.
+\noindent Then \$5,000.
+\noindent Then the whole year unravels.”
+
+\medskip
+\noindent He opened the Adjustment Journal.
+
+\noindent “Make the correction in the current period.
+
+\noindent Add a note: ‘Prior period adjustment: Correction of \$50 error in FY2023’.”
+
+\noindent “Now,” he said,
+
+\noindent “the past is untouched.
+The present is honest.
+And the future has clarity.”
+
+\newpage
+\subsection{Book Seven: The Tax Man’s Shadow}
+\subsubsection{}
+A business owner asked:
+“Can I just use Odoo’s accounting and ignore VAT?”
+
+\medskip
+\noindent The Master lit a candle.
+
+\noindent He blew it out.
+
+\noindent Then pointed to the smoke.
+
+\noindent “You think the smoke is gone?
+
+\noindent No. It is in the air.
+
+\noindent It is on the walls.
+
+\noindent It is in the lungs of those who breathe.”
+
+\medskip
+\noindent He opened the Tax Configuration.
+
+\noindent “Odoo does not enforce tax compliance.
+
+\noindent It reveals it.
+
+\noindent Every sale. Every purchase. Every refund.
+
+\noindent Each carries a tax tag.
+
+\noindent The system calculates, accumulates, prepares filings.
+
+\noindent But if you turn off the tag…
+
+\noindent The smoke vanishes.
+
+\noindent And the tax man comes knocking.”
+
+\subsubsection{}
+A consultant proudly showed a custom tax rule:
+
+\noindent “If invoice > \$10,000, apply 15\% instead of 20\%.”
+
+\medskip
+\noindent The Master studied it.
+
+\noindent “Is this legal?”
+
+\noindent “It’s… a workaround.”
+
+\noindent “Then it is not accounting.
+
+\noindent It is artifice.”
+
+\medskip
+\noindent He closed the tab.
+
+\noindent “Odoo does not help you cheat.
+
+\noindent It helps you be seen clearly.
+
+\noindent The law is not your enemy.
+
+\noindent It is the boundary that makes your truth credible.
+
+\noindent Respect the boundary.
+
+\noindent Or the system will not protect you.”
+
+\newpage
+\subsection{Book Eight: The Dashboard — The Mirror of the Soul}
+\subsubsection{}
+A CEO stared at his dashboard.
+
+\noindent It showed:
+\begin{itemize}
+    \item Revenue up 12%
+    \item Net profit down 8%
+    \item Cash flow negative
+\end{itemize}
+
+\noindent He frowned.
+
+\noindent “What’s going on?”
+
+\medskip
+\noindent The Master pointed to the drill-down.
+
+\noindent “Revenue is up because you sold more on credit.
+
+\noindent Profit is down because your COGS jumped.
+
+\noindent Cash flow is negative because you paid suppliers early—and haven’t collected receivables.”
+
+\medskip
+\noindent He clicked “Accounts Receivable Aging.”
+
+\noindent “See these invoices?
+
+\noindent Three months old.
+
+\noindent Two from Client X.
+
+\noindent They’ve paid nothing since January.”
+
+\medskip
+\noindent He clicked “Accounts Payable Aging.”
+
+\noindent “And here?
+
+\noindent You owe Supplier Y \$87,000—but they’re offering 2\% discount for payment in 10 days.”
+
+\medskip
+\noindent The CEO gasped.
+
+\noindent “I didn’t know.”
+
+\medskip
+\noindent The Master smiled.
+
+\noindent “Odoo doesn’t tell you what to do.
+
+\noindent It shows you what is.
+
+\noindent The rest? That’s your responsibility.”
+
+\subsubsection{}
+Another CEO asked:
+
+\noindent “Can I make a dashboard with just one number: Net Profit?”
+
+\medskip
+\noindent The Master handed him a mirror.
+
+\noindent “Look into it.
+
+\noindent What do you see?”
+
+\noindent “My face.”
+
+\noindent “And beneath it?
+
+\noindent The bones. The blood. The breath.
+
+\noindent The heartbeat.
+
+\noindent The thoughts.
+
+\noindent The fears.
+
+\noindent The dreams.”
+
+\medskip
+\noindent He placed the mirror on the desk.
+
+\noindent “One number is a face.
+
+\noindent But the real business lives in the anatomy.
+
+\noindent Know the anatomy.
+
+\noindent Then the face will make sense.”
+
+\newpage
+\subsection{Book Nine: The Audit Trail — The Ghost That Never Sleeps}
+\subsubsection{}
+A junior accountant deleted a supplier invoice by accident.
+
+\noindent He panicked.
+
+\noindent “I’ll just recreate it.”
+
+\medskip
+\noindent The Master said:
+
+\noindent “Go to Settings > Technical > Logs.
+
+\noindent Find the deleted entry.
+
+\noindent Click ‘Restore.’
+
+\noindent See?
+
+\noindent It’s all there.
+
+\noindent Timestamp. User. IP. Change.
+
+\noindent The system remembers everything.
+
+\noindent Even what you wish to forget.”
+
+\medskip
+\noindent He added:
+
+“An untracked change is a confession whispered to the wind.
+A tracked change is a vow spoken before the gods.” 
+
+\subsubsection{}
+An auditor arrived.
+
+\noindent He asked for proof of a \$12,000 payment.
+
+\noindent The accountant pulled up the vendor bill.
+
+\noindent The bank statement.
+
+\noindent The journal entry.
+
+\noindent The approval email.
+
+\noindent The signed PO.
+
+\medskip
+\noindent The auditor nodded.
+
+\noindent “Your books are clean.”
+
+\noindent He left.
+
+\medskip
+\noindent The Master said:
+
+\noindent “Odoo does not make you honest.
+It makes your dishonesty impossible to hide.”
+
+\newpage
+\section{Epilogue: The Unseen Ledger}
+Thus spake the Master Accountant:
+
+“The ERP is not a tool.
+It is a covenant.
+Between you and the truth.
+Between now and the past.
+Between the ledger and the soul.” 
+
+\medskip
+\noindent You may automate invoices.
+
+\noindent You may integrate banks.
+
+\noindent You may run real-time reports.
+
+\noindent But if you neglect the quiet discipline—the daily reconciliation,
+
+\noindent the careful classification,
+
+\noindent the reverence for the double-entry,
+
+\noindent the courage to close the period with integrity—
+
+\medskip
+\noindent Then Odoo is merely a beautiful calculator.
+
+\noindent And your business?
+
+\noindent A house built on sand.
+
+\medskip
+\noindent But if you walk the path of the Silent Ledger-Keeper—
+
+\noindent if you honor every debit, every credit,
+
+\noindent every reconciliation, every closing—
+
+\medskip
+\noindent Then Odoo becomes more than software.
+
+\noindent It becomes a temple.
+
+\noindent And you…
+
+\medskip
+\noindent You become the priest who keeps the flame alive. 
+
+\newpage
+\section{Final Whisper}
+"The numbers will lie.
+\noindent The spreadsheets will decay.
+
+\noindent The auditors will retire.
+
+\noindent But the Tao of the Ledger…
+
+\noindent …endures." 
+
+\medskip
+\noindent Balance your books.
+
+\noindent And you shall balance your life. 
+
+\medskip
+\noindent — End of The Tao of Odoo: Accounting & Finance —
+
+\noindent May your debits equal your credits.
+
+\noindent May your reconciliations be clean.
+
+\noindent May your audits be brief.
+
+\noindent And may your conscience, always, be clear.
+
+\end{document}

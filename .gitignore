@@ -1,0 +1,21 @@
+# LaTeX intermediate and auxiliary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.lof
+*.lot
+
+# LaTeX generated PDF files (optional, include if you want to ignore built PDFs)
+*.pdf
+
+# Mac OS system files
+.DS_Store
+
+# Editor backup files
+*~
+*.swp
+*.bak
