@@ -10,7 +10,7 @@
 *.lot
 
 # LaTeX generated PDF files (optional, include if you want to ignore built PDFs)
-*.pdf
+
 
 # Mac OS system files
 .DS_Store
